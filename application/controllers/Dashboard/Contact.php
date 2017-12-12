@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Home extends MY_Controller {
+class Contact extends MY_Controller {
 
 	/**
 	 * Index Page for this controller.
@@ -19,14 +19,6 @@ class Home extends MY_Controller {
 	 * @see https://codeigniter.com/user_guide/general/urls.html
 	 */
 	public function index(){
-		if ($this->is_login()){
-			$this->load->view('dashboard/home');
-		} else {
-			redirect(base_url("dashboard/login"));
-		}
-	}
-
-	public function testimonial(){
 		if ($this->is_login()){
 			$this->load->view('dashboard/home');
 		} else {

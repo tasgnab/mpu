@@ -955,7 +955,7 @@ ul.agile_footer_grid_list li i{
 .w3_newsletter_footer_grids {
     margin: 4em 0;
 }
-.w3_newsletter_footer_grid_left input[type="email"]{
+.w3_newsletter_footer_grid_left input[type="text"]{
 	outline: none;
     border:none;
     background: #fff;

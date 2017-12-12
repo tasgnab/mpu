@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Home extends MY_Controller {
+class Gallery extends MY_Controller {
 
 	/**
 	 * Index Page for this controller.
@@ -26,7 +26,7 @@ class Home extends MY_Controller {
 		}
 	}
 
-	public function testimonial(){
+	public function upload_gallery(){
 		if ($this->is_login()){
 			$this->load->view('dashboard/home');
 		} else {

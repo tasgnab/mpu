@@ -17,6 +17,7 @@
 				<li <?php if(current_url()==base_url("services")) {echo "class=\"active\"";} ?>><a href="<?=base_url();?>services"><?php if($this->session->userdata('lang')=='en') {echo "Services";} else { echo "服务 ";} ?></a></li>
 				-->
 				<li <?php if(current_url()==base_url("projects")) {echo "class=\"active\"";} ?>><a href="<?=base_url();?>projects"><?php if($this->session->userdata('lang')=='en') {echo "Gallery";} else { echo "画廊 ";} ?></a></li>
+				<li <?php if(current_url()==base_url("code")) {echo "class=\"active\"";} ?>><a href="<?=base_url();?>code"><?php if($this->session->userdata('lang')=='en') {echo "Code";} else { echo "联系 ";} ?></a></li>
 				<li <?php if(current_url()==base_url("contact")) {echo "class=\"active\"";} ?>><a href="<?=base_url();?>contact"><?php if($this->session->userdata('lang')=='en') {echo "Contact";} else { echo "联系 ";} ?></a></li>
 				<li class="dropdown">
 					<a href="#" class="dropdown-toggle" data-toggle="dropdown"><?php if($this->session->userdata('lang')=='en') {echo "English ";} else { echo "简体中文 ";} ?><b class="caret"></b></a>

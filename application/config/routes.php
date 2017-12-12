@@ -53,3 +53,6 @@ $route['default_controller'] = 'welcome';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 $route['language/(:any)'] = 'language/index/$1';
+$route['dashboard'] = 'dashboard/home';
+$route['dashboard/code/list'] = 'dashboard/code/list_code';
+$route['dashboard/gallery/upload'] = 'dashboard/gallery/upload_gallery';
