@@ -20,6 +20,6 @@ class Projects extends MY_Controller {
 	 */
 	public function index()
 	{
-		$this->load->view('projects');
+		$this->load->view('home1/projects');
 	}
 }

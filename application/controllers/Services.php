@@ -20,6 +20,6 @@ class Services extends MY_Controller {
 	 */
 	public function index()
 	{
-		$this->load->view('services');
+		$this->load->view('home1/services');
 	}
 }

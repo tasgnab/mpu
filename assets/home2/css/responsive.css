@@ -1,0 +1,288 @@
+/* lg */
+@media (min-width: 1200px) {
+}
+
+/* md */
+@media (min-width: 992px) and (max-width: 1199px) {
+    .main-header {
+        background: #f2f2f2;
+        padding: 45px 0;
+        margin-top: 125px;
+    }
+    #navigation .navbar-nav > li > a {
+        color: #444;
+        font-size: 15px;
+        margin: 0 13px;
+    }
+    #navigation .navbar-right .dropdown-menu {
+        right: auto;
+        left: -80px;
+        top: 76px;
+    }
+
+    #navigation .navbar-right .dropdown-menu .dropdown-menu {
+        right: auto;
+        top: 0;
+    }
+
+    .social-network-bar {
+        display: none;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 992px) {
+    .social-network-bar {
+        display: none;
+    }
+    #navigation .navbar-right .dropdown-menu {
+        right: auto;
+        left: -80px;
+        top: 76px;
+    }
+
+    #navigation .navbar-right .dropdown-menu .dropdown-menu {
+        right: auto;
+        top: 0;
+    }
+    .social-network-bar {
+        display: none;
+    }
+
+    #navigation .navbar-nav > li > a {
+        color: #444;
+        font-size: 15px;
+        margin: 0 8px;
+    }
+    .home-text h1 {
+        font-size: 38px;
+        padding-bottom: 9px;
+    }
+}
+
+/* sm */
+@media (min-width: 768px) {
+
+    .navbar-right .dropdown .dropdown .dropdown-menu {
+        right: auto;
+        left: 100%;
+        top: 0;
+        width: 100%;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+
+    .nav > li > a {
+        padding: 10px 12px;
+    }
+
+    .main-header {
+        background: #f2f2f2;
+        padding: 50px 0;
+        margin-top: 127px;
+    }
+
+    .circle {
+        margin-top: 35px;
+    }
+
+    .single-process .process-icon:after {
+        border-bottom: 0;
+    }
+
+    .fact {
+        margin: 15px auto;
+    }
+
+    .contact-address {
+        text-align: center;
+    }
+
+    .about-text h2 {
+        margin: 25px 0 25px;
+    }
+
+}
+
+/* xs */
+@media (max-width: 767px) {
+
+    body #navigation .nav .dropdown > a:after {
+        font-family: FontAwesome;
+        content: "\f105";
+        margin-left: 10px;
+    }
+
+    body #navigation .nav .dropdown.open > a:after {
+        font-family: FontAwesome;
+        content: "\f107";
+        margin-left: 10px;
+    }
+
+    body #navigation .nav .dorpdown .dropdown > a:after {
+        font-family: FontAwesome;
+        content: "\f105";
+        margin-left: 10px;
+    }
+
+    body #navigation .nav .dorpdown .dropdown.open > a:after {
+        font-family: FontAwesome;
+        content: "\f107";
+        margin-left: 10px;
+    }
+
+    #navigation {
+        padding: 15px 0;
+    }
+
+    .single-process .process-icon:after {
+        border-bottom: 0;
+
+    }
+
+    #navigation .navbar-nav > li > a {
+        color: #444;
+        font-size: 16px;
+        text-align: left;
+        margin-left: 17px;
+    }
+    #navigation .navbar-nav > li > a {
+
+        padding: 12px !important;
+
+    }
+    #navigation .navbar-brand {
+        padding: 3px 15px;
+    }
+
+    .navbar-right .dropdown .dropdown .dropdown-menu {
+        margin-left: 80px;
+    }
+
+    #navigation.home-ts-menu.navbar-fixed-top {
+        padding: 10px 0;
+    }
+
+    #navigation ul.dropdown-menu li a {
+        padding: 12px 0 12px 50px;
+        display: block;
+
+    }
+
+    #navigation .navbar-toggle .icon-bar {
+        background: #444;
+    }
+
+    .social-network-bar {
+        margin-left: 24px;
+        padding: 8px 0;
+        display: none;
+    }
+
+    .home-text h1 {
+        font-size: 26px;
+        padding-bottom: 9px;
+    }
+
+    .home-text p {
+        font-size: 17px;
+        padding-bottom: 13px;
+    }
+
+    .home {
+        padding: 230px 0 150px;
+    }
+
+    .yt-background.home {
+        padding: 230px 0 150px;
+    }
+
+    .home-carousel:hover .left.slick-arrow {
+        left: 5px;
+        top: 45%;
+    }
+
+    .home-carousel:hover .right.slick-arrow {
+        right: 5px;
+        top: 45%;
+    }
+
+    .yt-background .home-carousel:hover .right.slick-arrow {
+        right: 5px;
+        top: 30%;
+    }
+
+    .yt-background .home-carousel:hover .left.slick-arrow {
+        left: 5px;
+        top: 30%;
+    }
+
+    .home-2 .btn.btn-action {
+        color: #444;
+        background: #fff;
+        margin-bottom: 10px;
+    }
+
+    .section-header h2 {
+        font-size: 28px;
+        padding-bottom: 5px;
+    }
+
+    .single-service h2 {
+        font-size: 22px;
+    }
+
+    .call-to-action-text h2 {
+        font-size: 20px;
+        line-height: 30px;
+        margin-bottom: 22px;
+    }
+
+    .about-text h2 {
+        margin: 25px 0 25px;
+    }
+
+    .contact-address {
+        text-align: center;
+    }
+
+    .circle {
+        margin-top: 35px;
+    }
+
+    .fact {
+        margin: 15px auto;
+    }
+
+    .filter li a {
+        margin: 0 5px 12px;
+    }
+
+    .modal-btn .btn-active {
+        margin-bottom: 10px;
+    }
+
+}
+
+/* XS Portrait */
+@media (max-width: 479px) {
+    .contact-form button {
+        margin-bottom: 12px;
+    }
+
+    .contact-form .able-text {
+        line-height: 32px;
+    }
+
+    .member-img img {
+        width: 100%;
+    }
+
+    .single-team-member .member-img {
+        position: relative;
+        border-radius: 100%;
+        overflow: hidden;
+        margin: 0 50px 30px;
+    }
+
+}

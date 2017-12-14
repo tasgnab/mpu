@@ -20,6 +20,6 @@ class Contact extends MY_Controller {
 	 */
 	public function index()
 	{
-		$this->load->view('contact');
+		$this->load->view('home1/contact');
 	}
 }

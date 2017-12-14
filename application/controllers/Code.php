@@ -20,6 +20,6 @@ class Code extends MY_Controller {
 	 */
 	public function index()
 	{
-		$this->load->view('code');
+		$this->load->view('home1/code');
 	}
 }
