@@ -20,17 +20,17 @@ class Code extends MY_Controller {
 	 */
 	public function index(){
 		if ($this->is_login()){
-			$this->load->view('dashboard/home');
+			$this->load->view('dashboard/code_input');
 		} else {
-			redirect(base_url("dashboard/code"));
+			redirect(base_url("dashboard/home"));
 		}
 	}
 
 	public function list_code(){
 		if ($this->is_login()){
-			$this->load->view('dashboard/home');
+			$this->load->view('dashboard/code');
 		} else {
-			redirect(base_url("dashboard/code"));
+			redirect(base_url("dashboard/home"));
 		}
 	}
 

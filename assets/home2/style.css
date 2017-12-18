@@ -1134,7 +1134,8 @@ i.slick-arrow:hover {
 # About
 --------------------------------------------------------------*/
 #about {
-    background: #ffffff;
+    background: rgba(68, 68, 68, 0.60);
+    color: #fff;
 }
 
 .about-text h2 {

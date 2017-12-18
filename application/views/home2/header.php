@@ -27,10 +27,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         <li class="active"><a class="smooth-scroll" href="#home">Home</a></li>
                         <li><a class="smooth-scroll" href="#service"> Services</a></li>
                         <li><a class="smooth-scroll" href="#portfolio"> Portfolio </a></li>
-                        <li><a class="smooth-scroll" href="#team"> Team </a></li>
                         <li><a class="smooth-scroll" href="#about">About Us</a></li>
-                        <li><a class="smooth-scroll" href="#pricing">Pricing</a></li>
-                        <li><a class="smooth-scroll" href="#blog">Blog</a></li>
                         <li><a class="smooth-scroll" href="#contact"> Contact</a></li>
                         <li class="dropdown"><a href="#" class="dropdown-toggle " data-toggle="dropdown"
                                                 role="button"

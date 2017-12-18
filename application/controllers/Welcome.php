@@ -18,8 +18,8 @@ class Welcome extends MY_Controller {
 	 * map to /index.php/welcome/<method_name>
 	 * @see https://codeigniter.com/user_guide/general/urls.html
 	 */
-	public function index()
-	{
+	public function index(){
+		$this->config->item('sitename');
 		$this->load->view('home2/main');
 	}
 }
