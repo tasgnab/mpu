@@ -16,8 +16,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     <span class=" fa fa-angle-down"></span>
                   </a>
                   <ul class="dropdown-menu dropdown-usermenu pull-right">
-                    <li><a href="javascript:;"> Change Password</a></li>
-                    <li><a href="login.html"><i class="fa fa-sign-out pull-right"></i> Log Out</a></li>
+                    <li><a href="<?=base_url('dashboard/login/change_password');?>"> Change Password</a></li>
+                    <li><a href="<?=base_url('dashboard/login/doLogout');?>"><i class="fa fa-sign-out pull-right"></i> Log Out</a></li>
                   </ul>
                 </li>
               </ul>

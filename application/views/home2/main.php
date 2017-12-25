@@ -47,7 +47,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <div class="home home-3 slide-1">
             <div class="container-fluid">
                 <div class="home-text text-center">
-                    <h1 class="home-title text-uppercase">A Total One Page Business WordPress Theme </h1>
+                    <h1 class="home-title text-uppercase">The world’s best exporter and captive breeder of asian arowana </h1>
                     <p class="title-small">A Great one-page theme, perfect for new business website. </p>
                     <a class="btn btn-action" href="#">Download Now</a>
                 </div>
@@ -79,6 +79,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     </div>
 </div>
 <!-- End Home-->
+<?php include_once('about_us.php');?>
 <?php include_once('services.php');?>
 <!-- START CALL TO ACTON -->
 <div id="call-to-action-area" class="section-padding">
@@ -281,7 +282,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     </div>
 </section>
 <!--END PORTFOLIO -->
-<?php include_once('about_us.php');?>
+
 <!--START THE PROGRESS-->
 <section id="process" class="section-padding">
     <div class="container">

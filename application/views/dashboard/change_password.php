@@ -43,7 +43,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
           <div class="">
             <div class="page-title">
               <div class="title_left">
-                <h3>Input Chip Code</h3>
+                <h3>Change Password</h3>
               </div>
             </div>
             <div class="clearfix"></div>
@@ -52,42 +52,36 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 <div class="x_panel">
                   <div class="x_content">
                     <br />
-                    <form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left">
+                    <?php if ($this->session->flashdata('message')):?>
+                    <div class="alert alert-success alert-dismissible fade in" role="alert">
+                      <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span>
+                      </button>
+                      <strong>Holy guacamole!</strong> <?=$this->session->flashdata('message'); ?>
+                    </div>
+                    <?php endif; ?>
+                    <form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left" action="<?=base_url('dashboard/login/doChangePassword');?>" method="post">
                       <div class="form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Code <span class="required">*</span></label>
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Old Password <span class="required">*</span></label>
                         <div class="col-md-4 col-sm-4 col-xs-12">
-                          <input type="text" id="code" name="code" required="required" class="form-control col-md-7 col-xs-12">
+                          <input type="password" id="old_password" name="old_password" required="required" class="form-control col-md-7 col-xs-12">
                         </div>
                       </div>
                       <div class="form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Category <span class="required">*</span></label>
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">New Password <span class="required">*</span></label>
                         <div class="col-md-4 col-sm-4 col-xs-12">
-                          <select id="category" name="category" class="form-control" required="required">
-                            <option value="">Select category</option>
-                            <?php foreach ($this->config->item('category') as $category): ?>
-                              <option value="<?php echo $category;?>"><?php echo $category;?></option>
-                            <?php endforeach;?>
-                          </select>
+                          <input type="password" id="new_password" name="new_password" required="required" class="form-control col-md-7 col-xs-12">
                         </div>
                       </div>
                       <div class="form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Description </label>
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Repeat New Password <span class="required">*</span></label>
                         <div class="col-md-4 col-sm-4 col-xs-12">
-                          <textarea id="description" name="description" class="form-control" rows="6"></textarea>
-                        </div>
-                      </div>
-                      <div class="form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Description in Chinese</label>
-                        <div class="col-md-4 col-sm-4 col-xs-12">
-                          <textarea id="description_cn" name="description_cn" class="form-control" rows="6"></textarea>
+                          <input type="password" id="new_password2" name="new_password2" required="required" class="form-control col-md-7 col-xs-12">
                         </div>
                       </div>
                       <div class="ln_solid"></div>
                       <div class="form-group">
                         <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
-                          <button class="btn btn-primary" type="button">Reset</button>
-                          <button class="btn btn-primary" type="reset">Input Other</button>
-                          <button type="submit" class="btn btn-success">Submit and Add Picture</button>
+                          <button type="submit" class="btn btn-success">Change Password</button>
                         </div>
                       </div>
                     </form>

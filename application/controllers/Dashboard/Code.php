@@ -22,7 +22,7 @@ class Code extends MY_Controller {
 		if ($this->is_login()){
 			$this->load->view('dashboard/code_input');
 		} else {
-			redirect(base_url("dashboard/home"));
+			redirect(base_url('dashboard/login'));
 		}
 	}
 
@@ -30,7 +30,7 @@ class Code extends MY_Controller {
 		if ($this->is_login()){
 			$this->load->view('dashboard/code');
 		} else {
-			redirect(base_url("dashboard/home"));
+			redirect(base_url('dashboard/login'));
 		}
 	}
 
