@@ -47,9 +47,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <div class="home home-3 slide-1">
             <div class="container-fluid">
                 <div class="home-text text-center">
-                    <h1 class="home-title text-uppercase">The world’s best exporter and captive breeder of asian arowana </h1>
+                    <h1 class="home-title text-uppercase"><?php if($this->session->userdata('lang')=='cn'){echo "亚洲龙鱼世界上最好的出口商和俘虏饲养员";}else {echo "The world’s best exporter and captive breeder of asian arowana";}?></h1>
                     <p class="title-small">A Great one-page theme, perfect for new business website. </p>
-                    <a class="btn btn-action" href="#">Download Now</a>
+                    
                 </div>
             </div>
 
@@ -59,9 +59,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <div class="home home-3 slide-2">
             <div class="container-fluid">
                 <div class="home-text text-center">
-                    <h1 class="home-title text-uppercase">Grow your business with onebsiness Theme </h1>
+                    <h1 class="home-title text-uppercase"><?php if($this->session->userdata('lang')=='cn'){echo "自1990年起注册CITES";}else {echo "Registered CITES since 1990";}?></h1>
                     <p class="title-small">A Great one-page theme, perfect for new business website. </p>
-                    <a class="btn btn-action" href="#">Download Now</a>
+                    
                 </div>
             </div>
         </div>
@@ -72,7 +72,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 <div class="home-text text-center">
                     <h1 class="home-title text-uppercase">A modern, clean and powerful one page Theme</h1>
                     <p class="title-small">A Great one-page theme, perfect for new business website. </p>
-                    <a class="btn btn-action" href="#">Download Now</a>
+                    
                 </div>
             </div>
         </div>
@@ -81,207 +81,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <!-- End Home-->
 <?php include_once('about_us.php');?>
 <?php include_once('services.php');?>
-<!-- START CALL TO ACTON -->
-<div id="call-to-action-area" class="section-padding">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-10 col-md-offset-1">
-                <div class="call-to-action-text text-center">
-                    <h2> With OneBusiness everything is possible how you want. Enter anything you like here
-                        add short codes, images, and much more!</h2>
-                    <a  class="btn btn-action" href="#">Call to action</a>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- END CALL TO ACTON -->
-<!-- START PORTFOLIO -->
-<section id="portfolio" class="section-padding">
-    <div class="container">
-        <div class="section-header text-center">
-            <!-- section title-->
-            <h2 class="text-uppercase">OUR PORTFOLIO</h2>
-            <p >Describe something about your finished awesome works</p>
-        </div>
-        <!-- Filters -->
-        <div class="row">
-            <div class="portfolio-wrapper">
-                <ul class="filter  text-center text-uppercase">
-                    <li><a class="active" href="#" data-toggle="tooltip" title="6" data-filter="*">All</a></li>
-                    <li><a href="#" data-toggle="tooltip" title="1" data-filter=".branding">Branding</a></li>
-                    <li><a href="#" data-toggle="tooltip" title="3" data-filter=".design">Design</a></li>
-                    <li><a href="#" data-toggle="tooltip" title=1 data-filter=".video">Video</a></li>
-                    <li><a href="#" data-toggle="tooltip" title="1" data-filter=".audio">Audio</a></li>
-                </ul><!--/#portfolio-filter-->
-                <div class="portfolio-items">
-                    <div class="col-md-4 col-sm-6 work-grid branding">
-                        <div class="single-portfolio"><!--START SINGLE PORTFOLIO-->
-                            <img src="<?=base_url();?>assets/home2/images/portfolio-1.jpg" alt="">
-                            <div class="portfolio-overlay">
-                                <div class="portfolio-text text-uppercase">
-                                    <h2>New Envelop</h2>
-                                    <div class="portfolio-link">
-                                        <a href="" data-toggle="modal" data-target="#single-member-modal" ><i class="fa fa-search"></i></a>
-                                        <a href="single-portfolio.html" ><i class="fa fa-link"></i></a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div><!--END SINGLE PORTFOLIO-->
-                    </div>
-                    <div class="col-md-4 col-sm-6 work-grid design">
-                        <div class="single-portfolio"><!--START SINGLE PORTFOLIO-->
-                            <img src="<?=base_url();?>assets/home2/images/portfolio-2.jpg" alt="">
-                            <div class="portfolio-overlay">
-                                <div class="portfolio-text text-uppercase">
-                                    <h2>Happy man</h2>
-                                    <div class="portfolio-link">
-                                        <a href="" data-toggle="modal" data-target="#single-member-modal" ><i class="fa fa-search"></i></a>
-                                        <a href="single-portfolio.html" ><i class="fa fa-link"></i></a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div><!--END SINGLE PORTFOLIO-->
-                    </div>
-                    <div class="col-md-4 col-sm-6 work-grid design">
-                        <div class="single-portfolio"><!--START SINGLE PORTFOLIO-->
-                            <img src="<?=base_url();?>assets/home2/images/portfolio-3.jpg" alt="">
-                            <div class="portfolio-overlay">
-                                <div class="portfolio-text text-uppercase">
-                                    <h2>Environment</h2>
-                                    <div class="portfolio-link">
-                                        <a href="" data-toggle="modal" data-target="#single-member-modal" ><i class="fa fa-search"></i></a>
-                                        <a href="single-portfolio.html" ><i class="fa fa-link"></i></a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div><!--END SINGLE PORTFOLIO-->
-                    </div>
-                    <div class="col-md-4 col-sm-6 work-grid video">
-                        <div class="single-portfolio"><!--START SINGLE PORTFOLIO-->
-                            <img src="<?=base_url();?>assets/home2/images/portfolio-4.jpg" alt="">
-                            <div class="portfolio-overlay">
-                                <div class="portfolio-text text-uppercase">
-                                    <h2>Iconography</h2>
-                                    <div class="portfolio-link">
-                                        <a href="" data-toggle="modal" data-target="#single-member-modal" ><i class="fa fa-search"></i></a>
-                                        <a href="single-portfolio.html" ><i class="fa fa-link"></i></a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div><!--END SINGLE PORTFOLIO-->
-                    </div>
-                    <div class="col-md-4 col-sm-6 work-grid design">
-                        <div class="single-portfolio"><!--START SINGLE PORTFOLIO-->
-                            <img src="<?=base_url();?>assets/home2/images/portfolio-5.jpg" alt="">
-                            <div class="portfolio-overlay">
-                                <div class="portfolio-text text-uppercase">
-                                    <h2>Power of Space</h2>
-                                    <div class="portfolio-link">
-                                        <a href="" data-toggle="modal" data-target="#single-member-modal" ><i class="fa fa-search"></i></a>
-                                        <a href="single-portfolio.html" ><i class="fa fa-link"></i></a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div><!--END SINGLE PORTFOLIO-->
-                    </div>
-                    <div class="col-md-4 col-sm-6 work-grid audio">
-                        <div class="single-portfolio"><!--START SINGLE PORTFOLIO-->
-                            <img src="<?=base_url();?>assets/home2/images/portfolio-6.jpg" alt="">
-                            <div class="portfolio-overlay">
-                                <div class="portfolio-text text-uppercase">
-                                    <h2>Music Compose</h2>
-                                    <div class="portfolio-link">
-                                        <a href="" data-toggle="modal" data-target="#single-member-modal" ><i class="fa fa-search"></i></a>
-                                        <a href="single-portfolio.html" ><i class="fa fa-link"></i></a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div><!--END SINGLE PORTFOLIO-->
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="member-modal">
-            <div class="modal modal-lg section-padding" id="single-member-modal" tabindex="-1" role="dialog"
-                 aria-hidden="false">
-                <!-- Modal Inner -->
-                <div class="modal-inner t-center clearfix">
-                    <!-- Modal Head -->
-                    <div class="modal-head">
-                        <!-- Close Button -->
-                        <a class="close" data-dismiss="modal" aria-hidden="true">x</a>
-                        <!-- Member Name -->
-                        <div class="section-header text-center">
-                            <!-- section title-->
-                            <h2 class="text-uppercase">product title</h2>
-                            <p> Lorem ipsum dolor sit amet</p>
-                        </div>
-                    </div>
-                    <!-- End Head -->
-                    <!-- Modal Left -->
-                    <div class="modal-left col-sm-6">
-                        <!-- Img, Div -->
-                        <div class="modal-img modal-carousel">
-                            <!-- Member Image -->
-                            <div class="items">
-                                <img src="<?=base_url();?>assets/home2/images/portfolio-1.jpg" alt="">
-                            </div>
-                            <div class="items">
-                                <img src="<?=base_url();?>assets/home2/images/portfolio-1.jpg" alt="">
-                            </div>
-                            <div class="items">
-                                <img src="<?=base_url();?>assets/home2/images/portfolio-1.jpg" alt="">
-                            </div>
+<?php include_once('gallery.php');?>
 
-                        </div>
-                    </div>
-                    <!-- End Member Left -->
-                    <!-- Modal Right -->
-                    <div class="modal-right col-sm-6 text-left">
-                        <div class="project-details">
-                            <!-- Header -->
-                            <h4 class="">
-                                Project Details
-                            </h4>
-                            <!-- Description One -->
-                            <p class="member-detail-one">
-                                Invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et
-                                accusam
-                                et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est
-                                Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed
-                                diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat,
-                                diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat
-                            </p>
-                        </div>
-                        <div class="client">
-                            <h4 class="">
-                                Client
-                            </h4>
-                            <p>Eye on the sky
-                            </p>
-                        </div>
-                        <div class="skills">
-                            <h4>Skills</h4>
-                            <ul class="list-inline">
-                                <li><a href="">Design</a></li>
-                                <li><a href="">Photography</a></li>
-                                <li><a href="">HTML & CSS</a></li>
-                                <li><a href=""> jQuery</a></li>
-                            </ul>
-                        </div>
-                        <div class="modal-btn">
-                            <a href="" class="btn btn-active">Live preview</a>
-                            <a href="#portfolio" class="btn btn-dark">Back to portfolio</a>
-                        </div>
-                    </div>
-                    <!-- Modal Right -->
-                </div><!-- End Modal Right -->
-            </div>
-        </div>
-    </div>
-</section>
-<!--END PORTFOLIO -->
 
 <!--START THE PROGRESS-->
 <section id="process" class="section-padding">
@@ -363,7 +164,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <div class="col-md-3 col-sm-6">
                 <div class="fact">
                     <div class="fact-content">
-                        <h2>156</h2>
+                        <h2 class="factor">1000</h2>
                         <h4>Happy CLIENTS</h4>
                     </div>
                 </div>
@@ -388,81 +189,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     </div>
 </section>
 <!--END FUN FACT-->
-<!-- START TESTIMONIAL-->
-<section id="testimonial" class="section-padding">
-    <div class="container">
-        <div class="section-header text-center">
-            <!-- section title-->
-            <h2 class="text-uppercase">Our Happy Clients</h2>
-            <p >Describe something about your onebusiness company</p>
-        </div>
-        <div class="row">
-            <div class="col-md-10 col-md-offset-1">
-                <div class="slick-carousel-2">
-                    <div class="item">
-                        <div class="single-testimonial">
-                            <h4 class="desc">Rosy is clean, simple, creative beautiful HTML5 Blog Template. This
-                                template is
-                                carefully
-                                crafted with easy customization for blo gers in mind, impress your audience with smartly
-                                clean,
-                                and stately aesthetic modern blog look. You can showcase your content in an effortlessly
-                                timeless style with this template.</h4>
-                            <h2 class="person-name text-uppercase">Khalil Uddin - UPWORK, CLIENT</h2>
-                            <ul class="rating">
-                                <li><i class="fa fa-star"></i></li>
-                                <li><i class="fa fa-star"></i></li>
-                                <li><i class="fa fa-star"></i></li>
-                                <li><i class="fa fa-star"></i></li>
-                                <li><i class="fa fa-star"></i></li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="single-testimonial">
-                            <h4 class="desc">Rosy is clean, simple, creative beautiful HTML5 Blog Template. This
-                                template is
-                                carefully
-                                crafted with easy customization for blo gers in mind, impress your audience with smartly
-                                clean,
-                                and stately aesthetic modern blog look. You can showcase your content in an effortlessly
-                                timeless style with this template.</h4>
-                            <h2 class="person-name text-uppercase">Khalil Uddin - UPWORK, CLIENT</h2>
-                            <ul class="rating">
-                                <li><i class="fa fa-star"></i></li>
-                                <li><i class="fa fa-star"></i></li>
-                                <li><i class="fa fa-star"></i></li>
-                                <li><i class="fa fa-star"></i></li>
-                                <li><i class="fa fa-star"></i></li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="single-testimonial">
-                            <h4 class="desc">Rosy is clean, simple, creative beautiful HTML5 Blog Template. This
-                                template is
-                                carefully
-                                crafted with easy customization for blo gers in mind, impress your audience with smartly
-                                clean,
-                                and stately aesthetic modern blog look. You can showcase your content in an effortlessly
-                                timeless style with this template.</h4>
-                            <h2 class="person-name text-uppercase">Khalil Uddin - UPWORK, CLIENT</h2>
-                            <ul class="rating">
-                                <li><i class="fa fa-star"></i></li>
-                                <li><i class="fa fa-star"></i></li>
-                                <li><i class="fa fa-star"></i></li>
-                                <li><i class="fa fa-star"></i></li>
-                                <li><i class="fa fa-star"></i></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </div>
-</section>
-<!-- END TESTIMONIAL-->
 <!--START LOGO AREA-->
 <div id="logo-area" class="section-padding">
     <div class="container">
@@ -537,43 +263,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     <ul class="social-link">
                         <li><a class="twitter" href=""><i class="fa fa-twitter"></i></a></li>
                         <li><a class="facebook" href=""><i class="fa fa-facebook"></i></a></li>
-                        <li><a class="linkedin" href=""><i class="fa fa-linkedin"></i></a></li>
+                        <li><a href="https://www.instagram.com/ptmunjulprimautama" class="instagram" href=""><i class="fa fa-instagram"></i></a></li>
                     </ul>
                 </div>
             </div>
             <div class="col-md-8">
-
-                <form id="contact-form" class="contact-form" name="contact-form" method="post" action="sendemail.php">
-                    <div class="row">
-                        <div class="col-sm-6">
-                            <div class="form-group">
-                                <input type="text" class="form-control" required="required" placeholder="Name" name="your-name">
-                            </div>
-                        </div>
-                        <div class="col-sm-6">
-                            <div class="form-group">
-                                <input type="email" class="form-control" required="required" placeholder="Email Id" name="your-email">
-                            </div>
-                        </div>
-                        <div class="col-sm-12">
-                            <div class="form-group">
-                                <input type="text" class="form-control" required="required" placeholder="Subject" name="subject">
-                            </div>
-                        </div>
-
-                        <div class="col-sm-12">
-                            <div class="form-group">
-                                <textarea name="message" id="message" required="required" class="form-control" rows="7"
-                                          placeholder="Message"></textarea>
-                            </div>
+                <div class="widget widget-map">
+                        <div id="map">
                         </div>
                     </div>
-                    <div class="form-group text-left">
-                        <button type="reset" class="btn"><i class="fa fa-times"></i>Reset</button>
-                        <button type="submit" class="btn"><i class="fa fa-check"></i>Send Message</button>
-                        <span class="able-text">[Will be replied within 24 hours except sunday]</span>
-                    </div>
-                </form>
             </div>
 
         </div>

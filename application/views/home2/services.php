@@ -7,7 +7,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <div class="section-header text-center">
             <!-- section title-->
             <h2 class="text-uppercase"><?php if($this->session->userdata('lang')=='cn'){echo "我们的优势";}else {echo "Advantages";}?></h2>
-            <p>Why you should choose us</p>
+            <p><?php if($this->session->userdata('lang')=='cn'){echo "为什么是我们？";}else {echo "Why Us?";}?></p>
         </div>
         <div  class="row">
             <div class="col-md-4">

@@ -37,24 +37,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         </div>
                     </div>
                 </div>
-                <div class="col-sm-3">
+                <div class="col-sm-6">
                     <div class="widget widget-map">
                         <h2 class="widget-title text-uppercase">Office Map</h2>
                         <div id="map">
-
                         </div>
                     </div>
                 </div>
-                <div class="col-sm-3">
-                    <div class="widget widget-post">
-                        <h2 class="widget-title text-uppercase">Recent Posts</h2>
-                        <h3><a href="">Lorem ipsum dolor sit amet,</a></h3>
-                        <h3><a href="">tur sadipscing elitr,</a></h3>
-                        <h3><a href=""> sed diam nonumy eirmod tempor</a></h3>
-                        <h3><a href=""> labore et dolore magna aliquy,</a></h3>
-                        <h3><a href=""> sed diam voluptua.</a></h3>
-                    </div>
-                </div>
+                
             </div>
         </div>
     </div>
