@@ -28,7 +28,7 @@ class Code extends MY_Controller {
 
 	public function list_code(){
 		if ($this->is_login()){
-			$this->load->view('dashboard/code');
+			$this->load->view('dashboard/code_list');
 		} else {
 			redirect(base_url('dashboard/login'));
 		}

@@ -24,6 +24,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <link rel="stylesheet" href="<?=base_url();?>assets/home2/css/font-awesome.min.css">
     <!-- VEGAS CSS -->
     <link rel="stylesheet" href="<?=base_url();?>assets/home2/css/jquery.vegas.min.css">
+    
+    <link rel="stylesheet" href="<?=base_url();?>assets/home2/css/flag-icon.css">
     <!-- STYLE CSS -->
     <link rel="stylesheet" href="<?=base_url();?>assets/home2/style.css">
     <!-- RESPONSIVE CSS -->
