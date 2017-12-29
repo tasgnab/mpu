@@ -470,17 +470,17 @@ ul.dropdown-menu li a {
 --------------------------------------------------------------*/
 
 .home.slide-1 {
-    background: url('images/IMG_0029.jpg') no-repeat local center;
+    background: url('images/home-1.jpg') no-repeat local center;
     background-size: cover;
 }
 
 .home.slide-2 {
-    background: url('images/IMG_0033.jpg') no-repeat local center;
+    background: url('images/home-2.jpg') no-repeat local center;
     background-size: cover;
 }
 
 .home.slide-3 {
-    background: url('images/IMG_0467.jpg') no-repeat local center;
+    background: url('images/home-3.jpg') no-repeat local center;
     background-size: cover;
 }
 
@@ -2017,7 +2017,7 @@ body.blog {
 
 .main-header {
     background: #f2f2f2;
-    padding: 45px 0;
+    padding: 130px 0;
     margin-top: 80px;
 
 }
@@ -2190,7 +2190,7 @@ body.blog {
     border-bottom-right-radius: 5px;
     color: #d8d8d8;
     font-size: 14px;
-    width: 15%;
+    width: 5%;
     height: 100%;
     position: absolute;
     right: 0;

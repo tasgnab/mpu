@@ -20,7 +20,7 @@ class Home extends MY_Controller {
 	 */
 	public function index(){
 		if ($this->is_login()){
-			$this->load->view('dashboard/home');
+			redirect(base_url("dashboard/code/list_code"));
 		} else {
 			redirect(base_url("dashboard/login"));
 		}
@@ -28,7 +28,7 @@ class Home extends MY_Controller {
 
 	public function testimonial(){
 		if ($this->is_login()){
-			$this->load->view('dashboard/home');
+			redirect(base_url("dashboard/code/list_code"));
 		} else {
 			redirect(base_url("dashboard/login"));
 		}

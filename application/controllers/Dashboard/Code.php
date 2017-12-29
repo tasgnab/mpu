@@ -18,6 +18,10 @@ class Code extends MY_Controller {
 	 * map to /index.php/welcome/<method_name>
 	 * @see https://codeigniter.com/user_guide/general/urls.html
 	 */
+	function __construct(){
+        parent::__construct();
+        $this->load->model('MCode');
+    } 
 	public function index(){
 		if ($this->is_login()){
 			$this->load->view('dashboard/code_input');
@@ -28,7 +32,8 @@ class Code extends MY_Controller {
 
 	public function list_code(){
 		if ($this->is_login()){
-			$this->load->view('dashboard/code_list');
+			$data['code_list'] = $this->MCode->allCode();
+			$this->load->view('dashboard/code_list',$data);
 		} else {
 			redirect(base_url('dashboard/login'));
 		}

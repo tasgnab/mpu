@@ -6,8 +6,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <div class="container">
         <div class="section-header text-center">
             <!-- section title-->
-            <h2 class="text-uppercase">OUR PORTFOLIO</h2>
-            <p >Describe something about your finished awesome works</p>
+            <h2 class="text-uppercase">OUR GALLERY</h2>
+            <p>Our product images and environment</p>
         </div>
         <!-- Filters -->
         <div class="row">
@@ -15,9 +15,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 <ul class="filter  text-center text-uppercase">
                     <li><a class="active" href="#" data-toggle="tooltip" title="6" data-filter="*">All</a></li>
                     <li><a href="#" data-toggle="tooltip" title="3" data-filter=".superred">Super Red</a></li>
-                    <li><a href="#" data-toggle="tooltip" title=1 data-filter=".f1">F1</a></li>
-                    <li><a href="#" data-toggle="tooltip" title="1" data-filter=".f5">F5</a></li>
-                    <li><a href="#" data-toggle="tooltip" title="3" data-filter=".farm">Farm</a></li>
+                    <li><a href="#" data-toggle="tooltip" title="2" data-filter=".f1">F1</a></li>
+                    <li><a href="#" data-toggle="tooltip" title="1" data-filter=".f5">F5 Ultra Red</a></li>
+                    <li><a href="#" data-toggle="tooltip" title="5" data-filter=".farm">Farm</a></li>
                 </ul><!--/#portfolio-filter-->
                 <div class="portfolio-items">
                     <div class="col-md-4 col-sm-6 work-grid superred">
@@ -25,6 +25,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                             <img src="<?=base_url();?>assets/home2/images/gallery-1.jpg" alt="">
                         </div><!--END SINGLE PORTFOLIO-->
                     </div>
+
                     <div class="col-md-4 col-sm-6 work-grid superred">
                         <div class="single-portfolio"><!--START SINGLE PORTFOLIO-->
                             <img src="<?=base_url();?>assets/home2/images/gallery-2.jpg" alt="">
@@ -33,7 +34,38 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     <div class="col-md-4 col-sm-6 work-grid superred">
                         <div class="single-portfolio"><!--START SINGLE PORTFOLIO-->
                             <img src="<?=base_url();?>assets/home2/images/gallery-3.jpg" alt="">
+                            
                          </div><!--END SINGLE PORTFOLIO-->
+                    </div>
+                    <div class="col-md-4 col-sm-6 work-grid farm">
+                        <div class="single-portfolio"><!--START SINGLE PORTFOLIO-->
+                            <img src="<?=base_url();?>assets/home2/images/farm-3.jpg" alt="">
+                            <div class="portfolio-overlay">
+                                <div class="portfolio-text text-uppercase">
+                                    <h2>Quarantine</h2>
+                                </div>
+                            </div>
+                        </div><!--END SINGLE PORTFOLIO-->
+                    </div>
+                    <div class="col-md-4 col-sm-6 work-grid farm">
+                        <div class="single-portfolio"><!--START SINGLE PORTFOLIO-->
+                            <img src="<?=base_url();?>assets/home2/images/farm-4.jpg" alt="">
+                            <div class="portfolio-overlay">
+                                <div class="portfolio-text text-uppercase">
+                                    <h2>Showroom in GuangZhou</h2>
+                                </div>
+                            </div>
+                        </div><!--END SINGLE PORTFOLIO-->
+                    </div>
+                    <div class="col-md-4 col-sm-6 work-grid farm">
+                        <div class="single-portfolio"><!--START SINGLE PORTFOLIO-->
+                            <img src="<?=base_url();?>assets/home2/images/farm-5.jpg" alt="">
+                            <div class="portfolio-overlay">
+                                <div class="portfolio-text text-uppercase">
+                                    <h2>Feeding</h2>
+                                </div>
+                            </div>
+                        </div><!--END SINGLE PORTFOLIO-->
                     </div>
                     <div class="col-md-12 col-sm-12 work-grid farm">
                         <div class="single-portfolio"><!--START SINGLE PORTFOLIO-->
@@ -85,7 +117,16 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                             </div>
                         </div><!--END SINGLE PORTFOLIO-->
                     </div>
-                    
+                    <div class="col-md-12 col-sm-12 work-grid farm">
+                        <div class="single-portfolio"><!--START SINGLE PORTFOLIO-->
+                            <img src="<?=base_url();?>assets/home2/images/farm-6.jpg" alt="">
+                            <div class="portfolio-overlay">
+                                <div class="portfolio-text text-uppercase">
+                                    <h2>Reservoir</h2>
+                                </div>
+                            </div>
+                        </div><!--END SINGLE PORTFOLIO-->
+                    </div>
                 </div>
             </div>
         </div>
