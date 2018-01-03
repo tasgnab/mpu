@@ -12,7 +12,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <div class="row">
             <div class="col-md-6">
                 <div class="about-thumb">
-                    <img src="<?=base_url();?>assets/home2/images/about-thumb.jpg" alt="">
+                    <img src="<?=base_url();?>assets/home2/images/gallery-7.jpg" alt="">
                     <img src="<?=base_url();?>assets/home2/images/about-thumb.jpg" alt="">
                 </div>
             </div>

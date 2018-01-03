@@ -10,7 +10,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Gentelella Alela! | </title>
+    <title><?=$this->config->item('site_name');?></title>
 
     <!-- Bootstrap -->
     <link href="<?=base_url();?>assets/vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -30,7 +30,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <link href="<?=base_url();?>assets/vendors/bootstrap-daterangepicker/daterangepicker.css" rel="stylesheet">
 
     <!-- Custom Theme Style -->
-    <link href="<?=base_url();?>assets/build/css/custom.min.css" rel="stylesheet">
+    <link href="<?=base_url();?>assets/build/css/custom.css" rel="stylesheet">
   </head>
 
   <body class="nav-md">

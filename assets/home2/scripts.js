@@ -460,19 +460,35 @@
      ==============================*/
     (function () {
         var map = new google.maps.Map(document.getElementById('map'), {
-            zoom: 10,
+            zoom: 15,
             scrollwheel: false,
             navigationControl: true,
             mapTypeControl: false,
             scaleControl: false,
             draggable: true,
             styles: [{"stylers": [{"hue": "blue"}, {"gamma": 1}]}],
-            center: new google.maps.LatLng(47.49, 19.04),
+            center: new google.maps.LatLng(-6.35612,106.90630),
             mapTypeId: google.maps.MapTypeId.ROADMAP
         });
         var marker = new google.maps.Marker({
-            position: new google.maps.LatLng(47.49, 19.04),
+            position: new google.maps.LatLng(-6.35612,106.90630),
             map: map,
+            icon: 'assets/home2/images/marker.png'
+        });
+        var map2 = new google.maps.Map(document.getElementById('map2'), {
+            zoom: 15,
+            scrollwheel: false,
+            navigationControl: true,
+            mapTypeControl: false,
+            scaleControl: false,
+            draggable: true,
+            styles: [{"stylers": [{"hue": "blue"}, {"gamma": 1}]}],
+            center: new google.maps.LatLng(-6.35612,106.90630),
+            mapTypeId: google.maps.MapTypeId.ROADMAP
+        });
+        var marker = new google.maps.Marker({
+            position: new google.maps.LatLng(-6.35612,106.90630),
+            map: map2,
             icon: 'assets/home2/images/marker.png'
         });
     }());

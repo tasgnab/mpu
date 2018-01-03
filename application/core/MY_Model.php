@@ -5,14 +5,14 @@ class MY_Model extends CI_Model {
         parent::__construct();
     }
 
-    function appendModifiedBy($data){
-    	$data['modified_by'] = $this->session->userdata('username');
+    function appendUpdatedBy($data){
+    	$data['updated_by'] = $this->session->userdata('username');
 		return $data;
     }
 
-    function appendCreatedModifiedBy($data){
+    function appendCreatedUpdatedBy($data){
     	$data['created_by'] = $this->session->userdata('username');
-        $data['modified_by'] = $this->session->userdata('username');
+        $data['updated_by'] = $this->session->userdata('username');
 		return $data;
     }
 }

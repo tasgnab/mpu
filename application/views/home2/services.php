@@ -44,7 +44,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     <div class="service-icon">
                         <i class="fa fa-user"></i>
                     </div>
-                    <h2 class="text-uppercase"> <?php if($this->session->userdata('lang')=='cn'){echo "出口质量";}else {echo "Experienced and Skilled Staff";}?></h2>
+                    <h2 class="text-uppercase"> <?php if($this->session->userdata('lang')=='cn'){echo "经验丰富的技术人员";}else {echo "Experienced and Skilled Staff";}?></h2>
                     <p><?php if($this->session->userdata('lang')=='cn'){echo "我们每个部门都有一个分部负责人，以确保始终如一的表现。 生产负责人，销售主管，质量控制部门和营销主管。";}else {echo "We have a head of division for every division to ensure top performance at all times; Head of Production, Head of Sales, Quality Control, and Head of Marketing.";}?></p>
                 </div><!-- END SINGLE SERVICE-->
             </div>
@@ -53,7 +53,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     <div class="service-icon">
                         <i class="fa fa-star"></i>
                     </div>
-                    <h2 class="text-uppercase"> <?php if($this->session->userdata('lang')=='cn'){echo "包装质量";}else {echo "Farm Reputation";}?></h2>
+                    <h2 class="text-uppercase"> <?php if($this->session->userdata('lang')=='cn'){echo "农场声誉";}else {echo "Farm Reputation";}?></h2>
                     <p><?php if($this->session->userdata('lang')=='cn'){echo "我们的目标是成为最大的Arowana农场，位于Cibubur，不久将被移至Jonggol。 我们在广州花都还有1000个展厅。 世界各地的嗜好者和金鱼鱼代理人最有可能知道这些术语之一，Munjul F5或孟继儿。";}else {echo "We aim to be the biggest Arowana Farm, located in Cibubur and soon to be moved to Jonggol. We also have 1000 auqrium showroom in Huadu, GuangZhou. Hobbyists and Arowana Fish Agents all around the world most likely know either one of these terms, Munjul F5 or Meng Ji Er.";}?></p>
                 </div><!-- END SINGLE SERVICE-->
             </div>

@@ -28,12 +28,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <link href="<?=base_url();?>assets/vendors/jqvmap/dist/jqvmap.min.css" rel="stylesheet"/>
     <!-- bootstrap-daterangepicker -->
     <link href="<?=base_url();?>assets/vendors/bootstrap-daterangepicker/daterangepicker.css" rel="stylesheet">
-    <!-- Datatables -->
-    <link href="<?=base_url();?>assets/vendors/datatables.net-bs/css/dataTables.bootstrap.min.css" rel="stylesheet">
-    <link href="<?=base_url();?>assets/vendors/datatables.net-buttons-bs/css/buttons.bootstrap.min.css" rel="stylesheet">
-    <link href="<?=base_url();?>assets/vendors/datatables.net-fixedheader-bs/css/fixedHeader.bootstrap.min.css" rel="stylesheet">
-    <link href="<?=base_url();?>assets/vendors/datatables.net-responsive-bs/css/responsive.bootstrap.min.css" rel="stylesheet">
-    <link href="<?=base_url();?>assets/vendors/datatables.net-scroller-bs/css/scroller.bootstrap.min.css" rel="stylesheet">
+
     <!-- Custom Theme Style -->
     <link href="<?=base_url();?>assets/build/css/custom.css" rel="stylesheet">
   </head>
@@ -48,7 +43,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
           <div class="">
             <div class="page-title">
               <div class="title_left">
-                <h3>Input Chip Code</h3>
+                <h3>Edit Chip Code</h3>
               </div>
             </div>
             <div class="clearfix"></div>
@@ -56,25 +51,49 @@ defined('BASEPATH') OR exit('No direct script access allowed');
               <div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="x_panel">
                   <div class="x_content">
-          
-                    <table id="datatable-responsive" class="table table-striped table-bordered dt-responsive nowrap" cellspacing="0" width="100%">
-                      <thead>
-                        <tr>
-                          <th>Code</th>
-                          <th>Type</th>
-                          <th></th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        <?php foreach($code_list as $code): ?> 
-                        <tr>
-                          <td><?=$code->code;?></td>
-                          <td><?=$code->type;?></td>
-                          <td><a href="<?=base_url('dashboard/code/edit/').$code->code;?>"><button type="button" class="btn btn-default">Edit</button></a></td>
-                        </tr>
-                        <?php endforeach; ?>
-                      </tbody>
-                    </table>
+                    <br />
+                    <form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left">
+                      <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name" >Code <span class="required">*</span></label>
+                        <div class="col-md-4 col-sm-4 col-xs-12">
+                          <input type="text" id="code" name="code" required="required" class="form-control col-md-7 col-xs-12" value="<?=$code;?>">
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Category <span class="required">*</span></label>
+                        <div class="col-md-4 col-sm-4 col-xs-12">
+                          <select id="category" name="category" class="form-control" required="required" selected="<?=$type;?>">
+                            <option value="">Select category</option>
+                            <?php foreach ($this->config->item('category') as $category): ?>
+                              <?php if ($category==$type): ?>
+                              <option value="<?php echo $category;?>" selected><?php echo $category;?></option>
+                              <?php else: ?>
+                              <option value="<?php echo $category;?>"><?php echo $category;?></option>
+                              <?php endif; ?>
+                            <?php endforeach;?>
+                          </select>
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Description </label>
+                        <div class="col-md-4 col-sm-4 col-xs-12">
+                          <textarea id="description" name="description" class="form-control" rows="6" value="<?=$description;?>""></textarea>
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Description in Chinese</label>
+                        <div class="col-md-4 col-sm-4 col-xs-12">
+                          <textarea id="description_cn" name="description_cn" class="form-control" rows="6" value="<?=$description_cn;?>"></textarea>
+                        </div>
+                      </div>
+                      <div class="ln_solid"></div>
+                      <div class="form-group">
+                        <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
+                          <button class="btn btn-primary" type="button" id="reset">Reset</button>
+                          <button type="submit" class="btn btn-success">Update</button>
+                        </div>
+                      </div>
+                    </form>
                   </div>
                 </div>
               </div>
@@ -105,24 +124,17 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <script src="<?=base_url();?>assets/vendors/nprogress/nprogress.js"></script>
     <!-- Dropzone.js -->
     <script src="<?=base_url();?>assets/vendors/dropzone/dist/min/dropzone.min.js"></script>
-    <!-- Datatables -->
-    <script src="<?=base_url();?>assets/vendors/datatables.net/js/jquery.dataTables.min.js"></script>
-    <script src="<?=base_url();?>assets/vendors/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
-    <script src="<?=base_url();?>assets/vendors/datatables.net-buttons/js/dataTables.buttons.min.js"></script>
-    <script src="<?=base_url();?>assets/vendors/datatables.net-buttons-bs/js/buttons.bootstrap.min.js"></script>
-    <script src="<?=base_url();?>assets/vendors/datatables.net-buttons/js/buttons.flash.min.js"></script>
-    <script src="<?=base_url();?>assetsvendors/datatables.net-buttons/js/buttons.html5.min.js"></script>
-    <script src="<?=base_url();?>assets/vendors/datatables.net-buttons/js/buttons.print.min.js"></script>
-    <script src="<?=base_url();?>assets/vendors/datatables.net-fixedheader/js/dataTables.fixedHeader.min.js"></script>
-    <script src="<?=base_url();?>assets/vendors/datatables.net-keytable/js/dataTables.keyTable.min.js"></script>
-    <script src="<?=base_url();?>assets/vendors/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
-    <script src="<?=base_url();?>assets/vendors/datatables.net-responsive-bs/js/responsive.bootstrap.js"></script>
-    <script src="<?=base_url();?>assets/vendors/datatables.net-scroller/js/dataTables.scroller.min.js"></script>
-    <script src="<?=base_url();?>assets/vendors/jszip/dist/jszip.min.js"></script>
-    <script src="<?=base_url();?>assets/vendors/pdfmake/build/pdfmake.min.js"></script>
-    <script src="<?=base_url();?>assets/vendors/pdfmake/build/vfs_fonts.js"></script>
+
     <!-- Custom Theme Scripts -->
     <script src="<?=base_url();?>assets/build/js/custom.min.js"></script>
-
+    <script type="text/javascript">
+      $( "#reset" ).click(function() {
+        $("#code").val('<?=$code;?>');
+        $("#category").val('<?=$type;?>');
+        $("#description").val('<?=$description;?>');
+        $("#description_cn").val('<?=$description_cn;?>');
+      });
+    </script>
+	
   </body>
 </html>

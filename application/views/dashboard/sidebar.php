@@ -4,7 +4,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <div class="col-md-3 left_col">
           <div class="left_col scroll-view">
             <div class="navbar nav_title" style="border: 0;">
-              <a href="index.html" class="site_title"><i class="fa fa-paw"></i> <span><?=$this->config->item('site_name_short')[0]; ?></span></a>
+              <a href="index.html" class="site_title"><img src="<?=base_url();?>assets/home2/images/logo-toro.png" alt=""> <span><?=$this->config->item('site_name_short')[0]; ?></span></a>
             </div>
 
             <div class="clearfix"></div>
@@ -12,7 +12,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <!-- menu profile quick info -->
             <div class="profile clearfix">
               <div class="profile_pic">
-                <img src="<?=base_url();?>assets/images/img.jpg" alt="..." class="img-circle profile_img">
+                <img src="<?=base_url();?>assets/images/user62.png" alt="..." class="img-circle profile_img">
               </div>
               <div class="profile_info">
                 <span>Welcome,</span>

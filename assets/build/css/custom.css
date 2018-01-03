@@ -179,6 +179,10 @@ html , body{
     font-size: 27px;
     margin: 13px 0 0 3px
 }
+.navbar.nav_title .site_title img{
+    max-height: 50px;
+    max-width: 50px;
+}
 .site_title i {
     border: 1px solid #EAEAEA;
     padding: 5px 6px;
@@ -3578,6 +3582,9 @@ form:after {
     margin-top: 13px !important;
     margin-right: 39px;
     float: right
+}
+.login_content img{
+    max-height: 50px;
 }
 .separator {
     border-top: 1px solid #D8D8D8;

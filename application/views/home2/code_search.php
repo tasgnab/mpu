@@ -1,7 +1,6 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,8 +11,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <meta name="author" content="ShapedTheme">
     <!-- favicon icon -->
     <link rel="shortcut icon" href="<?=base_url();?>assets/home2/images/favicon.png">
-    <title>Onebusiness - One Page HTML Template</title>
-
+    <title><?=$this->config->item('site_name');?></title>
     <!-- BOOTSTRAP CSS -->
     <link rel="stylesheet" href="<?=base_url();?>assets/home2/css/bootstrap.min.css">
     <!-- FONTAWESOME CSS -->
@@ -46,17 +44,52 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <!-- end preloader -->
 <!-- Start  Header -->
 <header id="navigation" class="navbar-fixed-top">
-    <?php include_once('navbar.php');?>
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#myNavbar"
+                        aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="<?=base_url();?>"><img src="<?=base_url();?>assets/home2/images/logo.png" alt=""></a>
+            </div>
+
+            <div id="myNavbar" class="navbar-collapse collapse">
+                <div class="main-menu">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li class="active"><a class="smooth-scroll" href="<?=base_url();?>#home"> <?php if($this->session->userdata('lang')=='cn'){echo "首页";}else {echo "Home";}?> </a></li> 
+                        <li><a class="smooth-scroll" href="<?=base_url();?>#about"> <?php if($this->session->userdata('lang')=='cn'){echo "公司介绍";}else {echo "Profile";}?> </a></li>
+                        <li><a class="smooth-scroll" href="<?=base_url();?>#service"> <?php if($this->session->userdata('lang')=='cn'){echo "我们的优势";}else {echo "Advantages";}?> </a></li> 
+                        <li><a class="smooth-scroll" href="<?=base_url();?>#portfolio"> <?php if($this->session->userdata('lang')=='cn'){echo "照片";}else {echo "Gallery";}?> </a></li>
+                        <li><a class="smooth-scroll" href="<?=base_url();?>#term"> <?php if($this->session->userdata('lang')=='cn'){echo "付款条件";}else {echo "Terms and Payments";}?> </a></li> 
+                        <li><a class="smooth-scroll" href="<?=base_url();?>#contact"> <?php if($this->session->userdata('lang')=='cn'){echo "位置";}else {echo "Locations";}?> </a></li>  
+                        <li><a class="smooth-scroll" href="<?=base_url('code');?>"> <?php if($this->session->userdata('lang')=='cn'){echo "位置";}else {echo "Code";}?> </a></li>  
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle " data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><?php if($this->session->userdata('lang')=='cn'){echo "<span class=\"flag-icon flag-icon-cn\"></span> 简体中文";}else {echo "<span class=\"flag-icon flag-icon-gb\"></span> English";}?></a>
+                            <ul class="dropdown-menu text-capitalize">
+                                <li><a href="<?=base_url();?>language/en"><span class="flag-icon flag-icon-gb"></span> English</a></li>
+                                <li><a href="<?=base_url();?>language/cn"><span class="flag-icon flag-icon-cn"></span> 简体中文</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </nav>
 </header>
 <!--End Header-->
 <div class="main-content">
     <div class="main-header text-left">
         <div class="container">
-            <h2 class="main-title text-capitalize">Search MicroChip</h2>
+            <h2 class="main-title text-capitalize"><?php if($this->session->userdata('lang')=='cn'){echo "搜索MicroChip";}else {echo "Search MicroChip";}?></h2>
             <div class="bar search-bar">
                 <!-- Search Form -->
                 <form class="search-form relative" action="<?=base_url('code');?>" method="post">
-                    <input type="text" name="search" class="search" placeholder="Search...">
+                    <input type="text" name="search" class="search" placeholder="<?php if($this->session->userdata('lang')=='cn'){echo "搜索...";}else {echo "Search...";}?>">
                     <button type="submit" class="search-button"><i class="fa fa-search"></i></button>
                 </form>
             </div>
@@ -154,68 +187,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         </div>
     </div>
 </div>
-<!-- footer -->
-<footer>
-    <div class="footer-widget section-padding text-left">
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-3">
-                    <div class="widget widget-about">
-                        <h2 class="widget-title text-uppercase">About Us</h2>
-                        <p>Lorem ipsum dolor sit amet, constur sadipscing elitr, sed diam nonumy eirmod
-                            tempor
-                            invidunt
-                            ut labore et dolore magna aliquyam erat, sed diam voluptua..</p>
-
-                        <div class="address">
-                            <h3> Business Hours</h3>
-                            <p>Mon. - Fri. 8am to 5pm <br>Sat. 8am to 11am</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-3">
-                    <div class="widget widget-menu">
-                        <h2 class="widget-title text-uppercase">About Market</h2>
-                        <div class="footer-menu">
-                            <ul>
-                                <li><a href="">Home</a></li>
-                                <li><a href="">About</a></li>
-                                <li><a href="">Terms and Conditions</a></li>
-                                <li><a href="">Refund Policy</a></li>
-                                <li><a href=""> Privacy Policy</a></li>
-                                <li><a href=""> Community Forum</a></li>
-                                <li><a href=""> Knowledgebase FAQs</a></li>
-                                <li><a href="">Documentation</a></li>
-                                <li><a href=""> Test Product Before Buy</a></li>
-                                <li><a href="">Join Now</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-3">
-                    <div class="widget widget-map">
-                        <h2 class="widget-title text-uppercase">Office Map</h2>
-                        <div id="map">
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-3">
-                    <div class="widget widget-post">
-                        <h2 class="widget-title text-uppercase">Recent Posts</h2>
-                        <h3><a href="">Lorem ipsum dolor sit amet,</a></h3>
-                        <h3><a href="">tur sadipscing elitr,</a></h3>
-                        <h3><a href=""> sed diam nonumy eirmod tempor</a></h3>
-                        <h3><a href=""> labore et dolore magna aliquy,</a></h3>
-                        <h3><a href=""> sed diam voluptua.</a></h3>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="copyright-text text-center">
-        <p>&copy;2017 OneBusiness by <a href="">WPExpand</a> Powered by WordPress</p>
-    </div>
-</footer>
+<?php include_once('footer.php');?>
 <!-- JQUERY LIBRARY -->
 <script type="text/javascript" src="<?=base_url();?>assets/home2/js/jquery-1.11.3.min.js"></script>
 <!-- BOOTSTRAP JS -->

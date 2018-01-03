@@ -36,14 +36,15 @@ class MUser extends MY_Model {
 	}
 
 	function update_set_disable($where){
-		$this->db->set('is_disabled', 'Y');
-		$this->db->set('updated_by', $this->session->userdata('username'));
+		$data = array('is_disabled' => 'Y');
+		$data = $this->appendUpdatedBy($data);
+		$this->db->set($data);
 		$this->db->where($where);
 		$this->db->update('user');
 	}
 
 	function update_password($data){
-		$data['updated_by'] = $this->session->userdata('username');
+		$data = $this->appendUpdatedBy($data);
 		$this->db->where(array('username' => $this->session->userdata('username')));
 		$this->db->update('user');
 		if ($this->db->affected_rows() == 1){

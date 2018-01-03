@@ -10,7 +10,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Gentelella Alela! | </title>
+    <title><?=$this->config->item('site_name');?></title>
 
     <!-- Bootstrap -->
     <link href="<?=base_url();?>assets/vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -22,7 +22,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <link href="<?=base_url();?>assets/vendors/animate.css/animate.min.css" rel="stylesheet">
 
     <!-- Custom Theme Style -->
-    <link href="<?=base_url();?>assets/build/css/custom.min.css" rel="stylesheet">
+    <link href="<?=base_url();?>assets/build/css/custom.css" rel="stylesheet">
   </head>
 
   <body class="login">
@@ -61,7 +61,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 <br />
 
                 <div>
-                  <h1><span class="fa fa-paw"></span>  <?=$this->config->item('site_name')[0]; ?></h1>
+                  <h1><img src="<?=base_url();?>assets/home2/images/logo-toro.png" alt="">  <?=$this->config->item('site_name'); ?></h1>
                   <p>Authorized Personel Only!</p>
                 </div>
               </div>

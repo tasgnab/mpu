@@ -40,7 +40,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 <div class="col-sm-6">
                     <div class="widget widget-map">
                         <h2 class="widget-title text-uppercase">Office Map</h2>
-                        <div id="map">
+                        <div id="map2">
                         </div>
                     </div>
                 </div>
@@ -49,6 +49,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         </div>
     </div>
     <div class="copyright-text text-center">
-        <p >&copy;2017 OneBusiness by <a href="">WPExpand</a> Powered by WordPress</p>
+        <p >&copy;2018 PT Munjul Prima Utama by <a href="">thopo.ma</a></p>
     </div>
 </footer>

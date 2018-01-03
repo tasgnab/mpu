@@ -10,7 +10,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title><?=$this->config->item('site_name')[0];?></title>
+    <title><?=$this->config->item('site_name');?></title>
 
     <!-- Bootstrap -->
     <link href="<?=base_url();?>assets/vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -30,7 +30,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <link href="<?=base_url();?>assets/vendors/bootstrap-daterangepicker/daterangepicker.css" rel="stylesheet">
 
     <!-- Custom Theme Style -->
-    <link href="<?=base_url();?>assets/build/css/custom.min.css" rel="stylesheet">
+    <link href="<?=base_url();?>assets/build/css/custom.css" rel="stylesheet">
   </head>
 
   <body class="nav-md">
@@ -51,16 +51,23 @@ defined('BASEPATH') OR exit('No direct script access allowed');
               <div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="x_panel">
                   <div class="x_content">
+                    <?php if ($this->session->flashdata('message')):?>
+                    <div class="alert alert-success alert-dismissible fade in" role="alert">
+                      <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span>
+                      </button>
+                      <strong> <?=$this->session->flashdata('message'); ?>
+                    </div>
+                    <?php endif; ?>
                     <br />
-                    <form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left">
+                    <form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left" action="<?=base_url('dashboard/code/input');?>" method="post">
                       <div class="form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Code <span class="required">*</span></label>
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="code">Code <span class="required">*</span></label>
                         <div class="col-md-4 col-sm-4 col-xs-12">
                           <input type="text" id="code" name="code" required="required" class="form-control col-md-7 col-xs-12">
                         </div>
                       </div>
                       <div class="form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Category <span class="required">*</span></label>
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="category">Category <span class="required">*</span></label>
                         <div class="col-md-4 col-sm-4 col-xs-12">
                           <select id="category" name="category" class="form-control" required="required">
                             <option value="">Select category</option>
@@ -71,13 +78,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         </div>
                       </div>
                       <div class="form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Description </label>
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12"  for="description">Description </label>
                         <div class="col-md-4 col-sm-4 col-xs-12">
                           <textarea id="description" name="description" class="form-control" rows="6"></textarea>
                         </div>
                       </div>
                       <div class="form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Description in Chinese</label>
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12"  for="description_cn">Description in Chinese</label>
                         <div class="col-md-4 col-sm-4 col-xs-12">
                           <textarea id="description_cn" name="description_cn" class="form-control" rows="6"></textarea>
                         </div>
@@ -85,9 +92,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                       <div class="ln_solid"></div>
                       <div class="form-group">
                         <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
-                          <button class="btn btn-primary" type="button">Reset</button>
-                          <button class="btn btn-primary" type="reset">Input Other</button>
-                          <button type="submit" class="btn btn-success">Submit and Add Picture</button>
+                          <button class="btn btn-primary" type="button" id="reset">Reset</button>
+                          <button type="submit" class="btn btn-success">Submit</button>
                         </div>
                       </div>
                     </form>
@@ -95,7 +101,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 </div>
               </div>
             </div>
-
           </div>
         </div>
         <!-- /page content -->
@@ -124,6 +129,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
     <!-- Custom Theme Scripts -->
     <script src="<?=base_url();?>assets/build/js/custom.min.js"></script>
+    <script type="text/javascript">
+      $( "#reset" ).click(function() {
+        $("#code").val("");
+        $("#category").val("");
+        $("#description").val("");
+        $("#description_cn").val("");
+      });
+    </script>
 	
   </body>
 </html>

@@ -18,12 +18,35 @@ class Code extends MY_Controller {
 	 * map to /index.php/welcome/<method_name>
 	 * @see https://codeigniter.com/user_guide/general/urls.html
 	 */
+	function __construct(){
+        parent::__construct();
+        $this->load->model('MCode');
+    } 
+
 	public function index(){
+		$error_found = false;
+
 		if (($this->input->post())){
-			
-			$this->load->view('home2/code_search');
+			if ($this->input->post('code')){
+				$data['code'] = $this->input->post('code');
+				$codeData = $this->MCode->searchCode($data);
+				if ($codeData){
+					$this->load->view('home2/code_search',$codeData);
+				} else {
+					$message = "Record doesn't exist";
+					$error_found = true;
+				}
+			} else {
+				$message = "Please Insert MicroChip Code";
+				$error_found = true;
+			}
 		} else {
 			$this->load->view('home2/code');
+		}
+
+		if ($error_found){
+			$this->session->set_flashdata('message', $message);
+			redirect(base_url('code'));
 		}
 		
 	}
