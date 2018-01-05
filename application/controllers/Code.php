@@ -30,10 +30,14 @@ class Code extends MY_Controller {
 			if ($this->input->post('code')){
 				$data['code'] = $this->input->post('code');
 				$codeData = $this->MCode->searchCode($data);
+				$imageData = $this->MCode->searchImage($data);
 				if ($codeData){
 					$temp = $this->config->item('type');
 					$data['code'] = $codeData;
 					$data['spec'] = $temp[$codeData->type];
+					if ($imageData){
+						$data['images'] = $imageData;
+					}
 					$this->load->view('home2/code_search',$data);
 				} else {
 					$message = "Record doesn't exist";

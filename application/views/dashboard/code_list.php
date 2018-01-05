@@ -70,7 +70,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         <tr>
                           <td><?=$code->code;?></td>
                           <td><?=$code->type;?></td>
-                          <td><a href="<?=base_url('dashboard/code/edit/').$code->code;?>"><button type="button" class="btn btn-default">Edit</button></a></td>
+                          <td>
+                            <span><a href="<?=base_url('dashboard/code/edit/').$code->code;?>"><button type="button" class="btn btn-default">Edit</button></a></span>
+                            <span><a href="<?=base_url('dashboard/code/insertImage/').$code->code;?>"><button id="showUpload" type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal">Upoad Image</button></a></span>
+                          </td>
                         </tr>
                         <?php endforeach; ?>
                       </tbody>
@@ -83,7 +86,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
           </div>
         </div>
         <!-- /page content -->
-
         <!-- footer content -->
         <footer>
           <div class="pull-right">
@@ -111,7 +113,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <script src="<?=base_url();?>assets/vendors/datatables.net-buttons/js/dataTables.buttons.min.js"></script>
     <script src="<?=base_url();?>assets/vendors/datatables.net-buttons-bs/js/buttons.bootstrap.min.js"></script>
     <script src="<?=base_url();?>assets/vendors/datatables.net-buttons/js/buttons.flash.min.js"></script>
-    <script src="<?=base_url();?>assetsvendors/datatables.net-buttons/js/buttons.html5.min.js"></script>
+    <script src="<?=base_url();?>assets/vendors/datatables.net-buttons/js/buttons.html5.min.js"></script>
     <script src="<?=base_url();?>assets/vendors/datatables.net-buttons/js/buttons.print.min.js"></script>
     <script src="<?=base_url();?>assets/vendors/datatables.net-fixedheader/js/dataTables.fixedHeader.min.js"></script>
     <script src="<?=base_url();?>assets/vendors/datatables.net-keytable/js/dataTables.keyTable.min.js"></script>
@@ -123,6 +125,5 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <script src="<?=base_url();?>assets/vendors/pdfmake/build/vfs_fonts.js"></script>
     <!-- Custom Theme Scripts -->
     <script src="<?=base_url();?>assets/build/js/custom.min.js"></script>
-
   </body>
 </html>

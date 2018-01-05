@@ -58,4 +58,5 @@ $route['dashboard/code/list'] = 'dashboard/code/list_code';
 $route['dashboard/code/input'] = 'dashboard/code/code_input';
 
 $route['dashboard/code/edit/(:any)'] = 'dashboard/code/code_edit/$1';
+$route['dashboard/code/insertImage/(:any)'] = 'dashboard/code/code_add_image/$1';
 $route['dashboard/gallery/upload'] = 'dashboard/gallery/upload_gallery';

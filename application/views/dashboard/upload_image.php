@@ -43,7 +43,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
           <div class="">
             <div class="page-title">
               <div class="title_left">
-                <h3>Edit Chip Code</h3>
+                <h3>Upload image for <?=$this->session->userdata('code');?></h3>
               </div>
             </div>
             <div class="clearfix"></div>
@@ -52,49 +52,16 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 <div class="x_panel">
                   <div class="x_content">
                     <br />
-                    <form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left" action="<?=base_url('dashboard/code/do_edit');?>" method="post">
-                      <div class="form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name" >Code <span class="required">*</span></label>
-                        <div class="col-md-4 col-sm-4 col-xs-12">
-                          <input type="text" id="code_2" name="code2" required="required" class="form-control col-md-7 col-xs-12" value="<?=$code;?>" disabled>
-                          <input type="hidden" id="code" name="code" required="required" class="form-control col-md-7 col-xs-12" value="<?=$code;?>">
-                        </div>
-                      </div>
-                      <div class="form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Category <span class="required">*</span></label>
-                        <div class="col-md-4 col-sm-4 col-xs-12">
-                          <select id="category" name="category" class="form-control" required="required" selected="<?=$type;?>">
-                            <option value="">Select category</option>
-                            <?php foreach ($this->config->item('category') as $category): ?>
-                              <?php if ($category==$type): ?>
-                              <option value="<?php echo $category;?>" selected><?php echo $category;?></option>
-                              <?php else: ?>
-                              <option value="<?php echo $category;?>"><?php echo $category;?></option>
-                              <?php endif; ?>
-                            <?php endforeach;?>
-                          </select>
-                        </div>
-                      </div>
-                      <div class="form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Description </label>
-                        <div class="col-md-4 col-sm-4 col-xs-12">
-                          <textarea id="description" name="description" class="form-control" rows="6" value="<?=$description;?>""></textarea>
-                        </div>
-                      </div>
-                      <div class="form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Description in Chinese</label>
-                        <div class="col-md-4 col-sm-4 col-xs-12">
-                          <textarea id="description_cn" name="description_cn" class="form-control" rows="6" value="<?=$description_cn;?>"></textarea>
-                        </div>
-                      </div>
-                      <div class="ln_solid"></div>
-                      <div class="form-group">
-                        <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
-                          <button class="btn btn-primary" type="button" id="reset">Reset</button>
-                          <button type="submit" class="btn btn-success">Update</button>
-                        </div>
+                    <form class="dropzone" action="<?=base_url('dashboard/code/doUploadImage'); ?>" id="myDropzoneContainer" enctype="multipart/form-data">
+                      <div class="dz-message" data-dz-message><span>Click or drop your files here.<br>Max filesize 1 MB.</span></div>
+                      <div class="fallback">
+                        <input name="file" type="file">
                       </div>
                     </form>
+                    <div class="ln_solid"></div>
+                    
+                    <a href="<?=base_url('dashboard/code');?>"><button style="float: right" type="submit" class="btn btn-success">Finish</button></a>
+                    
                   </div>
                 </div>
               </div>
@@ -128,14 +95,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
     <!-- Custom Theme Scripts -->
     <script src="<?=base_url();?>assets/build/js/custom.min.js"></script>
-    <script type="text/javascript">
-      $( "#reset" ).click(function() {
-        $("#code").val('<?=$code;?>');
-        $("#category").val('<?=$type;?>');
-        $("#description").val('<?=$description;?>');
-        $("#description_cn").val('<?=$description_cn;?>');
-      });
+    <script>
+      Dropzone.options.myDropzoneContainer = { 
+        method: "post", 
+        maxFilesize: 10,
+        acceptedFiles: "image/jpeg,image/jpg",
+        parallelUploads: 1,
+        autoProcessQueue: true
+      };
     </script>
-	
+	 
   </body>
 </html>

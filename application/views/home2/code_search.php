@@ -109,7 +109,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 <!-- Img, Div -->
                 <div class="modal-img">
                     <!-- Member Image -->
-                    <img src="assets/images/modal-member.jpg" alt="">
+                    <?php if (isset($images)): ?>
+                    <?php foreach($images as $image): ?>
+                    <img src="<?=base_url('upload/'.$image->filename);?>" alt="">
+                    <?php endforeach; ?>
+                    <?php endif; ?>
                 </div>
             </div>
             <!-- End Member Left -->
