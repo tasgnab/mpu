@@ -31,7 +31,10 @@ class Code extends MY_Controller {
 				$data['code'] = $this->input->post('code');
 				$codeData = $this->MCode->searchCode($data);
 				if ($codeData){
-					$this->load->view('home2/code_search',$codeData);
+					$temp = $this->config->item('type');
+					$data['code'] = $codeData;
+					$data['spec'] = $temp[$codeData->type];
+					$this->load->view('home2/code_search',$data);
 				} else {
 					$message = "Record doesn't exist";
 					$error_found = true;

@@ -13,9 +13,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <div class="row">
             <div class="portfolio-wrapper">
                 <ul class="filter  text-center text-uppercase">
-                    <li><a class="active" href="#" data-toggle="tooltip" title="6" data-filter="*">All</a></li>
-                    <li><a href="#" data-toggle="tooltip" title="3" data-filter=".collection">Collection</a></li>
-                    <li><a href="#" data-toggle="tooltip" title="5" data-filter=".farm">Farm</a></li>
+                    <li><a class="active" href="#" data-toggle="tooltip" title="12" data-filter="*">All</a></li>
+                    <li><a href="#" data-toggle="tooltip" title="6" data-filter=".collection">Collection</a></li>
+                    <li><a href="#" data-toggle="tooltip" title="6" data-filter=".farm">Farm</a></li>
                 </ul><!--/#portfolio-filter-->
                 <div class="portfolio-items">
                     <div class="col-md-4 col-sm-6 work-grid collection">
@@ -108,6 +108,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                             <div class="portfolio-overlay">
                                 <div class="portfolio-text text-uppercase">
                                     <h2><?php if($this->session->userdata('lang')=='cn'){echo "水库";}else {echo "Water Reservoir";}?></h2>
+                                    <div class="portfolio-link">
+                                        <a href="" data-toggle="modal" data-target="#farm-2-modal" ><i class="fa fa-search"></i></a>
+                                    </div>
                                 </div>
                             </div>
                         </div><!--END SINGLE PORTFOLIO-->
@@ -118,6 +121,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                             <div class="portfolio-overlay">
                                 <div class="portfolio-text text-uppercase">
                                     <h2><?php if($this->session->userdata('lang')=='cn'){echo "水库";}else {echo "Water Reservoir";}?></h2>
+                                    <div class="portfolio-link">
+                                        <a href="" data-toggle="modal" data-target="#farm-3-modal" ><i class="fa fa-search"></i></a>
+                                    </div>
                                 </div>
                             </div>
                         </div><!--END SINGLE PORTFOLIO-->

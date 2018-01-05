@@ -486,13 +486,12 @@
             center: new google.maps.LatLng(-6.35612,106.90630),
             mapTypeId: google.maps.MapTypeId.ROADMAP
         });
-        var marker = new google.maps.Marker({
+        var marker2 = new google.maps.Marker({
             position: new google.maps.LatLng(-6.35612,106.90630),
             map: map2,
             icon: 'assets/home2/images/marker.png'
         });
     }());
-
     /* ================================
      ===   JQUERY.MB.YTPLAYER   =====
      ================================= */

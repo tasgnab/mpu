@@ -40,8 +40,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 <div class="col-sm-6">
                     <div class="widget widget-map">
                         <h2 class="widget-title text-uppercase">Office Map</h2>
-                        <div id="map2">
-                        </div>
+                        <div id="map3"></div>
                     </div>
                 </div>
                 

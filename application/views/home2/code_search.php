@@ -89,7 +89,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <div class="bar search-bar">
                 <!-- Search Form -->
                 <form class="search-form relative" action="<?=base_url('code');?>" method="post">
-                    <input type="text" name="search" class="search" placeholder="<?php if($this->session->userdata('lang')=='cn'){echo "搜索...";}else {echo "Search...";}?>">
+                    <input type="text" name="code" id="code" class="search" placeholder="<?php if($this->session->userdata('lang')=='cn'){echo "搜索...";}else {echo "Search...";}?>">
                     <button type="submit" class="search-button"><i class="fa fa-search"></i></button>
                 </form>
             </div>
@@ -99,8 +99,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <!-- Member Name -->
         <div class="section-header text-center">
             <!-- section title-->
-            <h2 class="text-uppercase">Robert Deen</h2>
-            <p> Founder & CEO</p>
+            <h2 class="text-uppercase">Code : <?=$code->code;?></h2>
+            <p> <?=$code->type;?></p>
         </div>
         <!-- End Head -->
         <div class="row">
@@ -118,60 +118,37 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 <div class="project-details">
                     <!-- Header -->
                     <h4 class="text-uppercase">
-                        About Robert Deen
+                        About <?=$code->type;?>
                     </h4>
-                    <!-- Description One -->
-                    <p class="member-detail-one">
-                        Invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et
-                        accusam
-                        et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est
-                        Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr,
-                    </p>
-                    <h5 class="text-uppercase">
-                       Education
-                    </h5>
-                    <!-- Description One -->
-                    <p class="member-detail-one">
-                       Justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est
-                        Lorem ipsum dolor sit amet. dolores et ea rebum.
-                    </p>
-                    <h5 class="text-uppercase">
-                        Education 2
-                    </h5>
-                    <!-- Description One -->
-                    <p class="member-detail-one">
-                        Justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est
-                        Lorem ipsum dolor sit amet.
-                    </p>
                 </div>
                 <div class="skills">
-                    <h4 class="text-uppercase">Robert Skills</h4>
+                    <h4 class="text-uppercase"><?=$code->type;?></h4>
                     <div class="progress">
                         <!-- Progress Bar -->
                         <div class="progress-bar text-left" role="progressbar" aria-valuenow="60"
-                             aria-valuemin="0" aria-valuemax="100" style="width:60%">
-                            <span class="skill-value text-uppercase">Bootstrap 60%</span>
+                             aria-valuemin="0" aria-valuemax="100" style="width:<?=$spec['body'];?>%">
+                            <span class="skill-value text-uppercase">Body <?=$spec['body'];?> / 100</span>
                         </div>
                     </div>
                     <!-- End Progress Bar -->
                     <div class="progress">
                         <!-- Progress Bar -->
                         <div class="progress-bar text-left" role="progressbar" aria-valuenow="70"
-                             aria-valuemin="0" aria-valuemax="100" style="width:70%">
-                            <span class="skill-value text-uppercase">Javascript 70%</span>
+                             aria-valuemin="0" aria-valuemax="100" style="width:<?=$spec['color'];?>%">
+                            <span class="skill-value text-uppercase">Color <?=$spec['color'];?> / 100</span>
                         </div>
                         <!-- End Progress Bar -->
                     </div>
                     <div class="progress">
                         <!-- Progress Bar -->
                         <div class="progress-bar text-left" role="progressbar" aria-valuenow="90"
-                             aria-valuemin="0" aria-valuemax="100" style="width:90%">
-                            <span class="skill-value text-uppercase">OOP 90%</span>
+                             aria-valuemin="0" aria-valuemax="100" style="width: <?=$spec['fin'];?>%">
+                            <span class="skill-value text-uppercase">Fin  <?=$spec['fin'];?> / 100</span>
                         </div>
                         <!-- End Progress Bar -->
                     </div>
                 </div>
-                <div class="member-social">
+<!--                <div class="member-social">
                     <ul>
                         <li><a class="twitter" href=""><i class="fa fa-twitter"></i></a></li>
                         <li><a class="facebook" href=""><i class="fa fa-facebook"></i></a></li>
@@ -180,7 +157,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         <li><a class="github" href=""><i class="fa fa-github"></i></a></li>
                         <li><a class="instagram" href=""><i class="fa fa-instagram"></i></a></li>
                     </ul>
-                </div>
+                </div>-->
 
             </div>
             <!-- Modal Right -->
@@ -211,8 +188,25 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <!--  APPEAR JS -->
 <script type="text/javascript" src="<?=base_url();?>assets/home2/js/jquery.appear.js"></script>
 <!-- GOOGLE MAP JS -->
-<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?libraries=places&key=AIzaSyBgdZe2H8dUadI-9HbatiJpIufY6oVWMf4"></script>
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?libraries=places&key=AIzaSyBbJC1p09_Yfed8I7zZDnSJwcsr-A6QDZQ"></script>
 <!-- COMMON JS -->
 <script type="text/javascript" src="<?=base_url();?>assets/home2/js/scripts.js"></script>
+<script type="text/javascript">
+    function initialize() {
+        var latlng = new google.maps.LatLng(-6.35612,106.90630);
+        var myOptions = {
+            zoom: 15,
+            center: latlng,
+            mapTypeId: google.maps.MapTypeId.ROADMAP
+        };
+        var map = new google.maps.Map(document.getElementById("map3"), myOptions);
+        var marker = new google.maps.Marker({
+            position: new google.maps.LatLng(-6.35612,106.90630),
+            map: map,
+            icon: 'assets/home2/images/marker.png'
+        });
+    }
+    google.maps.event.addDomListener(window, "load", initialize);
+</script>
 </body>
 </html>

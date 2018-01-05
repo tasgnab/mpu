@@ -22,7 +22,7 @@ class Code extends MY_Controller {
         parent::__construct();
         $this->load->model('MCode');
     } 
-    
+
 	public function index(){
 		if ($this->is_login()){
 			$this->load->view('dashboard/code_input');
@@ -83,7 +83,7 @@ class Code extends MY_Controller {
 				if ($codeData){
 					$this->load->view('dashboard/code_edit',$codeData);
 				} else {
-					$this->session->set_flashdata('message', "Record doesn't exist");
+					$this->session->set_flashdata('message', "MicroChip doesn't exist");
 					redirect(base_url('dashboard/code'));
 				}
 			}
