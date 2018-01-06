@@ -13,7 +13,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <div class="col-md-6">
                 <div class="about-thumb">
                     <img src="<?=base_url();?>assets/home2/images/home-4.jpg" alt="">
-                    
+                    <p><?php if($this->session->userdata('lang')=='cn'){echo "Tris Tanoto参加龙鱼竞赛，轻松获得第一名，而且从未在其他竞赛中竞争过。 “没有更多的挑战”，他说。";}else {echo "First time Mr. Tris Tanoto compete in the arowana contest and easily win the 1st place and he never compete in other contest anymore. \"No more challenges.\", he said.";}?></p>
                 </div>
             </div>
             <div class="col-md-6">
