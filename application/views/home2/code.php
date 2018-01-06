@@ -9,6 +9,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="author" content="ShapedTheme">
+    <script type="text/javascript"> //<![CDATA[ 
+        var tlJsHost = ((window.location.protocol == "https:") ? "https://secure.comodo.com/" : "http://www.trustlogo.com/");
+        document.write(unescape("%3Cscript src='" + tlJsHost + "trustlogo/javascript/trustlogo.js' type='text/javascript'%3E%3C/script%3E"));
+        //]]>
+    </script>
     <!-- favicon icon -->
     <link rel="shortcut icon" href="<?=base_url();?>assets/home2/images/favicon.png">
     <title><?=$this->config->item('site_name');?></title>

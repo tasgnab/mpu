@@ -8,38 +8,17 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <div class="row">
                 <div class="col-sm-3">
                     <div class="widget widget-about">
-                        <h2 class="widget-title text-uppercase">About Us</h2>
-                        <p>Lorem ipsum dolor sit amet, constur sadipscing elitr, sed diam nonumy eirmod tempor invidunt
-                            ut labore et dolore magna aliquyam erat, sed diam voluptua..</p>
-
+                        <h2 class="widget-title text-uppercase"> <?php if($this->session->userdata('lang')=='cn'){echo "公司介绍";}else {echo "Profile";}?></h2>
+                        <p><?php if($this->session->userdata('lang')=='cn'){echo "万吉红龙鱼场有限公司.";}else {echo "The world’s best exporter and captive breeder of asian arowana";}?></p>
                         <div class="address">
-                            <h3> Business Hours</h3>
-                            <p>Mon. - Fri. 8am to 5pm <br>Sat. 8am to 11am</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-3">
-                    <div class="widget widget-menu">
-                        <h2 class="widget-title text-uppercase">About Market</h2>
-                        <div class="footer-menu">
-                            <ul>
-                                <li><a href="">Home</a></li>
-                                <li><a href="">About</a></li>
-                                <li><a href="">Terms and Conditions</a></li>
-                                <li><a href="">Refund Policy</a></li>
-                                <li><a href=""> Privacy Policy</a></li>
-                                <li><a href=""> Community Forum</a></li>
-                                <li><a href=""> Knowledgebase FAQs</a></li>
-                                <li><a href="">Documentation</a></li>
-                                <li><a href=""> Test Product Before Buy</a></li>
-                                <li><a href="">Join Now</a></li>
-                            </ul>
+                            <h3> <?php if($this->session->userdata('lang')=='cn'){echo "营业时间";}else {echo "Business Hours";}?></h3>
+                            <p><?php if($this->session->userdata('lang')=='cn'){echo "星期一";}else {echo "Mon.";}?> - <?php if($this->session->userdata('lang')=='cn'){echo "星期五";}else {echo "Fri.";}?> 8am to 5pm <br><?php if($this->session->userdata('lang')=='cn'){echo "星期六";}else {echo "Sat.";}?> 8am to 11am</p>
                         </div>
                     </div>
                 </div>
                 <div class="col-sm-6">
                     <div class="widget widget-map">
-                        <h2 class="widget-title text-uppercase">Office Map</h2>
+                        <h2 class="widget-title text-uppercase"><?php if($this->session->userdata('lang')=='cn'){echo "办公室地图";}else {echo "Office Map";}?></h2>
                         <div id="map3"></div>
                     </div>
                 </div>

@@ -26,6 +26,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 </div>
             </div>
         </div>
+        <!--
         <div class="row">
             <div class="col-md-8">
                 <div class="widget widget-map">
@@ -42,13 +43,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     <a href="mailto:munjulprima@yahoo.com">munjulprima@yahoo.com</a>
 
                     <ul class="social-link">
-                        <!--<li><a class="twitter" href=""><i class="fa fa-twitter"></i></a></li>-->
-                        <!--<li><a class="facebook" href=""><i class="fa fa-facebook"></i></a></li>-->
                         <li><a href="https://www.instagram.com/ptmunjulprimautama" class="instagram" href=""><i class="fa fa-instagram"></i></a></li>
                     </ul>
                 </div>
             </div>
         </div>
+        -->
     </div>
 </section>
 <!--END CONTACT-->

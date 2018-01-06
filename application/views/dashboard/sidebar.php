@@ -16,7 +16,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
               </div>
               <div class="profile_info">
                 <span>Welcome,</span>
-                <h2>John Doe</h2>
+                <h2><?=$this->session->userdata('username');?></h2>
               </div>
             </div>
             <!-- /menu profile quick info -->
