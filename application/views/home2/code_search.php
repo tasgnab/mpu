@@ -14,6 +14,16 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         document.write(unescape("%3Cscript src='" + tlJsHost + "trustlogo/javascript/trustlogo.js' type='text/javascript'%3E%3C/script%3E"));
         //]]>
     </script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-112156093-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-112156093-1');
+    </script>
+
     <!-- favicon icon -->
     <link rel="shortcut icon" href="<?=base_url();?>assets/home2/images/favicon.png">
     <title><?=$this->config->item('site_name');?></title>
