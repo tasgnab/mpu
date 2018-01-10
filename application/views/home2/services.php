@@ -62,7 +62,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     <div class="service-icon">
                         <i class="fa fa-certificate"></i>
                     </div>
-                    <h2 class="text-uppercase"> <?php if($this->session->userdata('lang')=='cn'){echo "保证";}else {echo "Waranty";}?></h2>
+                    <h2 class="text-uppercase"> <?php if($this->session->userdata('lang')=='cn'){echo "保证";}else {echo "Warranty";}?></h2>
                     <p> <?php if($this->session->userdata('lang')=='cn'){echo "只要买方能够证实和证明死鱼的微芯片数据和照片，我们对DOA就有一个相当慷慨的用语。";}else {echo "We have a reasonably generous term when it comes to DOA’s, as long as the buyer can confirm and prove the microchip data and photos of the dead fish.";}?></p>
                 </div><!-- END SINGLE SERVICE-->
             </div>

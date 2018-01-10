@@ -7,7 +7,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <div class="home home-3 slide-1">
             <div class="container-fluid">
                 <div class="home-text text-center">
-                    <h1 class="home-title text-uppercase"><?php if($this->session->userdata('lang')=='cn'){echo "万吉红龙鱼场有限公司.";}else {echo "The world’s best exporter and captive breeder of asian arowana";}?></h1>
+                    <h1 class="home-title text-uppercase"><?php if($this->session->userdata('lang')=='cn'){echo "万吉红龙鱼场有限公司.";}else {echo "The world’s best captive breeder and exporter of asian arowana";}?></h1>
                 </div>
             </div>
 
