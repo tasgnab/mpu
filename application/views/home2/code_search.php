@@ -210,22 +210,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?libraries=places&key=AIzaSyBbJC1p09_Yfed8I7zZDnSJwcsr-A6QDZQ"></script>
 <!-- COMMON JS -->
 <script type="text/javascript" src="<?=base_url();?>assets/home2/js/scripts.js"></script>
-<script type="text/javascript">
-    function initialize() {
-        var latlng = new google.maps.LatLng(-6.35612,106.90630);
-        var myOptions = {
-            zoom: 15,
-            center: latlng,
-            mapTypeId: google.maps.MapTypeId.ROADMAP
-        };
-        var map = new google.maps.Map(document.getElementById("map3"), myOptions);
-        var marker = new google.maps.Marker({
-            position: new google.maps.LatLng(-6.35612,106.90630),
-            map: map,
-            icon: 'assets/home2/images/marker.png'
-        });
-    }
-    google.maps.event.addDomListener(window, "load", initialize);
-</script>
+<?php include_once('map-footer-script.php');?>
 </body>
 </html>
