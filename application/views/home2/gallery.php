@@ -16,7 +16,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     <li><a class="active" href="#" data-toggle="tooltip" title="12" data-filter="*"><?php if($this->session->userdata('lang')=='cn'){echo "所有";}else {echo "All";}?></a></li>
                     <li><a href="#" data-toggle="tooltip" title="6" data-filter=".collection"><?php if($this->session->userdata('lang')=='cn'){echo "红龙鱼";}else {echo "Collection";}?></a></li>
                     <li><a href="#" data-toggle="tooltip" title="6" data-filter=".farm"><?php if($this->session->userdata('lang')=='cn'){echo "鱼场";}else {echo "Farm";}?></a></li>
-                    <li><a href="#" data-toggle="tooltip" title="6" data-filter=".office"><?php if($this->session->userdata('lang')=='cn'){echo "办公室";}else {echo "Office";}?></a></li>
+                    <li><a href="#" data-toggle="tooltip" title="3" data-filter=".office"><?php if($this->session->userdata('lang')=='cn'){echo "办公室";}else {echo "Office";}?></a></li>
                 </ul><!--/#portfolio-filter-->
                 <div class="portfolio-items">
                     <div class="col-md-4 col-sm-6 work-grid collection">
