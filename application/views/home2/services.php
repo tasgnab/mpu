@@ -16,7 +16,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         <i class="fa fa-plane"></i>
                     </div>
                     <h2 class="text-uppercase"> <?php if($this->session->userdata('lang')=='cn'){echo "出口质量";}else {echo "Export Quality";}?></h2>
-                    <p><?php if($this->session->userdata('lang')=='cn'){echo "我们是超级红龙鱼鱼出口的先驱。 自1985年以来，我们一直在出口我们的鱼，我们有如何处理它的经验。";}else {echo "We are the pioneer of Super Red Arowana Fish Export. We has been exporting our fish since 1985, we have the experience on how to handle it.";}?></p>
+                    <p><?php if($this->session->userdata('lang')=='cn'){echo "我们是超级红龙鱼鱼出口的先驱。 自1985年以来，我们一直在出口我们的鱼，我们有如何处理它的经验。";}else {echo "We have been exporting our fish since 1985. We are experienced in handling the processes.";}?></p>
                 </div><!-- END SINGLE SERVICE-->
             </div>
             <div class="col-md-4">
@@ -25,7 +25,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         <i class="fa fa-archive"></i>
                     </div>
                     <h2 class="text-uppercase"> <?php if($this->session->userdata('lang')=='cn'){echo "包装质量";}else {echo "Packing Quality";}?></h2>
-                    <p><?php if($this->session->userdata('lang')=='cn'){echo "我们的鱼类包装经历了每个过程完成之前和之后需要检查和确认的过程。 氧气水平，水位和高质量，所有这些都是彻底完成的，所以龙鱼鱼在交货时不会受到压力。";}else {echo "Our fish packaging undergoes processes in which needs to check and confirm before and after each process is done. Oxygen level, water level, and top-quality, all of these are thoroughly done so the Arowana Fish do not get stressed during delivery.";}?></p>
+                    <p><?php if($this->session->userdata('lang')=='cn'){echo "我们的鱼类包装经历了每个过程完成之前和之后需要检查和确认的过程。 氧气水平，水位和高质量，所有这些都是彻底完成的，所以龙鱼鱼在交货时不会受到压力。";}else {echo "Our fish packaging undergoes processes in which need to be checked and confirmed before and after each process is done. Oxygen level, water level, and other things are thoroughly inspected so the Arowana Fish do not get stressed during delivery.";}?></p>
                 </div><!-- END SINGLE SERVICE-->
             </div>
             <div class="col-md-4">
@@ -45,7 +45,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         <i class="fa fa-user"></i>
                     </div>
                     <h2 class="text-uppercase"> <?php if($this->session->userdata('lang')=='cn'){echo "经验丰富的技术人员";}else {echo "Experienced and Skilled Staff";}?></h2>
-                    <p><?php if($this->session->userdata('lang')=='cn'){echo "我们每个部门都有一个分部负责人，以确保始终如一的表现。 生产负责人，销售主管，质量控制部门和营销主管。";}else {echo "We have a head of division for every division to ensure top performance at all times; Head of Production, Head of Sales, Quality Control, and Head of Marketing.";}?></p>
+                    <p><?php if($this->session->userdata('lang')=='cn'){echo "我们每个部门都有一个分部负责人，以确保始终如一的表现。 生产负责人，销售主管，质量控制部门和营销主管。";}else {echo "We have a group of experienced people to ensure top quality and performance at all times in these segments: Production, Sales, Quality Control, and Marketing.";}?></p>
                 </div><!-- END SINGLE SERVICE-->
             </div>
             <div class="col-md-4">
@@ -54,7 +54,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         <i class="fa fa-star"></i>
                     </div>
                     <h2 class="text-uppercase"> <?php if($this->session->userdata('lang')=='cn'){echo "农场声誉";}else {echo "Farm Reputation";}?></h2>
-                    <p><?php if($this->session->userdata('lang')=='cn'){echo "我们的目标是成为最大的Arowana农场，位于Cibubur，不久将被移至Jonggol。 我们在广州花都还有1000个展厅。 世界各地的嗜好者和金鱼鱼代理人最有可能知道这些术语之一，Munjul F5或孟继儿。";}else {echo "We aim to be the biggest Arowana Farm, located in Cibubur and soon to be moved to Jonggol. We also have 1000 auqrium showroom in Huadu, GuangZhou. Hobbyists and Arowana Fish Agents all around the world most likely know either one of these terms, Munjul F5 or Meng Ji Er.";}?></p>
+                    <p><?php if($this->session->userdata('lang')=='cn'){echo "我们的目标是成为最大的Arowana农场，位于Cibubur，不久将被移至Jonggol。 我们在广州花都还有1000个展厅。 世界各地的嗜好者和金鱼鱼代理人最有可能知道这些术语之一，Munjul F5或孟继儿。";}else {echo "We aim to be the greatest Arowana Farm. We are located in Cibubur and soon moving to Jonggol (16 hectares). We also have a 1000-aquarium showroom in Huadu, GuangZhou (China). Hobbyists and Arowana Fish Agents from all around the world most likely know either one of these terms, Munjul F5 or Meng Ji Er.";}?></p>
                 </div><!-- END SINGLE SERVICE-->
             </div>
             <div class="col-md-4">

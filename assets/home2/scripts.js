@@ -483,11 +483,11 @@
             scaleControl: false,
             draggable: true,
             styles: [{"stylers": [{"hue": "blue"}, {"gamma": 1}]}],
-            center: new google.maps.LatLng(-6.35612,106.90630),
+            center: new google.maps.LatLng(23.438126, 113.305104),
             mapTypeId: google.maps.MapTypeId.ROADMAP
         });
         var marker2 = new google.maps.Marker({
-            position: new google.maps.LatLng(-6.35612,106.90630),
+            position: new google.maps.LatLng(23.438126, 113.305104),
             map: map2,
             icon: 'assets/home2/images/marker.png'
         });

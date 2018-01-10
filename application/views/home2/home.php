@@ -17,7 +17,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <div class="home home-3 slide-2">
             <div class="container-fluid">
                 <div class="home-text text-center">
-                    <h1 class="home-title text-uppercase"><?php if($this->session->userdata('lang')=='cn'){echo "自1990年起注册CITES";}else {echo "Registered CITES since 1990";}?></h1>
+                    <h1 class="home-title text-uppercase"><?php if($this->session->userdata('lang')=='cn'){echo "自1996年起注册CITES";}else {echo "Registered CITES since 1996";}?></h1>
                 </div>
             </div>
         </div>
