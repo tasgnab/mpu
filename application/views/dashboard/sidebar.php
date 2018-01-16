@@ -40,7 +40,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                       <li><a href="<?=base_url();?>dashboard/code/list">View List</a></li>
                     </ul>
                   </li>
-                  <!--
                   <li><a><i class="fa fa-desktop"></i> Gallery <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                       <li><a href="<?=base_url();?>dashboard/gallery/upload">Upload</a></li>
@@ -48,7 +47,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     </ul>
                   </li>
                   <li><a href="<?=base_url();?>dashboard/contact"><i class="fa fa-user"></i> Contact </a></li>
-                  -->
                 </ul>
               </div>
             </div>

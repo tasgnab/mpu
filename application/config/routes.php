@@ -54,9 +54,15 @@ $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 $route['language/(:any)'] = 'language/index/$1';
 $route['dashboard'] = 'dashboard/home';
-$route['dashboard/code/list'] = 'dashboard/code/list_code';
-$route['dashboard/code/input'] = 'dashboard/code/code_input';
 
+$route['dashboard/code/list'] = 'dashboard/code/code_list';
+$route['dashboard/code/input'] = 'dashboard/code/code_input';
 $route['dashboard/code/edit/(:any)'] = 'dashboard/code/code_edit/$1';
-$route['dashboard/code/insertImage/(:any)'] = 'dashboard/code/code_add_image/$1';
+$route['dashboard/code/edit']['post']  = 'dashboard/code/do_edit';
+$route['dashboard/code/delete']['post'] = 'dashboard/code/do_delete';
+$route['dashboard/code/insertImage/(:any)']['get'] = 'dashboard/code/code_upload_image/$1';
+$route['dashboard/code/insertImage']['post'] = 'dashboard/code/insertImage';
+$route['dashboard/code/viewImage/(:any)']['get'] = 'dashboard/code/code_view_image/$1';
+$route['dashboard/code/deleteImage']['post'] = 'dashboard/code/code_delete_image';
 $route['dashboard/gallery/upload'] = 'dashboard/gallery/upload_gallery';
+

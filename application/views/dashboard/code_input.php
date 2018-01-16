@@ -22,17 +22,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <link href="<?=base_url();?>assets/vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
     <!-- NProgress -->
     <link href="<?=base_url();?>assets/vendors/nprogress/nprogress.css" rel="stylesheet">
-    <!-- iCheck -->
-    <link href="<?=base_url();?>assets/vendors/iCheck/skins/flat/green.css" rel="stylesheet">
-	   <!-- Dropzone.js -->
-    <link href="<?=base_url();?>assets/vendors/dropzone/dist/min/dropzone.min.css" rel="stylesheet">
-    <!-- bootstrap-progressbar -->
-    <link href="<?=base_url();?>assets/vendors/bootstrap-progressbar/css/bootstrap-progressbar-3.3.4.min.css" rel="stylesheet">
-    <!-- JQVMap -->
-    <link href="<?=base_url();?>assets/vendors/jqvmap/dist/jqvmap.min.css" rel="stylesheet"/>
-    <!-- bootstrap-daterangepicker -->
-    <link href="<?=base_url();?>assets/vendors/bootstrap-daterangepicker/daterangepicker.css" rel="stylesheet">
-
     <!-- Custom Theme Style -->
     <link href="<?=base_url();?>assets/build/css/custom.css" rel="stylesheet">
   </head>
@@ -128,9 +117,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <script src="<?=base_url();?>assets/vendors/fastclick/lib/fastclick.js"></script>
     <!-- NProgress -->
     <script src="<?=base_url();?>assets/vendors/nprogress/nprogress.js"></script>
-    <!-- Dropzone.js -->
-    <script src="<?=base_url();?>assets/vendors/dropzone/dist/min/dropzone.min.js"></script>
-
     <!-- Custom Theme Scripts -->
     <script src="<?=base_url();?>assets/build/js/custom.min.js"></script>
     <script type="text/javascript">

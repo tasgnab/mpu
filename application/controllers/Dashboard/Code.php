@@ -21,6 +21,7 @@ class Code extends MY_Controller {
 	function __construct(){
         parent::__construct();
         $this->load->model('MCode');
+        $this->load->model('MGallery');
     } 
 
 	public function index(){
@@ -88,27 +89,54 @@ class Code extends MY_Controller {
 				redirect(base_url('dashboard/code'));
 			}
 		}
-		
 	}
 
 	public function do_edit(){
 		if (!$this->is_login()){
 			redirect(base_url('dashboard/login'));
 		} 
+		$error_found = false;
 		if ($this->input->post()){
 			$data = array(
 				'type' => $this->input->post('category'), 
 				'description' => $this->input->post('description'), 
 				'description_cn' => $this->input->post('description_cn')
 			);
-			$this->MCode->updateCode($data, $this->input->post('code'));
-			$this->session->set_flashdata('message', "Data Updated");
-				redirect(base_url('dashboard/code'));
-		} 
+			if (!$this->handleUpdateCode($data, $this->input->post('code'))){
+				$message = "Failed to Updated Code";
+				$error_found = true;
+			} else {
+				$this->session->set_flashdata('message', 'Code Updated');
+				redirect(base_url('dashboard/code/list'));
+			}
+		}
+		if ($error_found){
+			$this->session->set_flashdata('message', $message);
+			redirect(base_url('dashboard/code/list'));
+		}
 	}
-		
 
-	public function list_code(){
+	public function do_delete(){
+		if (!$this->is_login()){
+			redirect(base_url('dashboard/login'));
+		} 
+		$error_found = false;
+		if ($this->input->post()){
+			if (!$this->handleDeleteCode($this->input->post('code'))){
+				$message = "Failed to Delete Code";
+				$error_found = true;
+			} else {
+				$this->session->set_flashdata('message', 'Code Deleted');
+				redirect(base_url('dashboard/code/list'));
+			}
+		} 
+		if ($error_found){
+			$this->session->set_flashdata('message', $message);
+			redirect(base_url('dashboard/code/list'));
+		}
+	}
+
+	public function code_list(){
 		if ($this->is_login()){
 			$data['code_list'] = $this->MCode->allCode();
 			$this->load->view('dashboard/code_list',$data);
@@ -117,14 +145,14 @@ class Code extends MY_Controller {
 		}
 	}
 
-	public function code_add_image($code){
+	public function code_upload_image($code){
 		if ($this->is_login()){
 			if ($code){
 				$data  = array('code' => $code);
 				$codeData = $this->MCode->searchCode($data);
 				if ($codeData){
 					$this->session->set_userdata('code', $code);
-					$this->load->view('dashboard/upload_image');
+					$this->load->view('dashboard/code_upload_image',$data);
 				} else {
 					$this->session->set_flashdata('message', "MicroChip doesn't exist");
 					redirect(base_url('dashboard/code'));
@@ -135,12 +163,46 @@ class Code extends MY_Controller {
 		}
 	}
 
-	public function doUploadImage(){
+	public function code_view_image($code){
+		if (!$this->is_login()){
+			redirect(base_url('dashboard/login'));
+		} 
+		if ($code){
+			$data['code'] = $code;
+			$data['images'] = $this->MGallery->searchGallery($code);
+			$this->load->view('dashboard/code_view_image', $data);
+		}
+	}
+
+	public function code_delete_image(){
+		if (!$this->is_login()){
+			redirect(base_url('dashboard/login'));
+		} 
+		$error_found = false;
+		if ($this->input->post()){
+			$data['code'] = $this->input->post('code');
+			$data['filename'] = $this->input->post('filename');
+			
+			if ($this->handleDeleteImage($data)){
+				$this->session->set_flashdata('message', 'Image Deleted');
+				redirect(base_url('dashboard/code/viewImage/'.$data['code']));
+			} else {
+				$error_found = true;
+				$message = "Failed to delete image";
+			}
+		}
+		if ($error_found){
+			$this->session->set_flashdata('message', $message);
+			redirect(base_url('dashboard/code/list'));
+		}
+	}
+
+	public function insertImage(){
 		if ($this->is_login()){
 			if (!empty($_FILES)) {
 				$tempFile = $_FILES['file']['tmp_name'];
 				$oriFilename = $_FILES['file']['name'];
-				$targetPath = getcwd() . '/upload/';
+				$targetPath = getcwd() . '/upload/code/';
 				$randomString = random_string('alnum', 10);
 				$fileName = $randomString . '.jpg';
 				$targetFile = $targetPath . $fileName;
@@ -158,7 +220,7 @@ class Code extends MY_Controller {
 					'code' => $this->session->userdata('code'),
 					'filename' => $fileName
 				 );
-				$this->MCode->addPicture($data);
+				$this->MGallery->insertGallery($data);
 			}
 		} else {
 			redirect(base_url('dashboard/login'));
@@ -173,5 +235,28 @@ class Code extends MY_Controller {
 		}
 	}
 
+	private function handleUpdateCode($data, $code){
+		if ($this->MCode->updateCode($data, $code) != 1){
+			return false;
+		} else {
+			return true;
+		}
+	}
+
+	private function handleDeleteCode($code){
+		if ($this->MCode->deleteCode($code) != 1){
+			return false;
+		} else {
+			return true;
+		}
+	}
+
+	private function handleDeleteImage($data){
+		if ($this->MGallery->deleteGallery($data) != 1){
+			return false;
+		} else {
+			return true;
+		}
+	}
 
 }

@@ -22,16 +22,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <link href="<?=base_url();?>assets/vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
     <!-- NProgress -->
     <link href="<?=base_url();?>assets/vendors/nprogress/nprogress.css" rel="stylesheet">
-    <!-- iCheck -->
-    <link href="<?=base_url();?>assets/vendors/iCheck/skins/flat/green.css" rel="stylesheet">
-	   <!-- Dropzone.js -->
-    <link href="<?=base_url();?>assets/vendors/dropzone/dist/min/dropzone.min.css" rel="stylesheet">
-    <!-- bootstrap-progressbar -->
-    <link href="<?=base_url();?>assets/vendors/bootstrap-progressbar/css/bootstrap-progressbar-3.3.4.min.css" rel="stylesheet">
-    <!-- JQVMap -->
-    <link href="<?=base_url();?>assets/vendors/jqvmap/dist/jqvmap.min.css" rel="stylesheet"/>
-    <!-- bootstrap-daterangepicker -->
-    <link href="<?=base_url();?>assets/vendors/bootstrap-daterangepicker/daterangepicker.css" rel="stylesheet">
     <!-- Datatables -->
     <link href="<?=base_url();?>assets/vendors/datatables.net-bs/css/dataTables.bootstrap.min.css" rel="stylesheet">
     <link href="<?=base_url();?>assets/vendors/datatables.net-buttons-bs/css/buttons.bootstrap.min.css" rel="stylesheet">
@@ -60,12 +50,19 @@ defined('BASEPATH') OR exit('No direct script access allowed');
               <div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="x_panel">
                   <div class="x_content">
-          
+                    <?php if ($this->session->flashdata('message')):?>
+                    <div class="alert alert-success alert-dismissible fade in" role="alert">
+                      <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span>
+                      </button>
+                      <strong> <?=$this->session->flashdata('message'); ?>
+                    </div>
+                    <?php endif; ?>
                     <table id="datatable-responsive" class="table table-striped table-bordered dt-responsive nowrap" cellspacing="0" width="100%">
                       <thead>
                         <tr>
                           <th>Code</th>
                           <th>Type</th>
+                          <th></th>
                           <th></th>
                         </tr>
                       </thead>
@@ -76,6 +73,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                           <td><?=$code->type;?></td>
                           <td>
                             <span><a href="<?=base_url('dashboard/code/edit/').$code->code;?>"><button type="button" class="btn btn-default">Edit</button></a></span>
+                            <span><button type="button" class="btn btn-warning" onclick="deleteCode('<?=$code->code;?>')">Delete</button></span>
+                          </td>
+                          <td>
+                            <span><a href="<?=base_url('dashboard/code/viewImage/').$code->code;?>"><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">View Image</button></a></span>
                             <span><a href="<?=base_url('dashboard/code/insertImage/').$code->code;?>"><button id="showUpload" type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal">Upoad Image</button></a></span>
                           </td>
                         </tr>
@@ -109,8 +110,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <script src="<?=base_url();?>assets/vendors/fastclick/lib/fastclick.js"></script>
     <!-- NProgress -->
     <script src="<?=base_url();?>assets/vendors/nprogress/nprogress.js"></script>
-    <!-- Dropzone.js -->
-    <script src="<?=base_url();?>assets/vendors/dropzone/dist/min/dropzone.min.js"></script>
     <!-- Datatables -->
     <script src="<?=base_url();?>assets/vendors/datatables.net/js/jquery.dataTables.min.js"></script>
     <script src="<?=base_url();?>assets/vendors/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
@@ -129,5 +128,20 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <script src="<?=base_url();?>assets/vendors/pdfmake/build/vfs_fonts.js"></script>
     <!-- Custom Theme Scripts -->
     <script src="<?=base_url();?>assets/build/js/custom.min.js"></script>
+    <script type="text/javascript">
+      function deleteCode(code) {
+        method = "post"; 
+        var form = document.createElement("form");
+        form.setAttribute("method", method);
+        form.setAttribute("action", '<?=base_url('dashboard/code/delete');?>');
+        var hiddenField = document.createElement("input");
+        hiddenField.setAttribute("type", "hidden");
+        hiddenField.setAttribute("name", "code");
+        hiddenField.setAttribute("value", code);
+        form.appendChild(hiddenField);
+        document.body.appendChild(form);
+        form.submit();
+    }
+    </script>
   </body>
 </html>

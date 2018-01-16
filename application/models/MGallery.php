@@ -12,12 +12,18 @@ class MGallery extends MY_Model {
 		return $this->db->affected_rows();
 	}
 
+	function deleteGallery($data){
+		$this->db->where($data);
+		$this->db->delete('gallery');
+		return $this->db->affected_rows();
+	}
+
 	function searchGallery($code){
 		$this->db->select('*');
 		$this->db->from('gallery');
 		$this->db->where('code',$code);
 		$this->db->where('is_deleted','N');
-		$this->db->order_by('code', 'asc');
+		$this->db->order_by('id', 'asc');
 		return $this->db->get()->result();
 	}
 

@@ -20,6 +20,12 @@ class MCode extends MY_Model {
 		return $this->db->affected_rows();
 	}
 
+	function deleteCode($code){
+		$this->db->where('code',$code);
+		$this->db->delete('chip_code');
+		return $this->db->affected_rows();
+	}
+
 	function allCode(){
 		$this->db->select('*');
 		$this->db->from('chip_code');
@@ -48,12 +54,6 @@ class MCode extends MY_Model {
 		$this->db->where('is_deleted','N');
 		$this->db->order_by('filename', 'asc');
 		return $this->db->get()->result();
-	}
-
-	function addPicture($data){
-		$data = $this->appendCreatedUpdatedBy($data);
-		$this->db->insert('gallery',$data);
-		return $this->db->affected_rows();
 	}
 
 }

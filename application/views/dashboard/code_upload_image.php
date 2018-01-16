@@ -56,7 +56,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 <div class="x_panel">
                   <div class="x_content">
                     <br />
-                    <form class="dropzone" action="<?=base_url('dashboard/code/doUploadImage'); ?>" id="myDropzoneContainer" enctype="multipart/form-data">
+                    <form class="dropzone" action="<?=base_url('dashboard/code/insertImage'); ?>" id="myDropzoneContainer" enctype="multipart/form-data">
                       <div class="dz-message" data-dz-message><span>Click or drop your files here.<br>Max filesize 1 MB.</span></div>
                       <div class="fallback">
                         <input name="file" type="file">
@@ -64,7 +64,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     </form>
                     <div class="ln_solid"></div>
                     
-                    <a href="<?=base_url('dashboard/code');?>"><button style="float: right" type="submit" class="btn btn-success">Finish</button></a>
+                    <a href="<?=base_url('dashboard/code/viewImage/'.$code);?>"><button style="float: right" class="btn btn-success">Finish</button></a>
                     
                   </div>
                 </div>

@@ -126,7 +126,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     <!-- Member Image -->
                     <?php if (isset($images)): ?>
                     <?php foreach($images as $image): ?>
-                    <img src="<?=base_url('upload/code/'.$image->filename);?>" alt="">
+                    <img src="<?=base_url('upload/code/'.$image->filename);?>" alt="" style="padding: 10px 0;">
                     <?php endforeach; ?>
                     <?php endif; ?>
                 </div>

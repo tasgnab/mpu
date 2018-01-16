@@ -36,7 +36,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
           <div class="">
             <div class="page-title">
               <div class="title_left">
-                <h3>Change Password</h3>
+                <h3>Edit Chip Code</h3>
               </div>
             </div>
             <div class="clearfix"></div>
@@ -44,45 +44,39 @@ defined('BASEPATH') OR exit('No direct script access allowed');
               <div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="x_panel">
                   <div class="x_content">
-                    <br />
                     <?php if ($this->session->flashdata('message')):?>
                     <div class="alert alert-success alert-dismissible fade in" role="alert">
                       <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span>
                       </button>
-                      <strong>Holy guacamole!</strong> <?=$this->session->flashdata('message'); ?>
+                      <strong> <?=$this->session->flashdata('message'); ?>
                     </div>
                     <?php endif; ?>
-                    <form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left" action="<?=base_url('dashboard/login/doChangePassword');?>" method="post">
-                      <div class="form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Old Password <span class="required">*</span></label>
-                        <div class="col-md-4 col-sm-4 col-xs-12">
-                          <input type="password" id="old_password" name="old_password" required="required" class="form-control col-md-7 col-xs-12">
+                    <?php foreach ($images as $image): ?>
+                    <div class="col-md-55">
+                      <div class="thumbnail" style="height: 100%;">
+                        <div class="image view view-first">
+                          <img style="width: 100%; display: block;" src="<?=base_url('upload/code/').$image->filename;?>" alt="image" />
+                          <div class="mask">
+                            <p>Delete</p>
+                            <div class="tools tools-bottom">
+                              <a onclick="deleteImage('<?=$image->filename;?>')""><i class="fa fa-trash"></i></a>
+                            </div>
+                          </div>
                         </div>
                       </div>
-                      <div class="form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">New Password <span class="required">*</span></label>
-                        <div class="col-md-4 col-sm-4 col-xs-12">
-                          <input type="password" id="new_password" name="new_password" required="required" class="form-control col-md-7 col-xs-12">
+                    </div>
+                    <?php endforeach; ?>
+                    <div class="col-md-2">
+                      <div class="thumbnail" style="height: 100%;">
+                        <div class="image view view-first">
+                          <a href="<?=base_url('dashboard/code/insertImage/').$code;?>"><i class="fa fa-plus" style="font-size: 100px;"></i></a>
                         </div>
                       </div>
-                      <div class="form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Repeat New Password <span class="required">*</span></label>
-                        <div class="col-md-4 col-sm-4 col-xs-12">
-                          <input type="password" id="new_password2" name="new_password2" required="required" class="form-control col-md-7 col-xs-12">
-                        </div>
-                      </div>
-                      <div class="ln_solid"></div>
-                      <div class="form-group">
-                        <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
-                          <button type="submit" class="btn btn-success">Change Password</button>
-                        </div>
-                      </div>
-                    </form>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
-
           </div>
         </div>
         <!-- /page content -->
@@ -106,8 +100,29 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <script src="<?=base_url();?>assets/vendors/fastclick/lib/fastclick.js"></script>
     <!-- NProgress -->
     <script src="<?=base_url();?>assets/vendors/nprogress/nprogress.js"></script>
+    <!-- Dropzone.js -->
+    <script src="<?=base_url();?>assets/vendors/dropzone/dist/min/dropzone.min.js"></script>
+
     <!-- Custom Theme Scripts -->
     <script src="<?=base_url();?>assets/build/js/custom.min.js"></script>
-	
+    <script type="text/javascript">
+      function deleteImage(filename) {
+        var form = document.createElement("form");
+        form.setAttribute("method", "post");
+        form.setAttribute("action", '<?=base_url('dashboard/code/deleteImage');?>');
+        var hiddenField = document.createElement("input");
+        hiddenField.setAttribute("type", "hidden");
+        hiddenField.setAttribute("name", "filename");
+        hiddenField.setAttribute("value", filename);
+        form.appendChild(hiddenField);
+        var hiddenField2 = document.createElement("input");
+        hiddenField2.setAttribute("type", "hidden");
+        hiddenField2.setAttribute("name", "code");
+        hiddenField2.setAttribute("value", "<?=$code;?>");
+        form.appendChild(hiddenField2);
+        document.body.appendChild(form);
+        form.submit();
+    }
+    </script>
   </body>
 </html>
