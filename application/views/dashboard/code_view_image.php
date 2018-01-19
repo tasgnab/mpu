@@ -36,7 +36,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
           <div class="">
             <div class="page-title">
               <div class="title_left">
-                <h3>Edit Chip Code</h3>
+                <h3>Image for <?=$code;?></h3>
               </div>
             </div>
             <div class="clearfix"></div>
