@@ -222,6 +222,7 @@ class Code extends MY_Controller {
 				 );
 				$this->MGallery->insertGallery($data);
 			}
+			redirect(base_url('dashboard/gallery/input'));
 		} else {
 			redirect(base_url('dashboard/login'));
 		}

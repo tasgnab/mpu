@@ -42,7 +42,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                   </li>
                   <li><a><i class="fa fa-desktop"></i> Gallery <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                      <li><a href="<?=base_url();?>dashboard/gallery/upload">Upload</a></li>
+                      <li><a href="<?=base_url();?>dashboard/gallery/input">Upload</a></li>
                       <li><a href="<?=base_url();?>dashboard/gallery">View</a></li>
                     </ul>
                   </li>

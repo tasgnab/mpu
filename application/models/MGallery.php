@@ -13,8 +13,11 @@ class MGallery extends MY_Model {
 	}
 
 	function deleteGallery($data){
+		$data2 = array('is_deleted' => 'Y');
+		$data2 = $this->appendUpdatedBy($data2);
+		$this->db->set($data2);
 		$this->db->where($data);
-		$this->db->delete('gallery');
+		$this->db->update('gallery');
 		return $this->db->affected_rows();
 	}
 
@@ -27,5 +30,14 @@ class MGallery extends MY_Model {
 		return $this->db->get()->result();
 	}
 
+	function allGallery(){
+		$where = "code in ('Office', 'Farm', 'Collection')";
+		$this->db->select('*');
+		$this->db->from('gallery');
+		$this->db->where($where);
+		$this->db->where('is_deleted','N');
+		$this->db->order_by('id', 'asc');
+		return $this->db->get()->result();
+	}
 
 }

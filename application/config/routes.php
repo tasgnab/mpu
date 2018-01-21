@@ -64,5 +64,6 @@ $route['dashboard/code/insertImage/(:any)']['get'] = 'dashboard/code/code_upload
 $route['dashboard/code/insertImage']['post'] = 'dashboard/code/insertImage';
 $route['dashboard/code/viewImage/(:any)']['get'] = 'dashboard/code/code_view_image/$1';
 $route['dashboard/code/deleteImage']['post'] = 'dashboard/code/code_delete_image';
-$route['dashboard/gallery/upload'] = 'dashboard/gallery/upload_gallery';
-
+$route['dashboard/gallery/input']['get'] = 'dashboard/gallery/gallery_input';
+$route['dashboard/gallery/input']['post'] = 'dashboard/gallery/do_input';
+$route['dashboard/gallery/delete']['post'] = 'dashboard/gallery/do_delete';
