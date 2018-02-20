@@ -38,7 +38,11 @@ class Code extends MY_Controller {
 					if ($imageData){
 						$data['images'] = $imageData;
 					}
-					$this->load->view('home2/code_search',$data);
+					if($this->session->userdata('lang')=='cn'){
+						$this->load->view('home2/code_search_cn',$data);
+					}else {
+						$this->load->view('home2/code_search',$data);
+					}
 				} else {
 					$message = "Record doesn't exist";
 					$error_found = true;
@@ -48,7 +52,12 @@ class Code extends MY_Controller {
 				$error_found = true;
 			}
 		} else {
-			$this->load->view('home2/code');
+			if($this->session->userdata('lang')=='cn'){
+				$this->load->view('home2/code_cn');
+			}else {
+				$this->load->view('home2/code');
+			}
+			
 		}
 
 		if ($error_found){

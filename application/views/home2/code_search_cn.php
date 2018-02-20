@@ -75,15 +75,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <div id="myNavbar" class="navbar-collapse collapse">
                 <div class="main-menu">
                     <ul class="nav navbar-nav navbar-right">
-                        <li class="active"><a class="smooth-scroll" href="<?=base_url();?>#home"> Home </a></li> 
-                        <li><a class="smooth-scroll" href="<?=base_url();?>#about"> Profile </a></li>
-                        <li><a class="smooth-scroll" href="<?=base_url();?>#service"> Advantages </a></li> 
-                        <li><a class="smooth-scroll" href="<?=base_url();?>#portfolio"> Gallery </a></li>
-                        <li><a class="smooth-scroll" href="<?=base_url();?>#term"> Terms and Payments </a></li> 
-                        <li><a class="smooth-scroll" href="<?=base_url();?>#contact"> Locations </a></li>  
-                        <li><a class="smooth-scroll" href="<?=base_url('code');?>"> Code </a></li>  
+                        <li class="active"><a class="smooth-scroll" href="<?=base_url();?>#home"> 首页 </a></li> 
+                        <li><a class="smooth-scroll" href="<?=base_url();?>#about"> 公司介绍 </a></li>
+                        <!--<li><a class="smooth-scroll" href="<?=base_url();?>#service"> 我们的优势 </a></li> -->
+                        <li><a class="smooth-scroll" href="<?=base_url();?>#portfolio"> 照片 </a></li>
+                        <!--<li><a class="smooth-scroll" href="<?=base_url();?>#term"> 付款条件 </a></li> -->
+                        <li><a class="smooth-scroll" href="<?=base_url();?>#contact"> 位置 </a></li>  
+                        <li><a class="smooth-scroll" href="<?=base_url('code');?>"> 位置 </a></li>  
                         <li class="dropdown">
-                            <a href="#" class="dropdown-toggle " data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="flag-icon flag-icon-gb"></span> English</a>
+                            <a href="#" class="dropdown-toggle " data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class=\"flag-icon flag-icon-cn\"></span> 简体中文";}else {echo "<span class=\"flag-icon flag-icon-gb\"></span> English";}?></a>
                             <ul class="dropdown-menu text-capitalize">
                                 <li><a href="<?=base_url();?>language/en"><span class="flag-icon flag-icon-gb"></span> English</a></li>
                                 <li><a href="<?=base_url();?>language/cn"><span class="flag-icon flag-icon-cn"></span> 简体中文</a></li>
@@ -100,11 +100,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <div class="main-content">
     <div class="main-header text-left">
         <div class="container">
-            <h2 class="main-title text-capitalize">Search MicroChip</h2>
+            <h2 class="main-title text-capitalize">搜索MicroChip</h2>
             <div class="bar search-bar">
                 <!-- Search Form -->
                 <form class="search-form relative" action="<?=base_url('code');?>" method="post">
-                    <input type="text" name="code" id="code" class="search" placeholder="Search...">
+                    <input type="text" name="code" id="code" class="search" placeholder="搜索...">
                     <button type="submit" class="search-button"><i class="fa fa-search"></i></button>
                 </form>
             </div>

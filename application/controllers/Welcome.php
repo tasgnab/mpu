@@ -18,8 +18,18 @@ class Welcome extends MY_Controller {
 	 * map to /index.php/welcome/<method_name>
 	 * @see https://codeigniter.com/user_guide/general/urls.html
 	 */
+	function __construct(){
+        parent::__construct();
+        $this->load->model('MGallery');
+    }
 	public function index(){
-		$this->config->item('sitename');
-		$this->load->view('home2/main');
+		$data['galleries_P'] = $this->MGallery->allGalleryP();
+		$data['galleries_N'] = $this->MGallery->allGalleryN();
+		
+		if($this->session->userdata('lang')=='cn'){
+			$this->load->view('home2/main_cn');
+		}else {
+			$this->load->view('home2/main');
+		}
 	}
 }

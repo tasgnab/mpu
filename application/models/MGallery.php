@@ -40,4 +40,26 @@ class MGallery extends MY_Model {
 		return $this->db->get()->result();
 	}
 
+	function allGalleryP(){
+		$where = "code in ('Office', 'Farm', 'Collection')";
+		$this->db->select('*');
+		$this->db->from('gallery');
+		$this->db->where($where);
+		$this->db->where('is_panorama','Y');
+		$this->db->where('is_deleted','N');
+		$this->db->order_by('id', 'asc');
+		return $this->db->get()->result();
+	}
+
+	function allGalleryN(){
+		$where = "code in ('Office', 'Farm', 'Collection')";
+		$this->db->select('*');
+		$this->db->from('gallery');
+		$this->db->where($where);
+		$this->db->where('is_panorama','N');
+		$this->db->where('is_deleted','N');
+		$this->db->order_by('id', 'asc');
+		return $this->db->get()->result();
+	}
+
 }

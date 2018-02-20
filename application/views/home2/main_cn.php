@@ -75,15 +75,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <div id="myNavbar" class="navbar-collapse collapse">
                 <div class="main-menu">
                     <ul class="nav navbar-nav navbar-right">
-                        <li class="active"><a class="smooth-scroll" href="#home"> Home </a></li> 
-                        <li><a class="smooth-scroll" href="#about"> Profile </a></li>
-                        <li><a class="smooth-scroll" href="#service"> Advantages </a></li> 
-                        <li><a class="smooth-scroll" href="#portfolio"> Gallery </a></li>
-                        <li><a class="smooth-scroll" href="#term"> Terms and Payments </a></li> 
-                        <li><a class="smooth-scroll" href="#contact"> Locations </a></li>  
-                        <li><a class="smooth-scroll" href="<?=base_url('code');?>"> Code </a></li>  
+                        <li class="active"><a class="smooth-scroll" href="#home"> 首页 </a></li> 
+                        <li><a class="smooth-scroll" href="#about"> 公司介绍 </a></li>
+                        <!--<li><a class="smooth-scroll" href="#service"> 我们的优势 </a></li>-->
+                        <li><a class="smooth-scroll" href="#portfolio"> 照片 </a></li>
+                        <!--<li><a class="smooth-scroll" href="#term"> 付款条件 </a></li>-->
+                        <li><a class="smooth-scroll" href="#contact"> 位置 </a></li>  
+                        <li><a class="smooth-scroll" href="<?=base_url('code');?>"> 位置 </a></li>  
                         <li class="dropdown">
-                            <a href="#" class="dropdown-toggle " data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="flag-icon flag-icon-gb"></span> English</a>
+                            <a href="#" class="dropdown-toggle " data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="flag-icon flag-icon-cn"></span> 简体中文</a>
                             <ul class="dropdown-menu text-capitalize">
                                 <li><a href="<?=base_url();?>language/en"><span class="flag-icon flag-icon-gb"></span> English</a></li>
                                 <li><a href="<?=base_url();?>language/cn"><span class="flag-icon flag-icon-cn"></span> 简体中文</a></li>
@@ -97,13 +97,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     </nav>
 </header>
 <!--End Header-->
-<?php include_once('home.php');?>
-<?php include_once('about_us.php');?>
-<?php include_once('services.php');?>
+<?php include_once('home_cn.php');?>
+<?php include_once('about_us_cn.php');?>
+<?php //include_once('services_cn.php');?>
 <?php include_once('gallery.php');?>
-<?php include_once('term.php');?>
-<?php include_once('contact_us.php');?>
-<?php include_once('footer.php');?>
+<?php //include_once('term_cn.php');?>
+<?php include_once('contact_us_cn.php');?>
+<?php include_once('footer_cn.php');?>
 
 <!-- JQUERY LIBRARY -->
 <script type="text/javascript" src="<?=base_url();?>assets/home2/js/jquery-1.11.3.min.js"></script>

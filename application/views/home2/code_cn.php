@@ -75,15 +75,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <div id="myNavbar" class="navbar-collapse collapse">
                 <div class="main-menu">
                     <ul class="nav navbar-nav navbar-right">
-                        <li class="active"><a class="smooth-scroll" href="<?=base_url();?>#home"> Home </a></li> 
-                        <li><a class="smooth-scroll" href="<?=base_url();?>#about"> Profile </a></li>
-                        <li><a class="smooth-scroll" href="<?=base_url();?>#service"> Advantages </a></li> 
-                        <li><a class="smooth-scroll" href="<?=base_url();?>#portfolio"> Gallery </a></li>
-                        <li><a class="smooth-scroll" href="<?=base_url();?>#term"> Terms and Payments </a></li> 
-                        <li><a class="smooth-scroll" href="<?=base_url();?>#contact"> Locations </a></li>  
-                        <li><a class="smooth-scroll" href="<?=base_url('code');?>"> Code </a></li>  
+                        <li class="active"><a class="smooth-scroll" href="<?=base_url();?>#home"> 首页 </a></li> 
+                        <li><a class="smooth-scroll" href="<?=base_url();?>#about"> 公司介绍 </a></li>
+                        <!--<li><a class="smooth-scroll" href="<?=base_url();?>#service"> 我们的优势 </a></li> -->
+                        <li><a class="smooth-scroll" href="<?=base_url();?>#portfolio"> 照片 </a></li>
+                        <!--<li><a class="smooth-scroll" href="<?=base_url();?>#term"> 付款条件 </a></li> -->
+                        <li><a class="smooth-scroll" href="<?=base_url();?>#contact"> 位置 </a></li>  
+                        <li><a class="smooth-scroll" href="<?=base_url('code');?>"> 位置 </a></li>  
                         <li class="dropdown">
-                            <a href="#" class="dropdown-toggle " data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="flag-icon flag-icon-gb"></span> English</a>
+                            <a href="#" class="dropdown-toggle " data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class=\"flag-icon flag-icon-cn\"></span> 简体中文</a>
                             <ul class="dropdown-menu text-capitalize">
                                 <li><a href="<?=base_url();?>language/en"><span class="flag-icon flag-icon-gb"></span> English</a></li>
                                 <li><a href="<?=base_url();?>language/cn"><span class="flag-icon flag-icon-cn"></span> 简体中文</a></li>
@@ -100,86 +100,20 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <div class="main-content">
     <div class="main-header text-left">
         <div class="container">
-            <h2 class="main-title text-capitalize">Search MicroChip</h2>
+            <h2 class="main-title text-capitalize">搜索MicroChip</h2>
+            <?php if ($this->session->flashdata('message')):?>
+            <div class="alert alert-success alert-dismissible fade in" role="alert">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button>
+                <strong> <?=$this->session->flashdata('message'); ?>
+            </div>
+            <?php endif; ?>
             <div class="bar search-bar">
                 <!-- Search Form -->
                 <form class="search-form relative" action="<?=base_url('code');?>" method="post">
-                    <input type="text" name="code" id="code" class="search" placeholder="Search...">
+                    <input type="text" name="code" id="code" class="search" placeholder="搜索...">
                     <button type="submit" class="search-button"><i class="fa fa-search"></i></button>
                 </form>
             </div>
-        </div>
-    </div>
-    <div class="container section-padding">
-        <!-- Member Name -->
-        <div class="section-header text-center">
-            <!-- section title-->
-            <h2 class="text-uppercase">Code : <?=$code->code;?></h2>
-            <p> <?=$code->type;?></p>
-        </div>
-        <!-- End Head -->
-        <div class="row">
-            <!-- Modal Left -->
-            <div class="col-sm-6">
-                <!-- Img, Div -->
-                <div class="modal-img">
-                    <!-- Member Image -->
-                    <?php if (isset($images)): ?>
-                    <?php foreach($images as $image): ?>
-                    <img src="<?=base_url('upload/code/'.$image->filename);?>" alt="" style="padding: 10px 0;">
-                    <?php endforeach; ?>
-                    <?php endif; ?>
-                </div>
-            </div>
-            <!-- End Member Left -->
-            <!-- Modal Right -->
-            <div class="col-sm-6 text-left">
-                <div class="project-details">
-                    <!-- Header -->
-                    <h4 class="text-uppercase">
-                        About <?=$code->type;?>
-                    </h4>
-                </div>
-                <div class="skills">
-                    <h4 class="text-uppercase"><?=$code->type;?></h4>
-                    <div class="progress">
-                        <!-- Progress Bar -->
-                        <div class="progress-bar text-left" role="progressbar" aria-valuenow="60"
-                             aria-valuemin="0" aria-valuemax="100" style="width:<?=$spec['body'];?>%">
-                            <span class="skill-value text-uppercase">Body <?=$spec['body'];?> / 100</span>
-                        </div>
-                    </div>
-                    <!-- End Progress Bar -->
-                    <div class="progress">
-                        <!-- Progress Bar -->
-                        <div class="progress-bar text-left" role="progressbar" aria-valuenow="70"
-                             aria-valuemin="0" aria-valuemax="100" style="width:<?=$spec['color'];?>%">
-                            <span class="skill-value text-uppercase">Color <?=$spec['color'];?> / 100</span>
-                        </div>
-                        <!-- End Progress Bar -->
-                    </div>
-                    <div class="progress">
-                        <!-- Progress Bar -->
-                        <div class="progress-bar text-left" role="progressbar" aria-valuenow="90"
-                             aria-valuemin="0" aria-valuemax="100" style="width: <?=$spec['fin'];?>%">
-                            <span class="skill-value text-uppercase">Fin  <?=$spec['fin'];?> / 100</span>
-                        </div>
-                        <!-- End Progress Bar -->
-                    </div>
-                </div>
-<!--                <div class="member-social">
-                    <ul>
-                        <li><a class="twitter" href=""><i class="fa fa-twitter"></i></a></li>
-                        <li><a class="facebook" href=""><i class="fa fa-facebook"></i></a></li>
-                        <li><a class="linkedin" href=""><i class="fa fa-linkedin"></i></a></li>
-                        <li><a class="google-plus" href=""><i class="fa fa-google-plus"></i></a></li>
-                        <li><a class="github" href=""><i class="fa fa-github"></i></a></li>
-                        <li><a class="instagram" href=""><i class="fa fa-instagram"></i></a></li>
-                    </ul>
-                </div>-->
-
-            </div>
-            <!-- Modal Right -->
         </div>
     </div>
 </div>

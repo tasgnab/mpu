@@ -10,7 +10,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <div class="col-md-4">
                 <div class="contact-address text-left">
                     <address>
-                        <?php if($this->session->userdata('lang')=='cn'){echo "办公室";}else {echo "OFFICE";}?> : <br>
+                        办公室 : <br>
                         Huadu District, Guangzhou, Guangdong <br>
                     </address>
                     <a href="mailto:munjulprima@yahoo.com">munjulprima@yahoo.com</a>
@@ -21,7 +21,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <div class="col-md-4">
                 <div class="contact-address text-right">
                     <address>
-                        <?php if($this->session->userdata('lang')=='cn'){echo "鱼场";}else {echo "FARM";}?> : <br>
+                        鱼场 : <br>
                         Jl. Pd. Rangon No. 63, Pd. Ranggon, Cipayung <br>
                         Kota Jakarta Timur 13860, Indonesia<br>
                     </address>

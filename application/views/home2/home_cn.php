@@ -7,7 +7,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <div class="home home-3 slide-1">
             <div class="container-fluid">
                 <div class="home-text text-center">
-                    <h1 class="home-title text-uppercase">The world’s best captive breeder and exporter of asian arowana.</h1>
+                    <h1 class="home-title text-uppercase">万吉红龙鱼场有限公司.</h1>
                 </div>
             </div>
 
@@ -17,7 +17,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <div class="home home-3 slide-2">
             <div class="container-fluid">
                 <div class="home-text text-center">
-                    <h1 class="home-title text-uppercase">Registered CITES since 1996.</h1>
+                    <h1 class="home-title text-uppercase">自1996年起注册CITES</h1>
                 </div>
             </div>
         </div>
@@ -26,7 +26,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <div class="home home-3 slide-3">
             <div class="container-fluid">
                 <div class="home-text text-center">
-                     <h1 class="home-title text-uppercase">Well known farm among hobbyist.</h1>
+                     <h1 class="home-title text-uppercase">着名的农场爱好者之间</h1>
                 </div>
             </div>
         </div>

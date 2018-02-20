@@ -69,21 +69,21 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="<?=base_url();?>"><img src="<?=base_url();?>assets/home2/images/logo.png" alt=""></a>
+                <a class="navbar-brand" href="<?=base_url();?>"><img src="<?=base_url();?>assets/home2/images/logo-toro.png" alt=""></a>
             </div>
 
             <div id="myNavbar" class="navbar-collapse collapse">
                 <div class="main-menu">
                     <ul class="nav navbar-nav navbar-right">
-                        <li class="active"><a class="smooth-scroll" href="<?=base_url();?>#home"> <?php if($this->session->userdata('lang')=='cn'){echo "首页";}else {echo "Home";}?> </a></li> 
-                        <li><a class="smooth-scroll" href="<?=base_url();?>#about"> <?php if($this->session->userdata('lang')=='cn'){echo "公司介绍";}else {echo "Profile";}?> </a></li>
-                        <li><a class="smooth-scroll" href="<?=base_url();?>#service"> <?php if($this->session->userdata('lang')=='cn'){echo "我们的优势";}else {echo "Advantages";}?> </a></li> 
-                        <li><a class="smooth-scroll" href="<?=base_url();?>#portfolio"> <?php if($this->session->userdata('lang')=='cn'){echo "照片";}else {echo "Gallery";}?> </a></li>
-                        <li><a class="smooth-scroll" href="<?=base_url();?>#term"> <?php if($this->session->userdata('lang')=='cn'){echo "付款条件";}else {echo "Terms and Payments";}?> </a></li> 
-                        <li><a class="smooth-scroll" href="<?=base_url();?>#contact"> <?php if($this->session->userdata('lang')=='cn'){echo "位置";}else {echo "Locations";}?> </a></li>  
-                        <li><a class="smooth-scroll" href="<?=base_url('code');?>"> <?php if($this->session->userdata('lang')=='cn'){echo "位置";}else {echo "Code";}?> </a></li>  
+                        <li class="active"><a class="smooth-scroll" href="<?=base_url();?>#home"> Home </a></li> 
+                        <li><a class="smooth-scroll" href="<?=base_url();?>#about"> Profile </a></li>
+                        <li><a class="smooth-scroll" href="<?=base_url();?>#service"> Advantages </a></li> 
+                        <li><a class="smooth-scroll" href="<?=base_url();?>#portfolio"> Gallery </a></li>
+                        <li><a class="smooth-scroll" href="<?=base_url();?>#term"> Terms and Payments </a></li> 
+                        <li><a class="smooth-scroll" href="<?=base_url();?>#contact"> Locations </a></li>  
+                        <li><a class="smooth-scroll" href="<?=base_url('code');?>"> Code </a></li>  
                         <li class="dropdown">
-                            <a href="#" class="dropdown-toggle " data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><?php if($this->session->userdata('lang')=='cn'){echo "<span class=\"flag-icon flag-icon-cn\"></span> 简体中文";}else {echo "<span class=\"flag-icon flag-icon-gb\"></span> English";}?></a>
+                            <a href="#" class="dropdown-toggle " data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="flag-icon flag-icon-gb"></span> English</a>
                             <ul class="dropdown-menu text-capitalize">
                                 <li><a href="<?=base_url();?>language/en"><span class="flag-icon flag-icon-gb"></span> English</a></li>
                                 <li><a href="<?=base_url();?>language/cn"><span class="flag-icon flag-icon-cn"></span> 简体中文</a></li>
@@ -100,7 +100,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <div class="main-content">
     <div class="main-header text-left">
         <div class="container">
-            <h2 class="main-title text-capitalize"><?php if($this->session->userdata('lang')=='cn'){echo "搜索MicroChip";}else {echo "Search MicroChip";}?></h2>
+            <h2 class="main-title text-capitalize">Search MicroChip</h2>
             <?php if ($this->session->flashdata('message')):?>
             <div class="alert alert-success alert-dismissible fade in" role="alert">
                 <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button>
@@ -110,7 +110,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <div class="bar search-bar">
                 <!-- Search Form -->
                 <form class="search-form relative" action="<?=base_url('code');?>" method="post">
-                    <input type="text" name="code" id="code" class="search" placeholder="<?php if($this->session->userdata('lang')=='cn'){echo "搜索";}else {echo "Search";}?>...">
+                    <input type="text" name="code" id="code" class="search" placeholder="Search...">
                     <button type="submit" class="search-button"><i class="fa fa-search"></i></button>
                 </form>
             </div>
