@@ -40,6 +40,15 @@ class Gallery extends MY_Controller {
 		}
 	}
 
+	public function gallery_edit($id){
+		if ($this->is_login()){
+			$data = $this->MGallery->searchGalleryById($id);
+			$this->load->view('dashboard/gallery_edit', $data);
+		} else {
+			redirect(base_url('dashboard/login'));
+		}
+	}
+
 	public function do_input(){
 		if (!$this->is_login()){
 			redirect(base_url('dashboard/login'));
@@ -89,6 +98,34 @@ class Gallery extends MY_Controller {
 		}
 	}
 
+	public function do_edit(){
+		if (!$this->is_login()){
+			redirect(base_url('dashboard/login'));
+		}
+
+		$error_found = false;
+		if ($this->input->post()){
+			$data = array(
+				'code' => $this->input->post('category'),
+				'is_panorama' => (null !== $this->input->post('is_panorama'))?$this->input->post('is_panorama'):'N',
+				'description' => $this->input->post('description'),
+				'description_cn' => $this->input->post('description_cn')
+			);
+			if ($this->handlEditImage($data, $this->input->post('id'))){
+				$this->session->set_flashdata('message', 'Gallery Updated');
+				redirect(base_url('dashboard/gallery'));
+			} else {
+				$error_found = true;
+				$message = "Failed to update record";
+			}
+		}
+		
+		if ($error_found){
+			$this->session->set_flashdata('message', $message);
+			redirect(base_url('dashboard/gallery'));
+		}
+	}
+
 	public function do_delete(){
 		if (!$this->is_login()){
 			redirect(base_url('dashboard/login'));
@@ -115,6 +152,14 @@ class Gallery extends MY_Controller {
 
 	private function handlInsertImage($data){
 		if ($this->MGallery->insertGallery($data) != 1){
+			return false;
+		} else {
+			return true;
+		}
+	}
+
+	private function handlEditImage($data, $id){
+		if ($this->MGallery->updateGallery($data, $id) != 1){
 			return false;
 		} else {
 			return true;

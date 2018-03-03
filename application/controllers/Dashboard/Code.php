@@ -56,12 +56,17 @@ class Code extends MY_Controller {
 			}
 
 			if (!$error_found){
-				if (!$this->handleInsertCode($data)){
-					$message = "Failed to Insert Code";
+				if ($this->isDuplicate($data)){
 					$error_found = true;
+					$message = " Code [".$data['code']."] is Exist.";
 				} else {
-					$this->session->set_flashdata('message', $data['code'].' Inserted');
-					$this->load->view('dashboard/code_input');
+					if (!$this->handleInsertCode($data)){
+						$error_found = true;
+						$message = "Failed to Insert Code";
+					} else {
+						$this->session->set_flashdata('message', $data['code'].' Inserted');
+						$this->load->view('dashboard/code_input');
+					}
 				}
 			}
 		} else {
@@ -89,6 +94,79 @@ class Code extends MY_Controller {
 				redirect(base_url('dashboard/code'));
 			}
 		}
+	}
+
+	public function code_upload(){
+		if ($this->is_login()){
+			$this->load->view('dashboard/code_upload');
+		} else {
+			redirect(base_url('dashboard/login'));
+		}
+	}
+
+	public function do_code_upload(){
+		if (!$this->is_login()){
+			redirect(base_url('dashboard/login'));
+		}
+
+		$error_found = false;
+		if (!empty($_FILES)) {
+			$rowdata = array();
+			$tempFile = $_FILES['file']['tmp_name'];
+			$oriFilename = $_FILES['file']['name'];
+			$targetPath = getcwd() . '/upload/csv/';
+			$randomString = random_string('alnum', 10);
+			$fileName = $randomString . '.csv';
+			$targetFile = $targetPath . $fileName;
+			if (!move_uploaded_file($tempFile, $targetFile)){
+				$error_found = true;
+				$message = "Upload failed.";
+			} else {
+				$row = 1;
+				if (($handle = fopen($targetFile, "r")) !== FALSE) {
+					$message = "Error in row number : <br>";
+					while (($rowdata = fgetcsv($handle, 4096)) !== FALSE) {
+						if (count($rowdata) >= 2){
+							$data['code'] = $rowdata[0];
+							$data['type'] = trim($rowdata[1]);
+
+							if ($this->isDuplicate($data)){
+								$error_found = true;
+								$message = $message.$row." Code [".$data['code']."] is Exist <br>";
+							} else {
+								if (in_array($data['type'], $this->config->item('category'))){
+									if (!$this->handleInsertCode($data)){
+										$error_found = true;
+										$message = $message.$row."<br>";
+									}
+								} else {
+									$error_found = true;
+									$message = $message.$row." Please check the Type<br>";
+								}
+							}
+						} else {
+							$error_found = true;
+							$message = $message.$row." Please check the Column<br>";
+						}
+						$row++;
+					}
+					fclose($handle);
+				} else {
+					$error_found = true;
+					$message = "Failed reading file.";
+				}
+			}
+		} else {
+			$error_found = true;
+			$message = "Empty Files.";
+		}
+
+		if ($error_found){
+			$this->session->set_flashdata('message', $message);
+		} else {
+			$this->session->set_flashdata('message', 'All Record successfully processed');
+		}
+		redirect(base_url('dashboard/code/upload'));
 	}
 
 	public function do_edit(){
@@ -140,6 +218,37 @@ class Code extends MY_Controller {
 		if ($this->is_login()){
 			$data['code_list'] = $this->MCode->allCode();
 			$this->load->view('dashboard/code_list',$data);
+		} else {
+			redirect(base_url('dashboard/login'));
+		}
+	}
+
+	public function code_list_page(){
+		if ($this->is_login()){
+			$draw = intval($this->input->get("draw"));
+			$start = intval($this->input->get("start"));
+			$length = intval($this->input->get("length"));
+
+			$code = $this->MCode->allCode();
+			$data = array();
+
+			foreach($code->result() as $r) {
+				$data[] = array(
+					$r->code,
+					$r->type,
+					'<span><a href="'.base_url('dashboard/code/edit/').$r->code.'"><button type="button" class="btn btn-default">Edit</button></a></span><span><button type="button" class="btn btn-warning" onclick="deleteCode(\''.$r->code.'\')">Delete</button></span>',
+					'<span><a href="'.base_url('dashboard/code/viewImage/').$r->code.'"><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">View Image</button></a></span><span><a href="'.base_url('dashboard/code/insertImage/').$r->code.'"><button id="showUpload" type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal">Upoad Image</button></a></span>'
+				);
+			}
+
+			$output = array(
+				"draw" => $draw,
+				"recordsTotal" => $code->num_rows(),
+				"recordsFiltered" => $code->num_rows(),
+				"data" => $data
+			);
+			echo json_encode($output);
+			exit();
 		} else {
 			redirect(base_url('dashboard/login'));
 		}
@@ -197,7 +306,7 @@ class Code extends MY_Controller {
 		}
 	}
 
-	public function insertImage(){
+	public function do_upload_image(){
 		if ($this->is_login()){
 			if (!empty($_FILES)) {
 				$tempFile = $_FILES['file']['tmp_name'];
@@ -258,6 +367,14 @@ class Code extends MY_Controller {
 		} else {
 			return true;
 		}
+	}
+
+	private function isDuplicate($data){
+		$isDuplicate = $this->MCode->searchCode($data);
+		if ($isDuplicate){
+			return true;
+		}
+		return false;
 	}
 
 }

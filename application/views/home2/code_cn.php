@@ -81,7 +81,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         <li><a class="smooth-scroll" href="<?=base_url();?>#portfolio"> 照片 </a></li>
                         <!--<li><a class="smooth-scroll" href="<?=base_url();?>#term"> 付款条件 </a></li> -->
                         <li><a class="smooth-scroll" href="<?=base_url();?>#contact"> 位置 </a></li>  
-                        <li><a class="smooth-scroll" href="<?=base_url('code');?>"> 位置 </a></li>  
+                        <li><a class="smooth-scroll" href="<?=base_url('code');?>"> 查芯片号码 </a></li> 
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle " data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class=\"flag-icon flag-icon-cn\"></span> 简体中文</a>
                             <ul class="dropdown-menu text-capitalize">
@@ -100,7 +100,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <div class="main-content">
     <div class="main-header text-left">
         <div class="container">
-            <h2 class="main-title text-capitalize">搜索MicroChip</h2>
+            <h2 class="main-title text-capitalize">查芯片号码</h2>
             <?php if ($this->session->flashdata('message')):?>
             <div class="alert alert-success alert-dismissible fade in" role="alert">
                 <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button>

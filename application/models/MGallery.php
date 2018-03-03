@@ -6,12 +6,21 @@ class MGallery extends MY_Model {
         parent::__construct();
     }
 
-    function insertGallery($data){
+    function insertGallery($data, $id){
     	$data = $this->appendCreatedUpdatedBy($data);
 		$this->db->insert('gallery',$data);
 		return $this->db->affected_rows();
 	}
 
+    function updateGallery($data, $id){
+    	$data = $this->appendUpdatedBy($data);
+    	$this->db->set($data);
+		$this->db->where('id', $id);
+		$this->db->update('gallery');
+		return $this->db->affected_rows();
+	}
+
+	
 	function deleteGallery($data){
 		$data2 = array('is_deleted' => 'Y');
 		$data2 = $this->appendUpdatedBy($data2);
@@ -28,6 +37,15 @@ class MGallery extends MY_Model {
 		$this->db->where('is_deleted','N');
 		$this->db->order_by('id', 'asc');
 		return $this->db->get()->result();
+	}
+
+	function searchGalleryById($id){
+		$this->db->select('*');
+		$this->db->from('gallery');
+		$this->db->where('id',$id);
+		$this->db->where('is_deleted','N');
+		$this->db->order_by('id', 'asc');
+		return $this->db->get()->row();
 	}
 
 	function allGallery(){
@@ -60,6 +78,11 @@ class MGallery extends MY_Model {
 		$this->db->where('is_deleted','N');
 		$this->db->order_by('id', 'asc');
 		return $this->db->get()->result();
+	}
+
+	function getCount(){
+		$query = $this->db->query('select "All" as category, count(1) as total from gallery where code in (\'Office\',\'Farm\',\'Collection\') union select code as category, count(code) as total from gallery where code in (\'Office\',\'Farm\',\'Collection\') group by code');
+		return $query->result();
 	}
 
 }

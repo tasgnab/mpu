@@ -6,8 +6,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <div class="container">
         <div class="section-header text-center">
             <!-- section title-->
-            <h2 class="text-uppercase">公司介绍</h2>
-            <p>世界上最好的出口商和养殖者的亚洲 龙鱼。</p>
+            <!--<h2 class="text-uppercase">公司介绍</h2>-->
+            <!--<p>世界上最好的出口商和养殖者的亚洲 龙鱼。</p>-->
         </div>
         <div class="row">
             <div class="col-md-6">

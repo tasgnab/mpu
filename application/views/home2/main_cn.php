@@ -81,7 +81,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         <li><a class="smooth-scroll" href="#portfolio"> 照片 </a></li>
                         <!--<li><a class="smooth-scroll" href="#term"> 付款条件 </a></li>-->
                         <li><a class="smooth-scroll" href="#contact"> 位置 </a></li>  
-                        <li><a class="smooth-scroll" href="<?=base_url('code');?>"> 位置 </a></li>  
+                        <li><a class="smooth-scroll" href="<?=base_url('code');?>"> 查芯片号码 </a></li>
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle " data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="flag-icon flag-icon-cn"></span> 简体中文</a>
                             <ul class="dropdown-menu text-capitalize">

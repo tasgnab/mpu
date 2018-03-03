@@ -37,6 +37,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                   <li><a><i class="fa fa-edit"></i> Code <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                       <li><a href="<?=base_url();?>dashboard/code">Input</a></li>
+                      <li><a href="<?=base_url();?>dashboard/code/upload">Upload File</a></li>
                       <li><a href="<?=base_url();?>dashboard/code/list">View List</a></li>
                     </ul>
                   </li>

@@ -66,22 +66,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                           <th></th>
                         </tr>
                       </thead>
-                      <tbody>
-                        <?php foreach($code_list as $code): ?> 
-                        <tr>
-                          <td><?=$code->code;?></td>
-                          <td><?=$code->type;?></td>
-                          <td>
-                            <span><a href="<?=base_url('dashboard/code/edit/').$code->code;?>"><button type="button" class="btn btn-default">Edit</button></a></span>
-                            <span><button type="button" class="btn btn-warning" onclick="deleteCode('<?=$code->code;?>')">Delete</button></span>
-                          </td>
-                          <td>
-                            <span><a href="<?=base_url('dashboard/code/viewImage/').$code->code;?>"><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">View Image</button></a></span>
-                            <span><a href="<?=base_url('dashboard/code/insertImage/').$code->code;?>"><button id="showUpload" type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal">Upoad Image</button></a></span>
-                          </td>
-                        </tr>
-                        <?php endforeach; ?>
-                      </tbody>
+                      <tbody></tbody>
                     </table>
                   </div>
                 </div>
@@ -127,8 +112,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <script src="<?=base_url();?>assets/vendors/pdfmake/build/pdfmake.min.js"></script>
     <script src="<?=base_url();?>assets/vendors/pdfmake/build/vfs_fonts.js"></script>
     <!-- Custom Theme Scripts -->
-    <script src="<?=base_url();?>assets/build/js/custom.min.js"></script>
+    <script src="<?=base_url();?>assets/build/js/custom.js"></script>
     <script type="text/javascript">
+      $('#datatable-responsive').DataTable({
+        "pageLength" : 25,
+        "ajax": {
+            url : "<?php echo base_url("dashboard/code/code_list_page") ?>",
+            type : 'GET'
+          },
+        });
       function deleteCode(code) {
         method = "post"; 
         var form = document.createElement("form");

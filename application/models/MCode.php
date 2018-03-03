@@ -31,7 +31,7 @@ class MCode extends MY_Model {
 		$this->db->from('chip_code');
 		$this->db->where('is_deleted','N');
 		$this->db->order_by('created_timestamp', 'desc');
-		return $this->db->get()->result();
+		return $this->db->get();
 	}
 
 	function searchCode($data){

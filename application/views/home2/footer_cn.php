@@ -6,6 +6,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <div class="footer-widget section-padding text-left">
         <div class="container">
             <div class="row">
+                <!--
                 <div class="col-sm-2">
                     <div class="widget widget-about">
                         <h2 class="widget-title text-uppercase"> 公司介绍</h2>
@@ -17,16 +18,17 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         </div>
                     </div>
                 </div>
-                <div class="col-sm-5">
+                -->
+                <div class="col-sm-6">
                     <div class="widget widget-post">
-                        <h2 class="widget-title text-uppercase"> Instagram的照片</h2>
+                        <h2 class="widget-title text-uppercase">Instagram照片</h2>
                         <!-- SnapWidget -->
                         <iframe src="https://snapwidget.com/embed/492342" class="snapwidget-widget" allowTransparency="true" frameborder="0" scrolling="no" style="border:none; overflow:hidden; width:390px; height:260px"></iframe>
                     </div>
                 </div>
-                <div class="col-sm-5">
+                <div class="col-sm-6">
                     <div class="widget widget-map">
-                        <h2 class="widget-title text-uppercase">办公室地图</h2>
+                        <h2 class="widget-title text-uppercase">地图</h2>
                         <div id="map3"></div>
                     </div>
                 </div>

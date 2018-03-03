@@ -100,7 +100,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <div class="main-content">
     <div class="main-header text-left">
         <div class="container">
-            <h2 class="main-title text-capitalize">Search MicroChip</h2>
+            <h2 class="main-title text-capitalize">Check Microchip No.</h2>
             <?php if ($this->session->flashdata('message')):?>
             <div class="alert alert-success alert-dismissible fade in" role="alert">
                 <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button>

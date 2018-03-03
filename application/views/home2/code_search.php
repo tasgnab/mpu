@@ -100,7 +100,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <div class="main-content">
     <div class="main-header text-left">
         <div class="container">
-            <h2 class="main-title text-capitalize">Search MicroChip</h2>
+            <h2 class="main-title text-capitalize">Check Microchip No.</h2>
             <div class="bar search-bar">
                 <!-- Search Form -->
                 <form class="search-form relative" action="<?=base_url('code');?>" method="post">
@@ -141,30 +141,23 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     </h4>
                 </div>
                 <div class="skills">
-                    <h4 class="text-uppercase"><?=$code->type;?></h4>
                     <div class="progress">
-                        <!-- Progress Bar -->
                         <div class="progress-bar text-left" role="progressbar" aria-valuenow="60"
                              aria-valuemin="0" aria-valuemax="100" style="width:<?=$spec['body'];?>%">
                             <span class="skill-value text-uppercase">Body <?=$spec['body'];?> / 100</span>
                         </div>
                     </div>
-                    <!-- End Progress Bar -->
                     <div class="progress">
-                        <!-- Progress Bar -->
                         <div class="progress-bar text-left" role="progressbar" aria-valuenow="70"
                              aria-valuemin="0" aria-valuemax="100" style="width:<?=$spec['color'];?>%">
                             <span class="skill-value text-uppercase">Color <?=$spec['color'];?> / 100</span>
                         </div>
-                        <!-- End Progress Bar -->
                     </div>
                     <div class="progress">
-                        <!-- Progress Bar -->
                         <div class="progress-bar text-left" role="progressbar" aria-valuenow="90"
                              aria-valuemin="0" aria-valuemax="100" style="width: <?=$spec['fin'];?>%">
                             <span class="skill-value text-uppercase">Fin  <?=$spec['fin'];?> / 100</span>
                         </div>
-                        <!-- End Progress Bar -->
                     </div>
                 </div>
 <!--                <div class="member-social">

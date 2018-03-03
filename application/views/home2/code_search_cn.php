@@ -81,9 +81,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         <li><a class="smooth-scroll" href="<?=base_url();?>#portfolio"> 照片 </a></li>
                         <!--<li><a class="smooth-scroll" href="<?=base_url();?>#term"> 付款条件 </a></li> -->
                         <li><a class="smooth-scroll" href="<?=base_url();?>#contact"> 位置 </a></li>  
-                        <li><a class="smooth-scroll" href="<?=base_url('code');?>"> 位置 </a></li>  
+                        <li><a class="smooth-scroll" href="<?=base_url('code');?>"> 查芯片号码 </a></li>
                         <li class="dropdown">
-                            <a href="#" class="dropdown-toggle " data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class=\"flag-icon flag-icon-cn\"></span> 简体中文";}else {echo "<span class=\"flag-icon flag-icon-gb\"></span> English";}?></a>
+                            <a href="#" class="dropdown-toggle " data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class=\"flag-icon flag-icon-cn\"></span> 简体中文 </a>
                             <ul class="dropdown-menu text-capitalize">
                                 <li><a href="<?=base_url();?>language/en"><span class="flag-icon flag-icon-gb"></span> English</a></li>
                                 <li><a href="<?=base_url();?>language/cn"><span class="flag-icon flag-icon-cn"></span> 简体中文</a></li>
@@ -100,7 +100,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <div class="main-content">
     <div class="main-header text-left">
         <div class="container">
-            <h2 class="main-title text-capitalize">搜索MicroChip</h2>
+            <h2 class="main-title text-capitalize">查芯片号码</h2>
             <div class="bar search-bar">
                 <!-- Search Form -->
                 <form class="search-form relative" action="<?=base_url('code');?>" method="post">
@@ -114,8 +114,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <!-- Member Name -->
         <div class="section-header text-center">
             <!-- section title-->
-            <h2 class="text-uppercase">Code : <?=$code->code;?></h2>
-            <p> <?=$code->type;?></p>
+            <h2 class="text-uppercase">查芯片 : <?=$code->code;?></h2>
+            <p> <?=$this->config->item('category_cn')[$code->type];?></p>
         </div>
         <!-- End Head -->
         <div class="row">
@@ -137,11 +137,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 <div class="project-details">
                     <!-- Header -->
                     <h4 class="text-uppercase">
-                        About <?=$code->type;?>
+                        描写
                     </h4>
                 </div>
                 <div class="skills">
-                    <h4 class="text-uppercase"><?=$code->type;?></h4>
                     <div class="progress">
                         <!-- Progress Bar -->
                         <div class="progress-bar text-left" role="progressbar" aria-valuenow="60"
@@ -183,7 +182,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         </div>
     </div>
 </div>
-<?php include_once('footer.php');?>
+<?php include_once('footer_cn.php');?>
 <!-- JQUERY LIBRARY -->
 <script type="text/javascript" src="<?=base_url();?>assets/home2/js/jquery-1.11.3.min.js"></script>
 <!-- BOOTSTRAP JS -->

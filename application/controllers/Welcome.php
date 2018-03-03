@@ -26,10 +26,18 @@ class Welcome extends MY_Controller {
 		$data['galleries_P'] = $this->MGallery->allGalleryP();
 		$data['galleries_N'] = $this->MGallery->allGalleryN();
 		
+		
+		$tmp = $this->MGallery->getCount();
+
+		$countGallery = array();
+		foreach ($tmp as $row){
+        	$countGallery[$row->category] = $row->total;
+		}
+		$data['countGallery'] = $countGallery;
 		if($this->session->userdata('lang')=='cn'){
-			$this->load->view('home2/main_cn');
+			$this->load->view('home2/main_cn',$data);
 		}else {
-			$this->load->view('home2/main');
+			$this->load->view('home2/main',$data);
 		}
 	}
 }

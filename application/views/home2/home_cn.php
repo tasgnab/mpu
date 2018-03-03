@@ -7,7 +7,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <div class="home home-3 slide-1">
             <div class="container-fluid">
                 <div class="home-text text-center">
-                    <h1 class="home-title text-uppercase">万吉红龙鱼场有限公司.</h1>
+                    <h1 class="home-title text-uppercase">特里斯红龙鱼场有限公司.</h1>
                 </div>
             </div>
 
