@@ -140,6 +140,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         About <?=$code->type;?>
                     </h4>
                 </div>
+            <!--
                 <div class="skills">
                     <div class="progress">
                         <div class="progress-bar text-left" role="progressbar" aria-valuenow="60"
@@ -160,7 +161,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         </div>
                     </div>
                 </div>
-<!--                <div class="member-social">
+            -->
+            <!--
+                <div class="member-social">
                     <ul>
                         <li><a class="twitter" href=""><i class="fa fa-twitter"></i></a></li>
                         <li><a class="facebook" href=""><i class="fa fa-facebook"></i></a></li>
@@ -169,10 +172,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         <li><a class="github" href=""><i class="fa fa-github"></i></a></li>
                         <li><a class="instagram" href=""><i class="fa fa-instagram"></i></a></li>
                     </ul>
-                </div>-->
+                </div>
+            -->
 
             </div>
-            <!-- Modal Right -->
         </div>
     </div>
 </div>

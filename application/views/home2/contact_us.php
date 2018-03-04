@@ -7,7 +7,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <div class="section-header text-center">
             <!-- section title-->
             <h2 class="text-uppercase">Locations</h2>
-            <p>For any inquiry or negotiation don't hesitate to contact us.</p>
+            <!--<p>For any inquiry or negotiation don't hesitate to contact us.</p>-->
         </div>
         <?php include_once('location.php'); ?>
     </div>

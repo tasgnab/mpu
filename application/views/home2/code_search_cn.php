@@ -140,33 +140,30 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         描写
                     </h4>
                 </div>
+            <!--
                 <div class="skills">
                     <div class="progress">
-                        <!-- Progress Bar -->
                         <div class="progress-bar text-left" role="progressbar" aria-valuenow="60"
                              aria-valuemin="0" aria-valuemax="100" style="width:<?=$spec['body'];?>%">
                             <span class="skill-value text-uppercase">Body <?=$spec['body'];?> / 100</span>
                         </div>
                     </div>
-                    <!-- End Progress Bar -->
                     <div class="progress">
-                        <!-- Progress Bar -->
                         <div class="progress-bar text-left" role="progressbar" aria-valuenow="70"
                              aria-valuemin="0" aria-valuemax="100" style="width:<?=$spec['color'];?>%">
                             <span class="skill-value text-uppercase">Color <?=$spec['color'];?> / 100</span>
                         </div>
-                        <!-- End Progress Bar -->
                     </div>
                     <div class="progress">
-                        <!-- Progress Bar -->
                         <div class="progress-bar text-left" role="progressbar" aria-valuenow="90"
                              aria-valuemin="0" aria-valuemax="100" style="width: <?=$spec['fin'];?>%">
                             <span class="skill-value text-uppercase">Fin  <?=$spec['fin'];?> / 100</span>
                         </div>
-                        <!-- End Progress Bar -->
                     </div>
                 </div>
-<!--                <div class="member-social">
+            -->
+            <!--
+                <div class="member-social">
                     <ul>
                         <li><a class="twitter" href=""><i class="fa fa-twitter"></i></a></li>
                         <li><a class="facebook" href=""><i class="fa fa-facebook"></i></a></li>
@@ -175,10 +172,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         <li><a class="github" href=""><i class="fa fa-github"></i></a></li>
                         <li><a class="instagram" href=""><i class="fa fa-instagram"></i></a></li>
                     </ul>
-                </div>-->
+                </div>
+            -->
 
             </div>
-            <!-- Modal Right -->
         </div>
     </div>
 </div>
