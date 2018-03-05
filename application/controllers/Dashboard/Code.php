@@ -110,55 +110,57 @@ class Code extends MY_Controller {
 		}
 
 		$error_found = false;
-		if (!empty($_FILES)) {
-			$rowdata = array();
-			$tempFile = $_FILES['file']['tmp_name'];
-			$oriFilename = $_FILES['file']['name'];
-			$targetPath = getcwd() . '/upload/csv/';
-			$randomString = random_string('alnum', 10);
-			$fileName = $randomString . '.csv';
-			$targetFile = $targetPath . $fileName;
-			if (!move_uploaded_file($tempFile, $targetFile)){
-				$error_found = true;
-				$message = "Upload failed.";
-			} else {
-				$row = 1;
-				if (($handle = fopen($targetFile, "r")) !== FALSE) {
-					$message = "Error in row number : <br>";
-					while (($rowdata = fgetcsv($handle, 4096)) !== FALSE) {
-						if (count($rowdata) >= 2){
-							$data['code'] = $rowdata[0];
-							$data['type'] = trim($rowdata[1]);
-
-							if ($this->isDuplicate($data)){
-								$error_found = true;
-								$message = $message.$row." Code [".$data['code']."] is Exist <br>";
-							} else {
-								if (in_array($data['type'], $this->config->item('category'))){
-									if (!$this->handleInsertCode($data)){
-										$error_found = true;
-										$message = $message.$row."<br>";
+		if ($this->input->post()){
+			if ($this->input->post('category')){
+				$data['type'] = $this->input->post('category');
+				if (!empty($_FILES)) {
+					$rowdata = array();
+					$tempFile = $_FILES['file']['tmp_name'];
+					$oriFilename = $_FILES['file']['name'];
+					$targetPath = getcwd() . '/upload/csv/';
+					$randomString = random_string('alnum', 10);
+					$fileName = $randomString . '.csv';
+					$targetFile = $targetPath . $fileName;
+					
+					if (!move_uploaded_file($tempFile, $targetFile)){
+						$error_found = true;
+						$message = "Upload failed.";
+					} else {
+						$row = 1;
+						if (($handle = fopen($targetFile, "r")) !== FALSE) {
+							$message = "Error in row number : <br>";
+							while (($rowdata = fgetcsv($handle, 5000)) !== FALSE) {
+								if (count($rowdata) >= 1){
+									$tmpString = $this->clean($rowdata[0]);
+									if (strlen($tmpString)>0){
+										$data['code'] = $tmpString;
+										if ($this->isDuplicate($data)){
+											$error_found = true;
+											$message = $message.$row." Code [".$data['code']."] is Exist <br>";
+										} else {
+											if (!$this->handleInsertCode($data)){
+												$error_found = true;
+												$message = $message.$row."<br>";
+											}
+										}
 									}
-								} else {
-									$error_found = true;
-									$message = $message.$row." Please check the Type<br>";
-								}
+								} 
+								$row++;
 							}
+							fclose($handle);
 						} else {
 							$error_found = true;
-							$message = $message.$row." Please check the Column<br>";
+							$message = "Failed reading file.";
 						}
-						$row++;
 					}
-					fclose($handle);
 				} else {
 					$error_found = true;
-					$message = "Failed reading file.";
+					$message = "Empty Files.";
 				}
+			} else {
+				$message = "Please choose Category";
+				$error_found = true;
 			}
-		} else {
-			$error_found = true;
-			$message = "Empty Files.";
 		}
 
 		if ($error_found){
@@ -375,6 +377,11 @@ class Code extends MY_Controller {
 			return true;
 		}
 		return false;
+	}
+
+	private function clean($string) {
+		$string = str_replace(' ', '-', $string);
+		return preg_replace('/[^A-Za-z0-9]/', '', $string);
 	}
 
 }

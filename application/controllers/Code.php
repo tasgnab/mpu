@@ -45,10 +45,16 @@ class Code extends MY_Controller {
 					}
 				} else {
 					$message = "Record doesn't exist";
+					if($this->session->userdata('lang')=='cn'){
+						$message = "记录不存在";
+					}
 					$error_found = true;
 				}
 			} else {
 				$message = "Please Insert MicroChip Code";
+				if($this->session->userdata('lang')=='cn'){
+					$message = "请插入代码";
+				}
 				$error_found = true;
 			}
 		} else {

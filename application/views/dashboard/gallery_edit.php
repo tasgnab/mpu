@@ -38,7 +38,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
           <div class="">
             <div class="page-title">
               <div class="title_left">
-                <h3>Input Gallery</h3>
+                <h3>Edit Gallery</h3>
               </div>
             </div>
             <div class="clearfix"></div>
@@ -56,6 +56,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     <br />
                     <form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left" action="<?=base_url('dashboard/gallery/edit');?>" method="post">
                       <input type="hidden" name="id" id="id" value="<?php echo $id;?>"/>
+                      <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="is_panorama"></label>
+                        <div class="col-md-4 col-sm-4 col-xs-12">
+                          <img src="<?=base_url();?>upload/code/<?=$filename;?>" style="width:  100%; height:  100%;"">
+                        </div>
+                      </div>
                       <div class="form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="category">Category <span class="required">*</span></label>
                         <div class="col-md-4 col-sm-4 col-xs-12">

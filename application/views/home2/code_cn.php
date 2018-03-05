@@ -117,7 +117,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         </div>
     </div>
 </div>
-<?php include_once('footer.php');?>
+<?php include_once('footer_cn.php');?>
 <!-- JQUERY LIBRARY -->
 <script type="text/javascript" src="<?=base_url();?>assets/home2/js/jquery-1.11.3.min.js"></script>
 <!-- BOOTSTRAP JS -->

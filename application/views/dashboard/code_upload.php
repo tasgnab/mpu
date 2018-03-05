@@ -59,12 +59,25 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         <label class="control-label col-md-3 col-sm-3 col-xs-12"  for="image">File <span class="required">*</span></label>
                         <div class="col-md-4 col-sm-4 col-xs-12">
                           <input type="file" class="form-control-file" name="file" required="required"/>
+                          <p>maximum 5000 line per file</p>
+                        </div>
+
+                      </div>
+                      <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="category">Category <span class="required">*</span></label>
+                        <div class="col-md-4 col-sm-4 col-xs-12">
+                          <select id="category" name="category" class="form-control" required="required">
+                            <option value="">Select category</option>
+                            <?php foreach ($this->config->item('category') as $category): ?>
+                              <option value="<?php echo $category;?>"><?php echo $category;?></option>
+                            <?php endforeach;?>
+                          </select>
                         </div>
                       </div>
                       <div class="ln_solid"></div>
+
                       <div class="form-group">
                         <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
-                          <button class="btn btn-primary" type="button" id="reset">Reset</button>
                           <button type="submit" class="btn btn-success">Submit</button>
                         </div>
                       </div>
