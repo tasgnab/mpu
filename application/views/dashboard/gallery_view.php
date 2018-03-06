@@ -57,6 +57,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         <div class="image view view-first" style="height: 200px;">
                           <img style="display: block;max-height: 100%; max-width: 100%; width: auto; height: auto; position: absolute; top: 0; bottom: 0; left: 0; right: 0; margin: auto;" src="<?=base_url('upload/code/').$image->filename;?>" alt="image" />
                           <div class="mask">
+                            <p><?=$image->code;?></p>
                             <p>Edit / Delete</p>
                             <div class="tools tools-bottom">
                               <a href="<?=base_url('dashboard/gallery/edit/').$image->id;?>"><i class="fa fa-pencil"></i></a>

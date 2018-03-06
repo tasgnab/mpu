@@ -38,7 +38,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
           <div class="">
             <div class="page-title">
               <div class="title_left">
-                <h3>Input Gallery</h3>
+                <h3>Upload File Microchip</h3>
               </div>
             </div>
             <div class="clearfix"></div>
