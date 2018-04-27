@@ -36,7 +36,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
           <div class="">
             <div class="page-title">
               <div class="title_left">
-                <h3>Gallery</h3>
+                <h3>Gallery <?=$category; ?></h3>
               </div>
             </div>
             <div class="clearfix"></div>
@@ -71,7 +71,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     <div class="col-md-2">
                       <div class="thumbnail" style="height: 100%;">
                         <div class="image view view-first">
-                          <a href="<?=base_url('dashboard/code/insertImage/');?>"><i class="fa fa-plus" style="font-size: 100px;"></i></a>
+                          <a href="<?=base_url('dashboard/gallery/input');?>"><i class="fa fa-plus" style="font-size: 100px;"></i></a>
                         </div>
                       </div>
                     </div>

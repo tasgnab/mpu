@@ -19,18 +19,9 @@ class Home extends MY_Controller {
 	 * @see https://codeigniter.com/user_guide/general/urls.html
 	 */
 	public function index(){
-		if ($this->is_login()){
-			redirect(base_url("dashboard/code/list"));
-		} else {
-			redirect(base_url("dashboard/login"));
+		if (!$this->is_login()){
+			redirect(base_url('dashboard/login'));
 		}
-	}
-
-	public function testimonial(){
-		if ($this->is_login()){
-			redirect(base_url("dashboard/code/list"));
-		} else {
-			redirect(base_url("dashboard/login"));
-		}
+		redirect(base_url("dashboard/code/list"));
 	}
 }

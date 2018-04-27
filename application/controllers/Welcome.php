@@ -20,20 +20,15 @@ class Welcome extends MY_Controller {
 	 */
 	function __construct(){
         parent::__construct();
-        $this->load->model('MGallery');
+        $this->load->model('MGallery');        
+        $this->load->model('MCategory');
     }
 	public function index(){
 		$data['galleries_P'] = $this->MGallery->allGalleryP();
 		$data['galleries_N'] = $this->MGallery->allGalleryN();
-		
-		
-		$tmp = $this->MGallery->getCount();
 
-		$countGallery = array();
-		foreach ($tmp as $row){
-        	$countGallery[$row->category] = $row->total;
-		}
-		$data['countGallery'] = $countGallery;
+		$data['count'] = $this->MCategory->allGalleryCategoryForLandingPage();
+
 		if($this->session->userdata('lang')=='cn'){
 			$this->load->view('home2/main_cn',$data);
 		}else {

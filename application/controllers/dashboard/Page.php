@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Code extends MY_Controller {
+class Page extends MY_Controller {
 
 	/**
 	 * Index Page for this controller.
@@ -25,10 +25,11 @@ class Code extends MY_Controller {
     } 
 
 	public function index(){
-		if (!$this->is_login()){
+		if ($this->is_login()){
+			$this->load->view('dashboard/code_input');
+		} else {
 			redirect(base_url('dashboard/login'));
-		} 
-		$this->load->view('dashboard/code_input');
+		}
 	}
 
 	public function code_input(){
@@ -96,10 +97,11 @@ class Code extends MY_Controller {
 	}
 
 	public function code_upload(){
-		if (!$this->is_login()){
+		if ($this->is_login()){
+			$this->load->view('dashboard/code_upload');
+		} else {
 			redirect(base_url('dashboard/login'));
-		} 
-		$this->load->view('dashboard/code_upload');
+		}
 	}
 
 	public function do_code_upload(){
@@ -108,57 +110,55 @@ class Code extends MY_Controller {
 		}
 
 		$error_found = false;
-		if ($this->input->post()){
-			if ($this->input->post('category')){
-				$data['type'] = $this->input->post('category');
-				if (!empty($_FILES)) {
-					$rowdata = array();
-					$tempFile = $_FILES['file']['tmp_name'];
-					$oriFilename = $_FILES['file']['name'];
-					$targetPath = getcwd() . '/upload/csv/';
-					$randomString = random_string('alnum', 10);
-					$fileName = $randomString . '.csv';
-					$targetFile = $targetPath . $fileName;
-					
-					if (!move_uploaded_file($tempFile, $targetFile)){
-						$error_found = true;
-						$message = "Upload failed.";
-					} else {
-						$row = 1;
-						if (($handle = fopen($targetFile, "r")) !== FALSE) {
-							$message = "Error in row number : <br>";
-							while (($rowdata = fgetcsv($handle, 5000)) !== FALSE) {
-								if (count($rowdata) >= 1){
-									$tmpString = $this->clean($rowdata[0]);
-									if (strlen($tmpString)>0){
-										$data['code'] = $tmpString;
-										if ($this->isDuplicate($data)){
-											$error_found = true;
-											$message = $message.$row." Code [".$data['code']."] is Exist <br>";
-										} else {
-											if (!$this->handleInsertCode($data)){
-												$error_found = true;
-												$message = $message.$row."<br>";
-											}
-										}
+		if (!empty($_FILES)) {
+			$rowdata = array();
+			$tempFile = $_FILES['file']['tmp_name'];
+			$oriFilename = $_FILES['file']['name'];
+			$targetPath = getcwd() . '/upload/csv/';
+			$randomString = random_string('alnum', 10);
+			$fileName = $randomString . '.csv';
+			$targetFile = $targetPath . $fileName;
+			if (!move_uploaded_file($tempFile, $targetFile)){
+				$error_found = true;
+				$message = "Upload failed.";
+			} else {
+				$row = 1;
+				if (($handle = fopen($targetFile, "r")) !== FALSE) {
+					$message = "Error in row number : <br>";
+					while (($rowdata = fgetcsv($handle, 4096)) !== FALSE) {
+						if (count($rowdata) >= 2){
+							$data['code'] = $rowdata[0];
+							$data['type'] = trim($rowdata[1]);
+
+							if ($this->isDuplicate($data)){
+								$error_found = true;
+								$message = $message.$row." Code [".$data['code']."] is Exist <br>";
+							} else {
+								if (in_array($data['type'], $this->config->item('category'))){
+									if (!$this->handleInsertCode($data)){
+										$error_found = true;
+										$message = $message.$row."<br>";
 									}
-								} 
-								$row++;
+								} else {
+									$error_found = true;
+									$message = $message.$row." Please check the Type<br>";
+								}
 							}
-							fclose($handle);
 						} else {
 							$error_found = true;
-							$message = "Failed reading file.";
+							$message = $message.$row." Please check the Column<br>";
 						}
+						$row++;
 					}
+					fclose($handle);
 				} else {
 					$error_found = true;
-					$message = "Empty Files.";
+					$message = "Failed reading file.";
 				}
-			} else {
-				$message = "Please choose Category";
-				$error_found = true;
 			}
+		} else {
+			$error_found = true;
+			$message = "Empty Files.";
 		}
 
 		if ($error_found){
@@ -215,57 +215,60 @@ class Code extends MY_Controller {
 	}
 
 	public function code_list(){
-		if (!$this->is_login()){
+		if ($this->is_login()){
+			$data['code_list'] = $this->MCode->allCode();
+			$this->load->view('dashboard/code_list',$data);
+		} else {
 			redirect(base_url('dashboard/login'));
 		}
-		$this->load->view('dashboard/code_list');
 	}
 
 	public function code_list_page(){
-		if (!$this->is_login()){
+		if ($this->is_login()){
+			$draw = intval($this->input->get("draw"));
+			$start = intval($this->input->get("start"));
+			$length = intval($this->input->get("length"));
+
+			$code = $this->MCode->allCode();
+			$data = array();
+
+			foreach($code->result() as $r) {
+				$data[] = array(
+					$r->code,
+					$r->type,
+					'<span><a href="'.base_url('dashboard/code/edit/').$r->code.'"><button type="button" class="btn btn-default">Edit</button></a></span><span><button type="button" class="btn btn-warning" onclick="deleteCode(\''.$r->code.'\')">Delete</button></span>',
+					'<span><a href="'.base_url('dashboard/code/viewImage/').$r->code.'"><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">View Image</button></a></span><span><a href="'.base_url('dashboard/code/insertImage/').$r->code.'"><button id="showUpload" type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal">Upoad Image</button></a></span>'
+				);
+			}
+
+			$output = array(
+				"draw" => $draw,
+				"recordsTotal" => $code->num_rows(),
+				"recordsFiltered" => $code->num_rows(),
+				"data" => $data
+			);
+			echo json_encode($output);
+			exit();
+		} else {
 			redirect(base_url('dashboard/login'));
 		}
-
-		$draw = intval($this->input->get("draw"));
-		$start = intval($this->input->get("start"));
-		$length = intval($this->input->get("length"));
-
-		$code = $this->MCode->allCode();
-		$data = array();
-
-		foreach($code->result() as $r) {
-			$data[] = array(
-				$r->code,
-				$r->type,
-				'<span><a href="'.base_url('dashboard/code/edit/').$r->code.'"><button type="button" class="btn btn-default">Edit</button></a></span><span><button type="button" class="btn btn-warning" onclick="deleteCode(\''.$r->code.'\')">Delete</button></span>',
-				'<span><a href="'.base_url('dashboard/code/viewImage/').$r->code.'"><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">View Image</button></a></span><span><a href="'.base_url('dashboard/code/insertImage/').$r->code.'"><button id="showUpload" type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal">Upoad Image</button></a></span>'
-			);
-		}
-
-		$output = array(
-			"draw" => $draw,
-			"recordsTotal" => $code->num_rows(),
-			"recordsFiltered" => $code->num_rows(),
-			"data" => $data
-		);
-		echo json_encode($output);
-		exit();
 	}
 
 	public function code_upload_image($code){
-		if (!$this->is_login()){
-			redirect(base_url('dashboard/login'));
-		}
-		if ($code){
-			$data  = array('code' => $code);
-			$codeData = $this->MCode->searchCode($data);
-			if ($codeData){
-				$this->session->set_userdata('code', $code);
-				$this->load->view('dashboard/code_upload_image',$data);
-			} else {
-				$this->session->set_flashdata('message', "MicroChip doesn't exist");
-				redirect(base_url('dashboard/code'));
+		if ($this->is_login()){
+			if ($code){
+				$data  = array('code' => $code);
+				$codeData = $this->MCode->searchCode($data);
+				if ($codeData){
+					$this->session->set_userdata('code', $code);
+					$this->load->view('dashboard/code_upload_image',$data);
+				} else {
+					$this->session->set_flashdata('message', "MicroChip doesn't exist");
+					redirect(base_url('dashboard/code'));
+				}
 			}
+		} else {
+			redirect(base_url('dashboard/login'));
 		}
 	}
 
@@ -283,7 +286,7 @@ class Code extends MY_Controller {
 	public function code_delete_image(){
 		if (!$this->is_login()){
 			redirect(base_url('dashboard/login'));
-		}
+		} 
 		$error_found = false;
 		if ($this->input->post()){
 			$data['code'] = $this->input->post('code');
@@ -304,19 +307,16 @@ class Code extends MY_Controller {
 	}
 
 	public function do_upload_image(){
-		if (!$this->is_login()){
-			redirect(base_url('dashboard/login'));
-		}
-		$error_found = false;
-		if (!empty($_FILES)) {
-			$tempFile = $_FILES['file']['tmp_name'];
-			$oriFilename = $_FILES['file']['name'];
-			$targetPath = getcwd() . '/upload/code/';
-			$randomString = random_string('alnum', 10);
-			$fileName = $randomString . '.jpg';
-			$targetFile = $targetPath . $fileName;
+		if ($this->is_login()){
+			if (!empty($_FILES)) {
+				$tempFile = $_FILES['file']['tmp_name'];
+				$oriFilename = $_FILES['file']['name'];
+				$targetPath = getcwd() . '/upload/code/';
+				$randomString = random_string('alnum', 10);
+				$fileName = $randomString . '.jpg';
+				$targetFile = $targetPath . $fileName;
+				move_uploaded_file($tempFile, $targetFile);
 
-			if (move_uploaded_file($tempFile, $targetFile)){
 				$config['image_library'] = 'gd2';
 				$config['source_image'] = $targetFile;
 				$config['maintain_ratio'] = TRUE;
@@ -329,20 +329,12 @@ class Code extends MY_Controller {
 					'code' => $this->session->userdata('code'),
 					'filename' => $fileName
 				 );
-
-				if ($this->handlInsertImage($data)){
-					$message = "Upload Success";
-				}	else {
-					$error_found = true;
-					$message = "Upload failed";
-				}
-			} else {
-				$error_found = true;
-				$message = "Upload failed";
+				$this->MGallery->insertGallery($data);
 			}
+			redirect(base_url('dashboard/gallery/input'));
+		} else {
+			redirect(base_url('dashboard/login'));
 		}
-		$this->session->set_flashdata('message', $message);
-		redirect(base_url('dashboard/code/list'));
 	}
 
 	private function handleInsertCode($data){
@@ -369,14 +361,6 @@ class Code extends MY_Controller {
 		}
 	}
 
-	private function handlInsertImage($data){
-		if ($this->MGallery->insertGallery($data) != 1){
-			return false;
-		} else {
-			return true;
-		}
-	}
-
 	private function handleDeleteImage($data){
 		if ($this->MGallery->deleteGallery($data) != 1){
 			return false;
@@ -391,11 +375,6 @@ class Code extends MY_Controller {
 			return true;
 		}
 		return false;
-	}
-
-	private function clean($string) {
-		$string = str_replace(' ', '-', $string);
-		return preg_replace('/[^A-Za-z0-9]/', '', $string);
 	}
 
 }

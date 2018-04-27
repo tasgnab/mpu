@@ -6,7 +6,7 @@ class MGallery extends MY_Model {
         parent::__construct();
     }
 
-    function insertGallery($data, $id){
+    function insertGallery($data){
     	$data = $this->appendCreatedUpdatedBy($data);
 		$this->db->insert('gallery',$data);
 		return $this->db->affected_rows();
@@ -22,11 +22,8 @@ class MGallery extends MY_Model {
 
 	
 	function deleteGallery($data){
-		$data2 = array('is_deleted' => 'Y');
-		$data2 = $this->appendUpdatedBy($data2);
-		$this->db->set($data2);
 		$this->db->where($data);
-		$this->db->update('gallery');
+		$this->db->delete('gallery');
 		return $this->db->affected_rows();
 	}
 
@@ -48,8 +45,12 @@ class MGallery extends MY_Model {
 		return $this->db->get()->row();
 	}
 
-	function allGallery(){
-		$where = "code in ('Office', 'Farm', 'Collection')";
+	function allGallery($category){
+		if ($category == 'All'){
+			$where = "code in (select name from category)";
+		} else {
+			$where = "code in ('".$category."')";
+		}
 		$this->db->select('*');
 		$this->db->from('gallery');
 		$this->db->where($where);

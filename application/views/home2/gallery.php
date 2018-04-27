@@ -13,10 +13,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <div class="row">
             <div class="portfolio-wrapper">
                 <ul class="filter  text-center text-uppercase">
-                    <li><a class="active" href="#" data-toggle="tooltip" title="<?=$countGallery['All'];?>" data-filter="*"><?php if($this->session->userdata('lang')=='cn'){echo "所有";}else {echo "All";}?></a></li>
-                    <li><a href="#" data-toggle="tooltip" title="<?=$countGallery['Collection'];?>" data-filter=".Collection"><?php if($this->session->userdata('lang')=='cn'){echo "红龙鱼";}else {echo "Collection";}?></a></li>
-                    <li><a href="#" data-toggle="tooltip" title="<?=$countGallery['Farm'];?>" data-filter=".Farm"><?php if($this->session->userdata('lang')=='cn'){echo "鱼场";}else {echo "Farm";}?></a></li>
-                    <li><a href="#" data-toggle="tooltip" title="<?=$countGallery['Office'];?>" data-filter=".Office"><?php if($this->session->userdata('lang')=='cn'){echo "办公室";}else {echo "Office";}?></a></li>
+
+                <?php foreach ($count->result() as $category): ?>
+                    <li><a href="#" data-toggle="tooltip" title="<?=$category->total;?>" data-filter="<?php if ($category->name=='All'){echo '*';} else {echo '.'.$category->name;}?>"><?php if($this->session->userdata('lang')=='cn'){echo $category->name_cn;}else {echo $category->name;}?></a></li>
+                <?php endforeach; ?>
+                    
                 </ul><!--/#portfolio-filter-->
                 <div class="portfolio-items">
                 <?php foreach ($galleries_N as $gallery): ?>

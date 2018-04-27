@@ -60,8 +60,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         <div class="col-md-4 col-sm-4 col-xs-12">
                           <select id="category" name="category" class="form-control" required="required">
                             <option value="">Select category</option>
-                            <?php foreach ($this->config->item('gallery_category') as $category): ?>
-                              <option value="<?php echo $category;?>"><?php echo $category;?></option>
+                            <?php foreach ($categories->result() as $category): ?>
+                              <option value="<?php echo $category->name;?>"><?php echo $category->name;?></option>
                             <?php endforeach;?>
                           </select>
                         </div>

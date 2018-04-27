@@ -95,11 +95,10 @@ class Login extends MY_Controller {
 	}
 
 	public function change_password(){
-		if ($this->is_login()){
-			$this->load->view('dashboard/change_password');
-		} else {
+		if (!$this->is_login()){
 			redirect(base_url('dashboard/login'));
-		}
+		} 
+		$this->load->view('dashboard/change_password');
 	}
 
 	public function doChangePassword(){
