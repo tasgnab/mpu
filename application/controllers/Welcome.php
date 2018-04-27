@@ -24,8 +24,11 @@ class Welcome extends MY_Controller {
         $this->load->model('MCategory');
     }
 	public function index(){
+		$this->MCategory->counter();
 		$data['galleries_P'] = $this->MGallery->allGalleryP();
 		$data['galleries_N'] = $this->MGallery->allGalleryN();
+
+		$data['visitor'] = $this->MCategory->getCounter();
 
 		$data['count'] = $this->MCategory->allGalleryCategoryForLandingPage();
 

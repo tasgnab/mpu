@@ -1,0 +1,3 @@
+<div style="background: white;"">
+    <h3 style="text-align:  left; padding-top: 10px; padding-left: 20px;">Visitors: <?=$visitor;?></h3>
+</div>

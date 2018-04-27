@@ -116,6 +116,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <!-- section title-->
             <h2 class="text-uppercase">查芯片 : <?=$code->code;?></h2>
             <p> <?=$this->config->item('category_cn')[$code->type];?></p>
+            <p> 日期: </p>
         </div>
         <!-- End Head -->
         <div class="row">
@@ -137,7 +138,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 <div class="project-details">
                     <!-- Header -->
                     <h4 class="text-uppercase">
-                        描写
+                        描写 <?=$this->config->item('category_cn')[$code->type];?>
                     </h4>
                 </div>
             <!--

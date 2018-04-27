@@ -98,6 +98,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 </header>
 <!--End Header-->
 <?php include_once('home_cn.php');?>
+<?php include_once('visitor_cn.php');?>
 <?php include_once('about_us_cn.php');?>
 <?php //include_once('services_cn.php');?>
 <?php include_once('gallery.php');?>

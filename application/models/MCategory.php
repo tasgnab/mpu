@@ -6,6 +6,16 @@ class MCategory extends MY_Model {
         parent::__construct();
     }
 
+    function counter(){
+    	$this->db->insert('counter', array('dummy' => 0));
+    }
+
+    function getCOunter(){
+    	$query = $this->db->query('SELECT count(*) as visitor FROM counter LIMIT 1');
+		$row = $query->first_row();
+		return $row->visitor;
+    }
+
     function insertCategory($data){
     	$data = $this->appendCreatedUpdatedBy($data);
 		$this->db->insert('category',$data);

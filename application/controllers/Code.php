@@ -21,9 +21,11 @@ class Code extends MY_Controller {
 	function __construct(){
         parent::__construct();
         $this->load->model('MCode');
+        $this->load->model('MCategory');
     } 
 
 	public function index(){
+		$this->MCategory->counter();
 		$error_found = false;
 
 		if (($this->input->post())){
