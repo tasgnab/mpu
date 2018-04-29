@@ -116,7 +116,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <!-- section title-->
             <h2 class="text-uppercase">查芯片 : <?=$code->code;?></h2>
             <p> <?=$this->config->item('category_cn')[$code->type];?></p>
-            <p> 日期: </p>
+            <p> 日期: <?=substr($code->sold_date,0,10);?> </p>
         </div>
         <!-- End Head -->
         <div class="row">

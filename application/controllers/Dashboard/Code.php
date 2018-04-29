@@ -177,6 +177,7 @@ class Code extends MY_Controller {
 		if ($this->input->post()){
 			$data = array(
 				'type' => $this->input->post('category'), 
+				'sold_date' => $this->input->post('sold_date'), 
 				'description' => $this->input->post('description'), 
 				'description_cn' => $this->input->post('description_cn')
 			);

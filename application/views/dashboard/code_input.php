@@ -22,6 +22,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <link href="<?=base_url();?>assets/vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
     <!-- NProgress -->
     <link href="<?=base_url();?>assets/vendors/nprogress/nprogress.css" rel="stylesheet">
+    <!-- bootstrap-datetimepicker -->
+    <link href="<?=base_url();?>assets/vendors/bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.css" rel="stylesheet">
     <!-- Custom Theme Style -->
     <link href="<?=base_url();?>assets/build/css/custom.css" rel="stylesheet">
   </head>
@@ -71,6 +73,17 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         </div>
                       </div>
                       <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Sold date </label>
+                        <div class="col-md-4 col-sm-4 col-xs-12">
+                          <div class='input-group date' id='myDatepicker'>
+                            <input type='text' id="sold_date" name="sold_date" class="form-control"/>
+                            <span class="input-group-addon">
+                               <span class="glyphicon glyphicon-calendar"></span>
+                            </span>
+                        </div>
+                        </div>
+                      </div>
+                      <div class="form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-12"  for="description">Description </label>
                         <div class="col-md-4 col-sm-4 col-xs-12">
                           <textarea id="description" name="description" class="form-control" rows="6"></textarea>
@@ -117,9 +130,17 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <script src="<?=base_url();?>assets/vendors/fastclick/lib/fastclick.js"></script>
     <!-- NProgress -->
     <script src="<?=base_url();?>assets/vendors/nprogress/nprogress.js"></script>
+    <!-- bootstrap-daterangepicker -->
+    <script src="<?=base_url();?>assets/vendors/moment/min/moment.min.js"></script>
+    <script src="<?=base_url();?>assets/vendors/bootstrap-daterangepicker/daterangepicker.js"></script>
+    <!-- bootstrap-datetimepicker -->    
+    <script src="<?=base_url();?>assets/vendors/bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js"></script>
     <!-- Custom Theme Scripts -->
     <script src="<?=base_url();?>assets/build/js/custom.min.js"></script>
     <script type="text/javascript">
+      $('#myDatepicker').datetimepicker({
+        format: 'YYYY-MM-DD'
+    });
       $( "#reset" ).click(function() {
         $("#code").val("");
         $("#category").val("");

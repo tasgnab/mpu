@@ -116,7 +116,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <!-- section title-->
             <h2 class="text-uppercase">Code : <?=$code->code;?></h2>
             <p> <?=$code->type;?></p>
-            <p> Date: </p>
+            <p> Date: <?=substr($code->sold_date,0,10);?></p>
         </div>
         <!-- End Head -->
         <div class="row">
