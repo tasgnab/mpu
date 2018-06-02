@@ -1,13 +1,15 @@
 -- phpMyAdmin SQL Dump
--- version 4.5.1
--- http://www.phpmyadmin.net
+-- version 4.8.0
+-- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 10, 2018 at 04:02 AM
--- Server version: 10.1.19-MariaDB
--- PHP Version: 5.5.38
+-- Generation Time: Jun 02, 2018 at 11:25 AM
+-- Server version: 10.1.31-MariaDB
+-- PHP Version: 7.2.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
+START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -17,8 +19,51 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `mpu`
+-- Database: `munjul`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `blog`
+--
+
+CREATE TABLE `blog` (
+  `id` int(11) UNSIGNED ZEROFILL NOT NULL,
+  `title` varchar(100) NOT NULL,
+  `title_cn` varchar(100) CHARACTER SET gbk NOT NULL,
+  `body` text NOT NULL,
+  `body_cn` text CHARACTER SET gbk NOT NULL,
+  `status` varchar(10) NOT NULL DEFAULT 'DRAFT',
+  `created_by` varchar(30) NOT NULL DEFAULT 'system',
+  `updated_by` varchar(30) NOT NULL DEFAULT 'system',
+  `created_timestamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated_timestamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `blog`
+--
+
+INSERT INTO `blog` (`id`, `title`, `title_cn`, `body`, `body_cn`, `status`, `created_by`, `updated_by`, `created_timestamp`, `updated_timestamp`) VALUES
+(00000000001, 'Test', '', '<p>stest</p>', '', 'PUBLISHED', 'thopo', 'thopo', '2018-05-26 08:45:21', '2018-05-26 11:38:09'),
+(00000000002, 'qweqe', '', '', '', 'DRAFT', 'thopo', 'thopo', '2018-05-26 09:46:23', '2018-05-26 09:46:23'),
+(00000000003, 'Test', '', '', '', 'DRAFT', 'thopo', 'thopo', '2018-05-26 10:20:28', '2018-05-26 10:20:28'),
+(00000000004, 'Test', '', '', '', 'DRAFT', 'thopo', 'thopo', '2018-05-26 10:20:53', '2018-05-26 10:20:53'),
+(00000000005, 'sad', '', '<p>asdaas</p>', '', 'DRAFT', 'thopo', 'thopo', '2018-05-26 10:24:09', '2018-05-26 10:24:09'),
+(00000000006, 'asdaasa', '', '<p>Hi all, hope youre doing allright.</p>\n<p><img src=\"../../../upload/blog/iGxAnTwPv6.jpg\" alt=\"\" width=\"1049\" height=\"500\" /></p>\n<p>&nbsp;</p>\n<p>sdasdas</p>\n<p>sdasdas</p>\n<p>sdasdas</p>\n<p>sdasdas</p>\n<p>sdasdas</p>\n<p>sdasdas</p>\n<p>sdasdas</p>\n<p>sdasdas</p>\n<p>sdasdas</p>\n<p>sdasdas</p>\n<p>sdasdas</p>\n<p>sdasdas</p>\n<p>sdasdas</p>\n<p>sdasdas</p>\n<p>sdasdas</p>\n<p>sdasdas</p>\n<p>sdasdas</p>\n<p>sdasdas</p>\n<p>sdasdas</p>\n<p>sdasdas</p>\n<p>sdasdas</p>\n<p>sdasdas</p>\n<p>sdasdas</p>\n<p>sdasdas</p>\n<p>sdasdas</p>\n<p>sdasdas</p>\n<p>sdasdas</p>\n<p>sdasdas</p>\n<p>sdasdas</p>\n<p>sdasdas</p>\n<p>sdasdas</p>\n<p>sdasdas</p>\n<p>sdasdas</p>\n<p>sdasdas</p>\n<p>sdasdas</p>\n<p>sdasdas</p>\n<p>sdasdas</p>\n<p>sdasdas</p>\n<p>sdasdas</p>\n<p>sdasdas</p>\n<p>sdasdas</p>\n<p>sdasdas</p>\n<p>sdasdas</p>\n<p>sdasdas</p>\n<p>sdasdas</p>\n<p>sdasdas</p>\n<p>sdasdas</p>\n<p>sdasdas</p>\n<p>sdasdas</p>\n<p>sdasdas</p>\n<p>sdasdas</p>\n<p>sdasdas</p>\n<p>sdasdas</p>\n<p>sdasdas</p>\n<p>sdasdas</p>\n<p>sdasdas</p>\n<p>sdasdas</p>\n<p>sdasdas</p>\n<p>sdasdas</p>\n<p>sdasdas</p>\n<p>sdasdas</p>\n<p>sdasdas</p>\n<p>sdasdas</p>\n<p>sdasdas</p>\n<p>sdasdas</p>\n<p>sdasdas</p>\n<p>sdasdas</p>\n<p>sdasdas</p>\n<p>sdasdas</p>\n<p>sdasdas</p>\n<p>sdasdas</p>\n<p>sdasdas</p>\n<p>sdasdas</p>\n<p>sdasdas</p>\n<p>sdasdas</p>\n<p>sdasdas</p>\n<p>sdasdas</p>\n<p>sdasdas</p>\n<p>sdasdas</p>\n<p>sdasdas</p>\n<p>sdasdas</p>\n<p>sdasdas</p>\n<p>sdasdas</p>\n<p>sdasdas</p>\n<p>sdasdas</p>\n<p>sdasdas</p>\n<p>sdasdas</p>\n<p>sdasdas</p>\n<p>sdasdas</p>\n<p>sdasdas</p>\n<p>sdasdas</p>\n<p>sdasdas</p>\n<p>sdasdas</p>\n<p>sdasdas</p>\n<p>sdasdas</p>\n<p>sdasdas</p>\n<p>sdasdas</p>\n<p>sdasdas</p>\n<p>sdasdas</p>\n<p>sdasdas</p>\n<p>sdasdas</p>\n<p>sdasdas</p>\n<p>sdasdas</p>\n<p>sdasdas</p>\n<p>sdasdas</p>\n<p>sdasdas</p>\n<p>sdasdas</p>\n<p>sdasdas</p>\n<p>sdasdas</p>\n<p>sdasdas</p>\n<p>sdasdas</p>\n<p>sdasdas</p>\n<p>sdasdas</p>\n<p>sdasdas</p>\n<p>sdasdas</p>\n<p>sdasdas</p>\n<p>sdasdas</p>\n<p>sdasdas</p>\n<p>sdasdas</p>\n<p>&nbsp;</p>\n<p>&nbsp;</p>', '', 'PUBLISHED', 'thopo', 'thopo', '2018-05-26 10:25:12', '2018-05-26 11:55:44'),
+(00000000007, 'asda3344', '', '<p>asd</p>', '', 'DRAFT', 'thopo', 'thopo', '2018-05-26 10:34:55', '2018-05-26 10:52:39');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `blog_tag`
+--
+
+CREATE TABLE `blog_tag` (
+  `blog_id` int(10) UNSIGNED ZEROFILL NOT NULL,
+  `tag_id` int(10) UNSIGNED ZEROFILL NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -2913,6 +2958,24 @@ INSERT INTO `chip_code` (`id`, `code`, `type`, `sold_date`, `description`, `desc
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `config`
+--
+
+CREATE TABLE `config` (
+  `name` varchar(50) NOT NULL,
+  `value` varchar(300) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `config`
+--
+
+INSERT INTO `config` (`name`, `value`) VALUES
+('counter', '20');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `counter`
 --
 
@@ -2943,7 +3006,14 @@ INSERT INTO `counter` (`id`, `dummy`, `visited_date`) VALUES
 (14, 0, '2018-04-29 09:58:36'),
 (15, 0, '2018-04-29 09:59:03'),
 (16, 0, '2018-04-29 09:59:43'),
-(17, 0, '2018-05-03 15:26:02');
+(17, 0, '2018-05-03 15:26:02'),
+(18, 0, '2018-05-10 02:46:54'),
+(19, 0, '2018-05-20 05:49:13'),
+(20, 0, '2018-05-22 12:56:25'),
+(21, 0, '2018-05-22 12:59:57'),
+(22, 0, '2018-05-22 13:02:14'),
+(23, 0, '2018-05-22 17:19:10'),
+(24, 0, '2018-05-22 17:19:34');
 
 -- --------------------------------------------------------
 
@@ -2993,6 +3063,22 @@ INSERT INTO `gallery` (`id`, `code`, `filename`, `description`, `description_cn`
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `tag`
+--
+
+CREATE TABLE `tag` (
+  `id` int(10) UNSIGNED ZEROFILL NOT NULL,
+  `name` varchar(20) NOT NULL,
+  `name_cn` varchar(20) CHARACTER SET gbk NOT NULL,
+  `created_by` varchar(30) NOT NULL,
+  `updated_by` varchar(30) NOT NULL,
+  `created_timestamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated_timestamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `user`
 --
 
@@ -3016,11 +3102,17 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`id`, `username`, `password`, `last_successful`, `last_failed`, `failed_attemps`, `is_disabled`, `is_deleted`, `created_by`, `updated_by`, `created_timestamp`, `updated_timestamp`) VALUES
-(0000000001, 'thopo', '4dfe52b98ed69dd92edaca4846c34ada', '2018-05-05 12:35:10', '2017-12-25 16:29:41', 0, 'N', 'N', 'SYSTEM', '', '2017-12-23 17:21:31', '2018-05-05 12:35:10');
+(0000000001, 'thopo', '4dfe52b98ed69dd92edaca4846c34ada', '2018-05-27 10:08:53', '2018-05-26 10:01:57', 0, 'N', 'N', 'SYSTEM', '', '2017-12-23 17:21:31', '2018-05-27 10:08:53');
 
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `blog`
+--
+ALTER TABLE `blog`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `category`
@@ -3037,6 +3129,12 @@ ALTER TABLE `chip_code`
   ADD UNIQUE KEY `code` (`code`);
 
 --
+-- Indexes for table `config`
+--
+ALTER TABLE `config`
+  ADD PRIMARY KEY (`name`);
+
+--
 -- Indexes for table `counter`
 --
 ALTER TABLE `counter`
@@ -3047,6 +3145,14 @@ ALTER TABLE `counter`
 --
 ALTER TABLE `gallery`
   ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `tag`
+--
+ALTER TABLE `tag`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `name` (`name`),
+  ADD UNIQUE KEY `name_cn` (`name_cn`);
 
 --
 -- Indexes for table `user`
@@ -3060,30 +3166,48 @@ ALTER TABLE `user`
 --
 
 --
+-- AUTO_INCREMENT for table `blog`
+--
+ALTER TABLE `blog`
+  MODIFY `id` int(11) UNSIGNED ZEROFILL NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+
+--
 -- AUTO_INCREMENT for table `category`
 --
 ALTER TABLE `category`
   MODIFY `id` smallint(5) UNSIGNED ZEROFILL NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
 --
 -- AUTO_INCREMENT for table `chip_code`
 --
 ALTER TABLE `chip_code`
   MODIFY `id` int(10) UNSIGNED ZEROFILL NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2834;
+
 --
 -- AUTO_INCREMENT for table `counter`
 --
 ALTER TABLE `counter`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+
 --
 -- AUTO_INCREMENT for table `gallery`
 --
 ALTER TABLE `gallery`
   MODIFY `id` int(10) UNSIGNED ZEROFILL NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+
+--
+-- AUTO_INCREMENT for table `tag`
+--
+ALTER TABLE `tag`
+  MODIFY `id` int(10) UNSIGNED ZEROFILL NOT NULL AUTO_INCREMENT;
+
 --
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
   MODIFY `id` int(10) UNSIGNED ZEROFILL NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+COMMIT;
+
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
