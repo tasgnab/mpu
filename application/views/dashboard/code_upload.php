@@ -61,7 +61,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                           <input type="file" class="form-control-file" name="file" required="required"/>
                           <p>maximum 5000 line per file</p>
                         </div>
-
                       </div>
                       <div class="form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="category">Category <span class="required">*</span></label>

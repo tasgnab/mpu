@@ -140,7 +140,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                   </div>
                   <div class="ln_solid"></div>
                   <div class="form-group">
-                    <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
+                    <div class="pull-right">
                       <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
                       <button type="submit" class="btn btn-success">Submit</button>
                     </div>
@@ -165,7 +165,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                   <h3></h3>
                   <div class="ln_solid"></div>
                   <div class="form-group">
-                    <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
+                    <div class="pull-right">
                       <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
                       <button type="submit" class="btn btn-warning">Delete</button>
                     </div>

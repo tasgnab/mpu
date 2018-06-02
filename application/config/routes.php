@@ -66,6 +66,7 @@ $route['dashboard/code/insertImage/(:any)']['get'] = 'dashboard/code/code_upload
 $route['dashboard/code/insertImage']['post'] = 'dashboard/code/do_upload_image';
 $route['dashboard/code/viewImage/(:any)']['get'] = 'dashboard/code/code_view_image/$1';
 $route['dashboard/code/deleteImage']['post'] = 'dashboard/code/code_delete_image';
+
 $route['dashboard/gallery/view/(:any)']['get'] = 'dashboard/gallery/view/$1';
 $route['dashboard/gallery/input']['get'] = 'dashboard/gallery/gallery_input';
 $route['dashboard/gallery/input']['post'] = 'dashboard/gallery/do_input';
@@ -76,3 +77,9 @@ $route['dashboard/gallery/category'] = 'dashboard/gallery/gallery_category';
 $route['dashboard/gallery/category/insert']['post'] = 'dashboard/gallery/do_input_category';
 $route['dashboard/gallery/category/edit']['post'] = 'dashboard/gallery/do_edit_category';
 $route['dashboard/gallery/category/delete']['post'] = 'dashboard/gallery/do_delete_category';
+
+
+$route['dashboard/blog/new']['get'] = 'dashboard/blog/new';
+$route['dashboard/blog/new']['post'] = 'dashboard/blog/blog_save';
+$route['dashboard/blog/edit/(:any)'] = 'dashboard/blog/edit/$1';
+$route['dashboard/blog/uploadImage']['post'] = 'dashboard/blog/image_upload';

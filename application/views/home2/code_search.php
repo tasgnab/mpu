@@ -81,7 +81,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         <li><a class="smooth-scroll" href="<?=base_url();?>#portfolio"> Gallery </a></li>
                         <li><a class="smooth-scroll" href="<?=base_url();?>#term"> Terms and Payments </a></li> 
                         <li><a class="smooth-scroll" href="<?=base_url();?>#contact"> Locations </a></li>  
-                        <li><a class="smooth-scroll" href="<?=base_url('code');?>"> Code </a></li>  
+                        <li><a class="smooth-scroll" href="<?=base_url('code');?>"> Check microchip no. </a></li>  
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle " data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="flag-icon flag-icon-gb"></span> English</a>
                             <ul class="dropdown-menu text-capitalize">

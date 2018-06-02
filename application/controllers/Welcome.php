@@ -22,15 +22,19 @@ class Welcome extends MY_Controller {
         parent::__construct();
         $this->load->model('MGallery');        
         $this->load->model('MCategory');
+        $this->load->model('MConfig');
+        $this->load->model('MBlog');
     }
 	public function index(){
-		$this->MCategory->counter();
 		$data['galleries_P'] = $this->MGallery->allGalleryP();
 		$data['galleries_N'] = $this->MGallery->allGalleryN();
-
-		$data['visitor'] = $this->MCategory->getCounter();
+		$counter = (int) $this->MConfig->get('counter');
+		$counter++;
+		$this->MConfig->update('counter', $counter);
+		$data['visitor'] = $counter;
 
 		$data['count'] = $this->MCategory->allGalleryCategoryForLandingPage();
+		$data['blog'] = $this->MBlog->getTop3()->result();
 
 		if($this->session->userdata('lang')=='cn'){
 			$this->load->view('home2/main_cn',$data);

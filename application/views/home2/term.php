@@ -24,7 +24,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         <li>Only Export to allowed Country.</li>
                         <li>Contact us for negotiation.</li>
                     </ul>
-                    <a href="" class="btn buy-btn text-uppercase">Purchase Now</a>
+                    <a href="mailto:munjulprima@yahoo.com" class="btn buy-btn text-uppercase">Contact Us</a>
                 </div>
             </div>
             <div class="col-md-6">
@@ -40,7 +40,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         <li>Our packaging method is International Standard and the water in the package was carefully prepared before any packaging operation.</li>
                         <li>Our arowanas are selected at least 1 week before shipping for purging.</li>
                     </ul>
-                    <a href="" class="btn buy-btn text-uppercase">Purchase Now</a>
+                    <a href="mailto:munjulprima@yahoo.com" class="btn buy-btn text-uppercase">Contact Us</a>
                 </div>
             </div>
         </div>

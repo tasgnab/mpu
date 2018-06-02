@@ -13,7 +13,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <div class="col-md-6">
                 <div class="about-thumb">
                     <img src="<?=base_url();?>assets/home2/images/home-4.jpg" alt="">
-                    <p>This was the first time Mr. Tris Tanoto competed in an Arowana contest in which he easily won 1st place. After that, he has never been seen competing in Arowana contests anymore. \"No more challenges.\", he said.</p>
+                    <p>This was the first time Mr. Tris Tanoto competed in an Arowana contest in which he easily won 1st place. After that, he has never been seen competing in Arowana contests anymore. "No more challenges.", he said.</p>
                 </div>
             </div>
             <div class="col-md-6">

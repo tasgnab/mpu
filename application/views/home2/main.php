@@ -103,6 +103,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <?php include_once('services.php');?>
 <?php include_once('gallery.php');?>
 <?php include_once('term.php');?>
+<?php include_once('blog.php');?>
 <?php include_once('contact_us.php');?>
 <?php include_once('footer.php');?>
 

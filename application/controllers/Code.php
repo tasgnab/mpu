@@ -22,10 +22,13 @@ class Code extends MY_Controller {
         parent::__construct();
         $this->load->model('MCode');
         $this->load->model('MCategory');
+        $this->load->model('MConfig');
     } 
 
 	public function index(){
-		$this->MCategory->counter();
+		$counter = (int) $this->MConfig->get('counter');
+		$counter++;
+		$this->MConfig->update('counter', $counter);
 		$error_found = false;
 
 		if (($this->input->post())){
