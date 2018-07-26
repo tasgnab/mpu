@@ -205,6 +205,12 @@ $(document).ready(function() {
 });
 // /Switchery
 
+// Blog
+if ($(".progress .progress-bar")[0]) {
+    $('.progress .progress-bar').progressbar();
+}
+// /Blog
+
 
 // iCheck
 $(document).ready(function() {

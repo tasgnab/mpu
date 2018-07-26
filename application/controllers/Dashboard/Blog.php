@@ -21,6 +21,7 @@ class Blog extends MY_Controller {
 	function __construct(){
         parent::__construct();
         $this->load->model('MBlog');
+        $this->load->model('MTags');
     } 
 
 	public function index(){
@@ -80,16 +81,46 @@ class Blog extends MY_Controller {
 		if ($this->input->post('body_cn')){
 			$data['body_cn'] = $this->input->post('body_cn');
 		}
+		$tags = [];
+		if ($this->input->post('tags')){
+			$tags = explode(",", $this->input->post('tags'));
+		}
+
+		$start = strrpos($data['body'], base_url().'upload/blog/');
+		if ($start){
+			$end = strrpos($data['body'], '.jpg');
+			if ($end){
+				$image=substr($data['body'], $start, $end-$start+4);
+				log_message('info', 'blog image : '.$image);
+			}
+		}
+
 		if ($this->input->post('id')){
 			$id = $this->input->post('id');
-			$this->handleUpdateBlog($id, $data);
+			$this->handleUpdateBlog($id, $data, $tags);
 			$json = array('id' => $id );
 		} else {
-			$id = $this->handleInsertBlog($data);
+			$id = $this->handleInsertBlog($data, $tags);
 			$json = array('id' => $id );
 		}
+
+		if ($image)
+			$this->handleBlogImage($id,$image);
 		
 		echo json_encode($json);
+	}
+
+	public function blog_delete(){
+		if (!$this->is_login()){
+			redirect(base_url('dashboard/login'));
+		}
+		$error_found = false;
+		if ($this->input->post('id')){
+			$id = $this->input->post('id');
+			$this->MTags->resetBlogTag($id);
+			$this->MBlog->delete($id);
+		}
+		redirect(base_url('dashboard/blog'));	
 	}
 
 	public function edit($id){
@@ -98,15 +129,45 @@ class Blog extends MY_Controller {
 		}
 		$where['id'] = $id;
 		$data['post'] = $this->MBlog->get($where)->row();
+		$data['tags'] = $this->MTags->getBlogTag($id);
 		$this->load->view('dashboard/blog_new',$data);
 	}
 
-	private function handleInsertBlog($data){
+	private function handleInsertBlog($data, $tags){
+		$tagsId = $this->getTagsId($tags);
+		$blogId = $this->MBlog->create($data);
+		$this->handleTags($blogId, $tagsId);
 		return $this->MBlog->create($data);
 	}
 
-	private function handleUpdateBlog($id, $data){
+	private function handleUpdateBlog($id, $data, $tags){
+		$tagsId = $this->getTagsId($tags);
+		$this->handleTags($id, $tagsId);
 		$this->MBlog->update($id, $data);
+	}
+
+	private function getTagsId($tags){
+		$tagsId = array();
+		foreach ($tags as $tag) {
+			$count = $this->MTags->get(array('name' => $tag));
+			if ($count->num_rows() == 0){
+				$tmp = $this->MTags->create(array('name' => ucwords($tag), 'name_cn' => $tag));
+				array_push($tagsId, $tmp);
+			} else {
+				array_push($tagsId, $count->row()->id);
+			}
+		}
+		return $tagsId;
+	}
+
+	private function handleTags($blogId, $tags){
+		$this->MTags->resetBlogTag($blogId);
+		$this->MTags->createBlogTag($blogId, $tags);
+	}
+
+	private function handleBlogImage($blogId, $image){
+		$this->MBlog->deleteBlogImage($blogId);
+		$this->MBlog->insertBlogImage($blogId, $image);
 	}
 
 	public function blog_list_page(){
@@ -124,6 +185,7 @@ class Blog extends MY_Controller {
 		foreach($code->result() as $r) {
 			$data[] = array(
 				$r->title,
+				$r->updated_timestamp,
 				$r->status,
 				'<span><a href="'.base_url('dashboard/blog/edit/').$r->id.'"><button type="button" class="btn btn-default">Edit</button></a></span><span><button type="button" class="btn btn-warning" onclick="delete_post(\''.$r->id.'\',\''.$r->title.'\')">Delete</button></span>'
 			);

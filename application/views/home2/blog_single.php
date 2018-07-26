@@ -1,6 +1,3 @@
-<?php
-defined('BASEPATH') OR exit('No direct script access allowed');
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -56,7 +53,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <div id="preloader">
     <span class="cssload-loader"><span class="cssload-loader-inner"></span></span>
 </div>
-<!-- /.end preloader -->
+<!-- end preloader -->
 <?php include_once('nav_others.php');?>
 <div class="main-header text-left">
     <div class="container">
@@ -65,54 +62,41 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     </div>
 </div>
 <div class="main-content">
-
     <div class="container">
         <div class="row">
             <div class="col-md-8">
-                <div class="blog">
-                    <?php foreach ($results as $data):?>
-                    <div class="post-area">
-                        <article class="post">
-                            <div class="post-thumb">
-                                <a href="blog.html"><img src="<?php if ($data->image_url !== ''){echo $data->image_url;}else{echo base_url('assets/images/page-blog-1.jpg');}?>" alt=""></a>
-                            </div>
-                            <div class="row">
-                                <div class="col-xs-2 col-sm-1">
-                                    <div class="date-container pull-left">
-                                        <h2 class="post_date"><span><?=$data->day;?></span> <?=$data->month;?> <?=$data->year;?></h2>
-                                    </div>
+                <div class="post-area">
+                    <?php if ($post): ?>
+                    <article class="post">
+                        <!-- <div class="post-thumb">
+                            <a href="blog.html"><img src="assets/images/page-blog-1.jpg" alt="" ></a>
+                        </div> -->
+                        <div class="row">
+                            <div class="col-xs-2 col-sm-1">
+                                <div class="date-container pull-left">
+                                    <h2 class="post_date"><span><?=$post->day;?></span> <?=$post->month;?> <?=$post->year;?></h2>
                                 </div>
-                                <div class="col-xs-10 col-sm-11">
-                                    <div class="post-content text-left">
-                                        <header class="entry-header text-uppercase">
-                                            <h2 class="entry-title"><a href="single-blog.html"><?=$data->title;?></a>
-                                            </h2>
-                                            <div class="post-meta text-capitalize">
-                                                <span>By <?=$data->created_by;?></span> /
-                                                <span><a href=""><i class="fa fa-comments"></i> 0 </a></span><!-- / -->
-                                                <!-- <span><a href=""><i class="fa fa-folder-o"></i>travel</a> </span> -->
-                                            </div>
-                                        </header>
-                                        <div class="entry-content">
-                                            <?=substr(strip_tags($data->body,'<p>'),0,200);?>
-                                            <div class="btn-continue-reading text-uppercase">
-                                                <a class="btn btn-action" href="<?=base_url('blog/single/').$data->id;?>">continue reading</a>
-                                            </div>
+                            </div>
+                            <div class="col-xs-10 col-sm-11">
+                                <div class="post-content text-left">
+                                    <header class="entry-header text-uppercase">
+                                        <h2 class="entry-title"><a href="single-blog.html"><?=$post->title;?></a></h2>
+                                        <div class="post-meta text-capitalize">
+                                            <span>By <?=$post->created_by;?></span> /
+                                            <span><a href=""><i class="fa fa-comments"></i> 0 </a></span>/
+                                            <span><a href=""><i class="fa fa-folder-o"></i>travel</a> </span>
                                         </div>
-
+                                    </header>
+                                    <div class="entry-content">
+                                        <?=$post->body;?>
                                     </div>
+
                                 </div>
                             </div>
-                        </article>
-                    </div>
-                    <?php endforeach; ?>
+                        </div>
+                    </article>
+                <?php endif; ?>
                 </div>
-                <ul class="blog-pagination pagination">
-                    <?php if (isset($links)) { ?>
-                        <?php echo $links ?>
-                    <?php } ?>
-                </ul>
-                
             </div>
             <div class="col-md-4">
                 <div class="blog-sidebar">
@@ -122,26 +106,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                             <input type="text" name="search" class="search" placeholder="Quick Search...">
                             <button class="search-button"><i class="fa fa-search"></i></button>
                         </form>
-                    </div>
-                    <div class="bar text-left">
-                        <h2 class="bar-head">Recent Posts</h2>
-                        <ul>
-                            <li>
-                                <a href="">Sales Home</a>
-                            </li>
-                            <li>
-                                <a href="">Living Room Sofa</a>
-                            </li>
-                            <li>
-                                <a href="">King Bed</a>
-                            </li>
-                            <li>
-                                <a href="">Hotel Room</a>
-                            </li>
-                            <li>
-                                <a href="">Luxury Beds</a>
-                            </li>
-                        </ul>
                     </div>
                     <div class="bar text-left">
                         <!-- Head -->

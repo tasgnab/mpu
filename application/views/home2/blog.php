@@ -5,14 +5,14 @@
         <div class="section-header text-center">
             <!-- section title-->
             <h2 class="text-uppercase">latest from blog</h2>
-            <p >Describe something about your onebusiness company</p>
+            <p>Latest news from our company</p>
         </div>
         <div class="slick-carousel-3">
             <?php foreach ($blog as $b): ?>
             <div class="item">
                 <div class="single-blog text-left">
                     <div class="single-blog-thumb">
-                        <a href="single-blog.html"> <img src="assets/images/blog-1.jpg" alt=""></a>
+                        <a href="single-blog.html"> <img src="<?=base_url();?>assets/images/blog-1.jpg" alt=""></a>
                     </div>
                     <div class="blog-caption">
                         <h2 class="text-uppercase"><a href="single-blog.html"><?=$b->title;?> </a></h2>

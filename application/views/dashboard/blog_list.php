@@ -61,6 +61,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                       <thead>
                         <tr>
                           <th>Blog Title</th>
+                          <th>Last Update</th>
                           <th>Status</th>
                           <th></th>
                         </tr>
@@ -86,7 +87,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 </button>
               </div>
               <div class="modal-body">
-                <form id="form-delete-post" data-parsley-validate class="form-horizontal form-label-left" method="post">
+                <form id="form-delete-post" data-parsley-validate class="form-horizontal form-label-left" method="post" action="<?=base_url('dashboard/blog/delete');?>">
                   <input type="hidden" id="id" name="id" class="form-control col-md-7 col-xs-12">
                   <h3></h3>
                   <div class="ln_solid"></div>
@@ -143,7 +144,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         $('#datatable-responsive').DataTable({
           "pageLength" : 25,
           "columns": [
-            { "width": "55%"},
+            { "width": "40%"},
+            { "width": "10%", "className": "align-middle text-center" },
             { "width": "10%", "className": "align-middle text-center" },
             { "orderable": false, "searchable": false }
           ],
@@ -155,8 +157,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
       });
 
       function delete_post(id, name) {
-          $('#modal-delete h5').text("Delete Category");
-          $('#form-delete-post').attr("action", '<?=base_url('dashboard/blog/delete');?>');
+          $('#modal-delete h5').text("Delete Post");
           $("#form-delete-post h3").text("Delete "+name+"?");
           $('#form-delete-post #id').val(id);
           $('#modal-delete').modal();

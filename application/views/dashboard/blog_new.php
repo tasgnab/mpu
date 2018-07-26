@@ -18,11 +18,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     </script>
     <!-- Bootstrap -->
     <link href="<?=base_url();?>assets/vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
-
     <!-- Font Awesome -->
     <link href="<?=base_url();?>assets/vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
     <!-- NProgress -->
     <link href="<?=base_url();?>assets/vendors/nprogress/nprogress.css" rel="stylesheet">
+    <!-- NProgress -->
+    <link href="<?=base_url();?>assets/vendors/selectize/css/selectize.bootstrap3.css" rel="stylesheet">
     <!-- bootstrap-datetimepicker -->
     <link href="<?=base_url();?>assets/vendors/bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.css" rel="stylesheet">
     <script src='<?=base_url();?>assets/vendors/tinymce/tinymce.min.js'></script>
@@ -31,6 +32,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
       selector: '#body, #body_cn',
       theme: 'modern',
       height: 400,
+      relative_urls : false,
+      remove_script_host : false,
+      convert_urls : true,
       plugins: [
         'advlist autolink link image lists charmap print preview hr anchor pagebreak spellchecker',
         'searchreplace wordcount visualblocks visualchars code fullscreen insertdatetime media nonbreaking',
@@ -47,7 +51,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                jQuery("#draft").removeAttr('disabled');
            });
        }
-    });
+     });
+     
     </script>
     <!-- Custom Theme Style -->
     <link href="<?=base_url();?>assets/build/css/custom.css" rel="stylesheet">
@@ -83,12 +88,16 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         <input type="text" class="form-control has-feedback-left" id="title" name="title" placeholder="Title" required="required" value="<?=isset($post)?$post->title:'';?>">
                         <span class="fa fa-user form-control-feedback left" aria-hidden="true"></span>
                       </div>
-                      <div class="col-md-12 col-sm-12 col-xs-12 form-group">
-                        <textarea id="body" name="body"><?=isset($post)?$post->body:'';?></textarea>
-                      </div>
                       <div class="col-md-12 col-sm-12 col-xs-12 form-group has-feedback">
                         <input type="text" class="form-control has-feedback-left" id="title_cn" name="title_cn" placeholder="标题" value="<?=isset($post)?$post->title_cn:'';?>">
                         <span class="fa fa-user form-control-feedback left" aria-hidden="true"></span>
+                      </div>
+                      <div class="col-md-12 col-sm-12 col-xs-12 form-group has-feedback">
+                        <input type="text" class="form-control has-feedback-left" id="tags" value="<?=isset($tags)?$tags:'';?>"name="tags" placeholder="Tags" required="required">
+                        <span class="fa fa-tags form-control-feedback left" aria-hidden="true"></span>
+                      </div>
+                      <div class="col-md-12 col-sm-12 col-xs-12 form-group">
+                        <textarea id="body" name="body"><?=isset($post)?$post->body:'';?></textarea>
                       </div>
                       <div class="col-md-12 col-sm-12 col-xs-12 form-group">
                         <textarea id="body_cn" name="body_cn"><?=isset($post)?$post->body_cn:'';?></textarea>
@@ -96,7 +105,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                       <div class="form-group">
                         <div class="pull-right">
                           <button id="draft" type="button" class="btn btn-info">Save Draft</button>
-                          <button type="submit" class="btn btn-success" disabled>Submit</button>
+                          <button type="submit" class="btn btn-success" disabled>Publish Now</button>
                         </div>
                       </div>
                     </form>
@@ -128,6 +137,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <script src="<?=base_url();?>assets/vendors/fastclick/lib/fastclick.js"></script>
     <!-- NProgress -->
     <script src="<?=base_url();?>assets/vendors/nprogress/nprogress.js"></script>
+    <!-- Selectize -->
+    <script src="<?=base_url();?>assets/vendors/microplugin/microplugin.min.js"></script>
+    <script src="<?=base_url();?>assets/vendors/selectize/js/standalone/selectize.min.js"></script>
     <!-- bootstrap-daterangepicker -->
     <script src="<?=base_url();?>assets/vendors/moment/min/moment.min.js"></script>
     <script src="<?=base_url();?>assets/vendors/bootstrap-daterangepicker/daterangepicker.js"></script>
@@ -145,14 +157,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
           tinyMCE.triggerSave();
           var id = $("#blog-form input#id").val();
           var title = $("#blog-form input#title").val();
-          var body = $("#blog-form textarea#body").val();
+          var body_cn = $("#blog-form textarea#body").val();
           var title_cn = $("#blog-form input#title_cn").val();
           var body_cn = $("#blog-form textarea#body_cn").val();
+          var tags = $("#blog-form input#tags").val();
           jQuery.ajax({
             type: "POST",
             url: "<?=base_url('dashboard/blog/new'); ?>",
             dataType: 'json',
-            data: {id: id, title: title, body: body, title_cn: title_cn, body_cn: body_cn},
+            data: {id: id, title: title, body: body, title_cn: title_cn, body_cn: body_cn, tags: tags},
             success: function(res) {
               if (res){
                 jQuery("#blog-form input#id").val(res.id);
@@ -190,6 +203,18 @@ defined('BASEPATH') OR exit('No direct script access allowed');
           $('#body_cn').closest("div").show();
           $('#en').removeClass('active');
           $('#cn').addClass('active');
+        });
+        $('#tags').selectize({
+          plugins: ['restore_on_backspace', 'remove_button'],
+          delimiter: ',',
+          persist: false,
+          maxItems: 3,
+          create: function(input) {
+              return {
+                  value: input,
+                  text: input
+              }
+          }
         });
       });
     </script>
