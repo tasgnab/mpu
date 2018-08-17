@@ -98,16 +98,14 @@ class Blog extends MY_Controller {
 		if ($this->input->post('id')){
 			$id = $this->input->post('id');
 			$this->handleUpdateBlog($id, $data, $tags);
-			$json = array('id' => $id );
 		} else {
 			$id = $this->handleInsertBlog($data, $tags);
-			$json = array('id' => $id );
 		}
 
 		if ($image)
 			$this->handleBlogImage($id,$image);
 		
-		echo json_encode($json);
+		redirect(base_url('dashboard/blog'));
 	}
 
 	public function blog_delete(){
@@ -119,6 +117,19 @@ class Blog extends MY_Controller {
 			$id = $this->input->post('id');
 			$this->MTags->resetBlogTag($id);
 			$this->MBlog->delete($id);
+		}
+		redirect(base_url('dashboard/blog'));	
+	}
+
+	public function blog_publish(){
+		if (!$this->is_login()){
+			redirect(base_url('dashboard/login'));
+		}
+		$error_found = false;
+		if ($this->input->post('id')){
+			$id = $this->input->post('id');
+			$data['status'] = 'PUBLISHED';
+			$this->MBlog->update($id, $data);
 		}
 		redirect(base_url('dashboard/blog'));	
 	}
@@ -187,7 +198,7 @@ class Blog extends MY_Controller {
 				$r->title,
 				$r->updated_timestamp,
 				$r->status,
-				'<span><a href="'.base_url('dashboard/blog/edit/').$r->id.'"><button type="button" class="btn btn-default">Edit</button></a></span><span><button type="button" class="btn btn-warning" onclick="delete_post(\''.$r->id.'\',\''.$r->title.'\')">Delete</button></span>'
+				'<span><a href="'.base_url('dashboard/blog/edit/').$r->id.'"><button type="button" class="btn btn-default">Edit</button></a></span><span><button type="button" class="btn btn-warning" onclick="delete_post(\''.$r->id.'\',\''.$r->title.'\')">Delete</button></span></span><span><button type="button" class="btn btn-info" onclick="publish_post(\''.$r->id.'\',\''.$r->title.'\')">Publish</button></span>'
 			);
 		}
 

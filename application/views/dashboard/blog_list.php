@@ -102,6 +102,31 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             </div>
           </div>
         </div>
+        <div class="modal fade" id="modal-publish" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Delete Category</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <form id="form-publish-post" data-parsley-validate class="form-horizontal form-label-left" method="post" action="<?=base_url('dashboard/blog/publish');?>">
+                  <input type="hidden" id="id" name="id" class="form-control col-md-7 col-xs-12">
+                  <h3></h3>
+                  <div class="ln_solid"></div>
+                  <div class="form-group">
+                    <div class="pull-right">
+                      <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                      <button type="submit" class="btn btn-warning">Publish</button>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
         <footer>
           <div class="pull-right">
             Gentelella - Bootstrap Admin Template by <a href="https://colorlib.com">Colorlib</a>
@@ -161,6 +186,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
           $("#form-delete-post h3").text("Delete "+name+"?");
           $('#form-delete-post #id').val(id);
           $('#modal-delete').modal();
+        }
+
+        function publish_post(id, name) {
+          $('#modal-publish h5').text("Publish Post");
+          $("#form-publish-post h3").text("Publish "+name+"?");
+          $('#form-publish-post #id').val(id);
+          $('#modal-publish').modal();
         }
 
     </script>

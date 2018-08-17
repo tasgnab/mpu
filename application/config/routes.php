@@ -80,9 +80,10 @@ $route['dashboard/gallery/category/delete']['post'] = 'dashboard/gallery/do_dele
 
 
 $route['dashboard/blog/new']['get'] = 'dashboard/blog/new';
-$route['dashboard/blog/new']['post'] = 'dashboard/blog/blog_save';
+$route['dashboard/blog/save']['post'] = 'dashboard/blog/blog_save';
 $route['dashboard/blog/edit/(:any)'] = 'dashboard/blog/edit/$1';
 $route['dashboard/blog/delete']['post'] = 'dashboard/blog/blog_delete';
+$route['dashboard/blog/publish']['post'] = 'dashboard/blog/blog_publish';
 $route['dashboard/blog/uploadImage']['post'] = 'dashboard/blog/image_upload';
 
 $route['blog/single/(:any)']['get'] = 'blog/single/$1';

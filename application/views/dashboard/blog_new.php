@@ -82,8 +82,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                       <li><a href="#" id="cn">Chinese</a></li>
                     </ul>
                     <br>
-                    <form id="blog-form" data-parsley-validate class="form-horizontal form-label-left input_mask" action="<?=base_url('dashboard/blog/new');?>" method="post">
+                    <form id="blog-form" data-parsley-validate class="form-horizontal form-label-left input_mask" method="post" action="<?=base_url('dashboard/blog/save');?>">
+                      <?php if (isset($post)): ?>
                       <input type="hidden" id="id" name="id" value="<?=isset($post)?$post->id:'';?>">
+                      <?php endif; ?>
                       <div class="col-md-12 col-sm-12 col-xs-12 form-group has-feedback">
                         <input type="text" class="form-control has-feedback-left" id="title" name="title" placeholder="Title" required="required" value="<?=isset($post)?$post->title:'';?>">
                         <span class="fa fa-user form-control-feedback left" aria-hidden="true"></span>
@@ -104,8 +106,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                       </div>
                       <div class="form-group">
                         <div class="pull-right">
-                          <button id="draft" type="button" class="btn btn-info">Save Draft</button>
-                          <button type="submit" class="btn btn-success" disabled>Publish Now</button>
+                          <button id="draft" type="submit" class="btn btn-info">Save Draft</button>
                         </div>
                       </div>
                     </form>
@@ -152,58 +153,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         $('#title_cn').closest("div").hide();
         $('#body_cn').closest("div").hide();
 
-        $("#draft").click(function(event) {
-          event.preventDefault();
-          tinyMCE.triggerSave();
-          var id = $("#blog-form input#id").val();
-          var title = $("#blog-form input#title").val();
-          var body_cn = $("#blog-form textarea#body").val();
-          var title_cn = $("#blog-form input#title_cn").val();
-          var body_cn = $("#blog-form textarea#body_cn").val();
-          var tags = $("#blog-form input#tags").val();
-          jQuery.ajax({
-            type: "POST",
-            url: "<?=base_url('dashboard/blog/new'); ?>",
-            dataType: 'json',
-            data: {id: id, title: title, body: body, title_cn: title_cn, body_cn: body_cn, tags: tags},
-            success: function(res) {
-              if (res){
-                jQuery("#blog-form input#id").val(res.id);
-                $("#draft").prop('disabled', true);
-              }
-            }
-          });
-        });
-
-        $('#title').change(function() {
-          var title = $('#title').val();
-          if (title == '') {
-            $("#draft").prop('disabled', true);
-          } else {
-            $("#draft").removeAttr('disabled');
-          }
-        });
-
-        $('#title_cn').change(function() {
-          $("#draft").prop('disabled', false);
-        });
-
-        $('#en').click(function() {
-          $('#title').closest("div").show();
-          $('#body').closest("div").show();
-          $('#title_cn').closest("div").hide();
-          $('#body_cn').closest("div").hide();
-          $('#en').addClass('active');
-          $('#cn').removeClass('active');
-        });
-        $('#cn').click(function() {
-          $('#title').closest("div").hide();
-          $('#body').closest("div").hide();
-          $('#title_cn').closest("div").show();
-          $('#body_cn').closest("div").show();
-          $('#en').removeClass('active');
-          $('#cn').addClass('active');
-        });
         $('#tags').selectize({
           plugins: ['restore_on_backspace', 'remove_button'],
           delimiter: ',',

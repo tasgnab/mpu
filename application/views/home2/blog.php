@@ -24,7 +24,7 @@
             <?php endforeach; ?>
         </div>
         <div class="view-all">
-            <a href="blog.html" class="btn btn-action">View all</a>
+            <a href="<?=base_url('blog');?>" class="btn btn-action">View all</a>
         </div>
     </div>
 </section>
