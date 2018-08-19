@@ -32,7 +32,7 @@ class Blog extends MY_Controller {
 	public function index($start=null){
 		$params = array();
         $limit_per_page = 6;
-        $start_index = ($start)?$start:0;;//($this->uri->segment(4)) ? $this->uri->segment(4) : 0;
+        $start_index = ($start)?$start:0;//($this->uri->segment(4)) ? $this->uri->segment(4) : 0;
         $total_records = $this->MBlog->getForBlogPage_getTotal();
  
         if ($total_records > 0){
@@ -61,12 +61,20 @@ class Blog extends MY_Controller {
             $params["links"] = $this->pagination->create_links();
             $params['tags'] = $this->MTags->getTop10()->result();
         }
-         
-		$this->load->view('home2/blog_page', $params);
+        if($this->session->userdata('lang')=='cn'){
+			$this->load->view('home2/blog_page_cn', $params);
+		} else {
+			$this->load->view('home2/blog_page', $params);
+		}
 	}
 	public function single($id){
 		$data['post'] = $this->MBlog->getSingleBlog($id);
 		$data['tags'] = $this->MTags->getTop10($id)->result();
-		$this->load->view('home2/blog_single',$data);	
+
+        if($this->session->userdata('lang')=='cn'){
+			$this->load->view('home2/blog_single_cn',$data);
+		} else {
+			$this->load->view('home2/blog_single',$data);
+		}
 	}
 }

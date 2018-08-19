@@ -19,7 +19,7 @@
                         <li><a class="smooth-scroll" href="#home"> 首页 </a></li> 
                         <li><a class="smooth-scroll" href="#about"> 公司介绍 </a></li>
                         <!--<li><a class="smooth-scroll" href="#service"> 我们的优势 </a></li>-->
-                        <li><a class="smooth-scroll" href="#blog"> Blog </a></li>
+                        <li><a class="smooth-scroll" href="#blog"> 博客 </a></li>
                         <li><a class="smooth-scroll" href="#portfolio"> 照片 </a></li>
                         <!--<li><a class="smooth-scroll" href="#term"> 付款条件 </a></li>-->
                         <li><a class="smooth-scroll" href="#contact"> 位置 </a></li>

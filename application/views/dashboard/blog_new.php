@@ -35,12 +35,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
       relative_urls : false,
       remove_script_host : false,
       convert_urls : true,
+      menubar: false,
       plugins: [
         'advlist autolink link image lists charmap print preview hr anchor pagebreak spellchecker',
         'searchreplace wordcount visualblocks visualchars code fullscreen insertdatetime media nonbreaking',
-        'save table contextmenu directionality emoticons template paste textcolor'
+        'save table contextmenu directionality emoticons paste textcolor'
       ],
-      toolbar: 'insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image | print preview media fullpage | emoticons',
+      toolbar: 'undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image | print preview | emoticons',
       file_browser_callback_types: 'image',
       file_picker_types: 'image',
       images_upload_url: '<?=base_url('dashboard/blog/uploadImage');?>',

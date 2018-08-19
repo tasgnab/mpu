@@ -80,11 +80,11 @@
                             <div class="col-xs-10 col-sm-11">
                                 <div class="post-content text-left">
                                     <header class="entry-header text-uppercase">
-                                        <h2 class="entry-title"><a href="single-blog.html"><?=$post->title;?></a></h2>
+                                        <h2 class="entry-title"><a href="#"><?=$post->title;?></a></h2>
                                         <div class="post-meta text-capitalize">
-                                            <span>By <?=$post->created_by;?></span> /
+                                            <span>By <?=$post->created_by;?></span> <!-- /
                                             <span><a href=""><i class="fa fa-comments"></i> 0 </a></span>/
-                                            <span><a href=""><i class="fa fa-folder-o"></i>travel</a> </span>
+                                            <span><a href=""><i class="fa fa-folder-o"></i>travel</a> </span> -->
                                         </div>
                                     </header>
                                     <div class="entry-content">

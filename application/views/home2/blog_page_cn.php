@@ -57,11 +57,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <span class="cssload-loader"><span class="cssload-loader-inner"></span></span>
 </div>
 <!-- /.end preloader -->
-<?php include_once('nav_others.php');?>
+<?php include_once('nav_others_cn.php');?>
 <div class="main-header text-left">
     <div class="container">
-        <h2 class="main-title">Blog</h2>
-        <p><a href="">Home</a> / <span> blog </span></p>
+        <h2 class="main-title">博客</h2>
+        <p><a href="">首页</a> / <span> 博客 </span></p>
     </div>
 </div>
 <div class="main-content">
@@ -85,7 +85,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                 <div class="col-xs-10 col-sm-11">
                                     <div class="post-content text-left">
                                         <header class="entry-header text-uppercase">
-                                            <h2 class="entry-title"><a href="<?=base_url('blog/single/').$data->id;?>"><?=$data->title;?></a>
+                                            <h2 class="entry-title"><a href="<?=base_url('blog/single/').$data->id;?>"><?=$data->title_cn;?></a>
                                             </h2>
                                             <div class="post-meta text-capitalize">
                                                 <span>By <?=$data->created_by;?></span> /
@@ -94,9 +94,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                             </div>
                                         </header>
                                         <div class="entry-content">
-                                            <?=substr(strip_tags($data->body,'<p>'),0,200);?>
+                                            <?=substr(strip_tags($data->body_cn,'<p>'),0,200);?>
                                             <div class="btn-continue-reading text-uppercase">
-                                                <a class="btn btn-action" href="<?=base_url('blog/single/').$data->id;?>">continue reading</a>
+                                                <a class="btn btn-action" href="<?=base_url('blog/single/').$data->id;?>">继续</a>
                                             </div>
                                         </div>
 
@@ -121,7 +121,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                             <input type="text" name="search" class="search" placeholder="Quick Search...">
                             <button class="search-button"><i class="fa fa-search"></i></button>
                         </form>
-                    </div> 
+                    </div>
                     <div class="bar text-left">
                         <h2 class="bar-head">Recent Posts</h2>
                         <ul>
@@ -158,7 +158,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     </div>
 </div>
 <!-- footer -->
-<?php include_once('footer.php');?>
+<?php include_once('footer_cn.php');?>
 <!-- JQUERY LIBRARY -->
 <script type="text/javascript" src="<?=base_url();?>assets/home2/js/jquery-1.11.3.min.js"></script>
 <!-- BOOTSTRAP JS -->
